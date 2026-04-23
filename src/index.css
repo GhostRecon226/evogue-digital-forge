@@ -90,9 +90,9 @@
     scroll-behavior: smooth;
   }
 
-  /* Offset in-page anchors so the sticky 64px nav doesn't cover section tops */
+  /* Offset in-page anchors so the sticky nav doesn't cover section tops */
   section[id] {
-    scroll-margin-top: 80px;
+    scroll-margin-top: 112px;
   }
 
   body {

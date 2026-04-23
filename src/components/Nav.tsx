@@ -82,7 +82,7 @@ const Nav = () => {
 
   return (
     <header className={headerClass}>
-      <div className="container flex items-center h-16 gap-4 sm:gap-6">
+      <div className="container flex items-center h-20 md:h-24 gap-4 sm:gap-6">
         <Link to="/" aria-label="Evogue Consulting home" onClick={() => setOpen(false)}>
           <Logo />
         </Link>

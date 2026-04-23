@@ -8,7 +8,7 @@ type LogoProps = {
 
 const Logo = ({ variant = "dark", className = "" }: LogoProps) => {
   const isLight = variant === "light";
-  const sizeClasses = isLight ? "h-14 w-auto" : "h-10 md:h-11 w-auto";
+  const sizeClasses = isLight ? "h-14 w-auto" : "h-16 md:h-20 lg:h-24 w-auto";
   return (
     <img
       src={isLight ? logoLight : logoDark}
