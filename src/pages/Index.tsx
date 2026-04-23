@@ -658,6 +658,72 @@ const Index = () => {
       </section>
 
       <Footer />
+
+      <Dialog open={!!activeCase} onOpenChange={(open) => !open && setActiveCase(null)}>
+        <DialogContent className="max-w-2xl bg-white border-brand-border p-0 overflow-hidden">
+          {activeCase && (
+            <>
+              <div
+                className="h-40 w-full"
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 60%, hsl(var(--brand-accent) / 0.35) 100%)",
+                }}
+              />
+              <div className="p-7 md:p-9">
+                <div className="flex flex-wrap gap-2">
+                  {activeCase.tags.map((t) => (
+                    <Pill key={t}>{t}</Pill>
+                  ))}
+                </div>
+                <DialogHeader className="mt-4 space-y-2 text-left">
+                  <DialogTitle className="text-2xl md:text-3xl font-bold text-brand-primary tracking-tight">
+                    {activeCase.title}
+                  </DialogTitle>
+                  <DialogDescription className="text-brand-secondary/90 leading-relaxed">
+                    {activeCase.body}
+                  </DialogDescription>
+                </DialogHeader>
+
+                <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-brand-border py-4">
+                  <div>
+                    <dt className="label-caps text-brand-secondary">Client</dt>
+                    <dd className="mt-1 text-sm font-semibold text-brand-primary">{activeCase.client}</dd>
+                  </div>
+                  <div>
+                    <dt className="label-caps text-brand-secondary">Year</dt>
+                    <dd className="mt-1 text-sm font-semibold text-brand-primary">{activeCase.year}</dd>
+                  </div>
+                  <div>
+                    <dt className="label-caps text-brand-secondary">Role</dt>
+                    <dd className="mt-1 text-sm font-semibold text-brand-primary">{activeCase.role}</dd>
+                  </div>
+                </dl>
+
+                <div className="mt-6">
+                  <div className="label-caps text-brand-secondary">The Challenge</div>
+                  <p className="mt-2 text-brand-primary/90 leading-relaxed">{activeCase.challenge}</p>
+                </div>
+                <div className="mt-5">
+                  <div className="label-caps text-brand-secondary">Our Approach</div>
+                  <p className="mt-2 text-brand-primary/90 leading-relaxed">{activeCase.approach}</p>
+                </div>
+                <div className="mt-5">
+                  <div className="label-caps text-brand-secondary">Outcomes</div>
+                  <ul className="mt-3 space-y-2">
+                    {activeCase.outcomes.map((o) => (
+                      <li key={o} className="flex items-start gap-3 text-brand-primary/90">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent shrink-0" />
+                        <span className="leading-relaxed">{o}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
