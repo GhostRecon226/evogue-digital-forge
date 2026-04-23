@@ -260,7 +260,7 @@ const Index = () => {
           </Reveal>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {why.map((w, i) => (
-              <Reveal key={w.n} delay={i * 0.12}>
+              <Reveal key={w.n} delay={i * 0.12} y={32}>
                 <div className="bg-white border border-brand-border rounded-[10px] p-7 h-full hover:-translate-y-1 hover:shadow-card transition-all duration-300">
                   <div className="text-brand-accent font-bold tracking-widest text-sm">{w.n}</div>
                   <h3 className="mt-4 text-xl font-semibold text-brand-primary">{w.title}</h3>
