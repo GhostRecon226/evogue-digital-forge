@@ -110,6 +110,13 @@ const cases = [
       "Marketing site launched in 9 weeks",
       "Inbound enterprise leads up materially in Q1 post-launch",
     ],
+    images: [
+      { alt: "Logo lockup and identity system", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%)" },
+      { alt: "Brand color palette", gradient: "linear-gradient(135deg, hsl(var(--brand-accent) / 0.6) 0%, hsl(var(--brand-surface)) 100%)" },
+      { alt: "Marketing site home page", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-border)) 100%)" },
+      { alt: "Service detail page", gradient: "linear-gradient(135deg, hsl(var(--brand-primary) / 0.85) 0%, hsl(var(--brand-accent) / 0.5) 100%)" },
+      { alt: "Brand guidelines spread", gradient: "linear-gradient(135deg, hsl(var(--brand-border)) 0%, hsl(var(--brand-primary)) 100%)" },
+    ],
   },
   {
     tags: ["AI", "Automation"],
