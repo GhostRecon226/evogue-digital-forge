@@ -220,7 +220,7 @@ const Index = () => {
 
           <div className="mt-12 grid sm:grid-cols-2 border border-brand-border rounded-[10px] overflow-hidden">
             {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.08}>
+              <Reveal key={s.title} delay={i * 0.1} y={32}>
                 <div
                   className={`group p-8 md:p-10 bg-white hover:bg-brand-surface transition-colors h-full
                     border-brand-border
