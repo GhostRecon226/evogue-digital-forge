@@ -185,6 +185,7 @@ const About = () => {
           "@id": "https://evogue.consulting/about#faq",
           isPartOf: { "@id": "https://evogue.consulting/about#aboutpage" },
           about: { "@id": "https://evogue.consulting/#organization" },
+          publisher: { "@id": "https://evogue.consulting/#organization" },
           mainEntity: [
             {
               "@type": "Question",
