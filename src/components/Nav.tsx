@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Logo from "./Logo";
 
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Academy", href: "#academy" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/about" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Academy", href: "/#academy" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 const Nav = () => {
