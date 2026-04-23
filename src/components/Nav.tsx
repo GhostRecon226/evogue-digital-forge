@@ -27,11 +27,11 @@ const Nav = () => {
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="container flex items-center justify-between h-16">
+      <div className="container flex items-center h-16">
         <Link to="/" aria-label="Evogue Consulting home">
           <Logo />
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 ml-auto">
           {links.map((l) => (
             <a
               key={l.href}
@@ -44,7 +44,7 @@ const Nav = () => {
         </nav>
         <a
           href="/#contact"
-          className="inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-4 py-2.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
+          className="ml-6 md:ml-8 inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-4 py-2.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
         >
           Start a Project
         </a>
