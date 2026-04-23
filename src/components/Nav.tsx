@@ -10,7 +10,7 @@ const links: NavLink[] = [
   { label: "About", href: "/about" },
   { label: "Case Studies", href: "/#case-studies", section: "case-studies" },
   { label: "Academy", href: "/#academy", section: "academy" },
-  { label: "Contact", href: "/#contact", section: "contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Nav = () => {
@@ -64,10 +64,9 @@ const Nav = () => {
   }, [pathname]);
 
   const isActive = (link: NavLink) => {
-    if (link.href === "/about") return pathname === "/about";
+    if (link.href.startsWith("/") && !link.href.includes("#")) return pathname === link.href;
     if (pathname !== "/") return false;
     if (link.section) {
-      // If user clicked a hash, prefer that until scroll-spy catches up
       if (hash === `#${link.section}`) return true;
       return activeSection === link.section;
     }
@@ -119,7 +118,7 @@ const Nav = () => {
 
         {/* Desktop CTA */}
         <a
-          href="/#contact"
+          href="/contact"
           className="hidden md:inline-flex ml-4 lg:ml-6 items-center justify-center bg-brand-primary text-white text-sm font-semibold px-4 lg:px-5 py-2.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
         >
           Start a Project
@@ -166,7 +165,7 @@ const Nav = () => {
             );
           })}
           <a
-            href="/#contact"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="mt-4 inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-5 py-3 rounded-[4px] hover:bg-brand-secondary transition-colors"
           >
