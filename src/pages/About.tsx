@@ -74,6 +74,47 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>About Evogue Consulting | Product Studio Raising the Standard</title>
+        <meta
+          name="description"
+          content="Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally. Meet the team and our mission."
+        />
+        <link rel="canonical" href="https://evogue.consulting/about" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://evogue.consulting/about" />
+        <meta property="og:title" content="About Evogue Consulting | Product Studio Raising the Standard" />
+        <meta
+          property="og:description"
+          content="Strategy, engineering, and design for teams who care about shipping products that earn their place. Origin: Africa. Reach: Global."
+        />
+        <meta property="og:site_name" content="Evogue Consulting" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="About Evogue Consulting" />
+        <meta
+          name="twitter:description"
+          content="A product studio and consulting firm raising the standard of digital product development across Africa and globally."
+        />
+
+        {/* JSON-LD */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          name: "About Evogue Consulting",
+          url: "https://evogue.consulting/about",
+          description:
+            "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
+          publisher: {
+            "@type": "Organization",
+            name: "Evogue Consulting",
+            url: "https://evogue.consulting",
+          },
+        })}</script>
+      </Helmet>
       <Nav />
 
       {/* HERO */}
