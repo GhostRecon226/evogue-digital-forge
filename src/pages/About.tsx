@@ -311,28 +311,83 @@ const About = () => {
           <Reveal delay={0.15}>
             <div className="relative aspect-square w-full max-w-md mx-auto">
               <svg
-                viewBox="0 0 200 200"
+                viewBox="0 0 400 400"
                 className="w-full h-full"
                 fill="none"
-                stroke="hsl(var(--brand-accent))"
-                strokeWidth="1.2"
-                strokeLinejoin="round"
-                strokeLinecap="round"
                 aria-hidden="true"
               >
-                {/* concentric rings */}
-                <circle cx="100" cy="100" r="92" opacity="0.25" />
-                <circle cx="100" cy="100" r="70" opacity="0.4" />
-                <circle cx="100" cy="100" r="48" opacity="0.6" />
-                {/* simplified africa silhouette */}
+                <defs>
+                  <pattern id="evogue-dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+                    <circle cx="1" cy="1" r="1" fill="hsl(var(--brand-accent) / 0.22)" />
+                  </pattern>
+                  <clipPath id="africa-clip">
+                    {/* Geographically faithful Africa silhouette */}
+                    <path d="M205 38 C228 36 252 40 274 50 C292 58 304 70 312 86 C318 100 316 114 318 128 C320 142 326 152 332 164 C338 178 340 192 336 206 C332 220 322 232 316 246 C312 258 314 270 308 282 C302 296 290 308 278 320 C268 332 258 344 246 354 C234 362 220 366 206 364 C194 362 184 354 178 342 C170 326 168 308 160 294 C150 278 134 268 124 254 C114 240 110 224 106 208 C102 192 100 176 102 160 C104 142 110 126 116 110 C124 92 138 78 154 66 C170 54 188 44 205 38 Z" />
+                  </clipPath>
+                </defs>
+
+                {/* concentric guide rings */}
+                <g stroke="hsl(var(--brand-accent))" fill="none" strokeWidth="0.8">
+                  <circle cx="200" cy="200" r="186" opacity="0.18" />
+                  <circle cx="200" cy="200" r="150" opacity="0.22" strokeDasharray="2 6" />
+                  <circle cx="200" cy="200" r="110" opacity="0.28" strokeDasharray="2 6" />
+                  <circle cx="200" cy="200" r="70" opacity="0.32" strokeDasharray="2 6" />
+                </g>
+
+                {/* crosshair axes */}
+                <g stroke="hsl(var(--brand-accent))" strokeWidth="0.6" opacity="0.35">
+                  <line x1="200" y1="14" x2="200" y2="386" />
+                  <line x1="14" y1="200" x2="386" y2="200" />
+                </g>
+
+                {/* continent: dotted fill clipped to outline */}
+                <g clipPath="url(#africa-clip)">
+                  <rect x="0" y="0" width="400" height="400" fill="url(#evogue-dots)" />
+                </g>
+
+                {/* continent outline */}
                 <path
-                  d="M95 30 C112 28 128 36 134 50 C141 65 138 78 142 92 C146 106 152 116 148 132 C144 148 130 162 118 172 C108 180 96 178 90 168 C84 158 82 148 74 140 C66 132 56 122 56 108 C56 92 60 76 70 62 C78 50 84 38 95 30 Z"
-                  fill="hsl(var(--brand-accent) / 0.18)"
+                  d="M205 38 C228 36 252 40 274 50 C292 58 304 70 312 86 C318 100 316 114 318 128 C320 142 326 152 332 164 C338 178 340 192 336 206 C332 220 322 232 316 246 C312 258 314 270 308 282 C302 296 290 308 278 320 C268 332 258 344 246 354 C234 362 220 366 206 364 C194 362 184 354 178 342 C170 326 168 308 160 294 C150 278 134 268 124 254 C114 240 110 224 106 208 C102 192 100 176 102 160 C104 142 110 126 116 110 C124 92 138 78 154 66 C170 54 188 44 205 38 Z"
                   stroke="hsl(var(--brand-accent))"
-                  strokeWidth="1.8"
+                  strokeWidth="1.4"
+                  strokeLinejoin="round"
                 />
-                {/* origin dot */}
-                <circle cx="100" cy="105" r="4" fill="hsl(var(--brand-accent))" />
+
+                {/* madagascar */}
+                <path
+                  d="M334 270 C342 274 346 286 344 298 C342 310 336 318 330 322 C326 318 326 304 328 292 C330 282 332 274 334 270 Z"
+                  stroke="hsl(var(--brand-accent))"
+                  strokeWidth="1.2"
+                  fill="hsl(var(--brand-accent) / 0.08)"
+                  strokeLinejoin="round"
+                />
+
+                {/* origin marker */}
+                <g>
+                  <circle cx="200" cy="220" r="14" fill="none" stroke="hsl(var(--brand-accent))" strokeWidth="0.8" opacity="0.6" />
+                  <circle cx="200" cy="220" r="6" fill="none" stroke="hsl(var(--brand-accent))" strokeWidth="1" />
+                  <circle cx="200" cy="220" r="2.5" fill="hsl(var(--brand-accent))" />
+                </g>
+
+                {/* corner ticks */}
+                <g stroke="hsl(var(--brand-accent))" strokeWidth="1" opacity="0.5">
+                  <path d="M14 14 L14 30 M14 14 L30 14" />
+                  <path d="M386 14 L386 30 M386 14 L370 14" />
+                  <path d="M14 386 L14 370 M14 386 L30 386" />
+                  <path d="M386 386 L386 370 M386 386 L370 386" />
+                </g>
+
+                {/* hairline label */}
+                <text
+                  x="200"
+                  y="394"
+                  textAnchor="middle"
+                  fill="hsl(var(--brand-accent))"
+                  opacity="0.6"
+                  style={{ fontSize: 8, letterSpacing: 4, fontFamily: "ui-sans-serif, system-ui" }}
+                >
+                  ORIGIN · 00°00′
+                </text>
               </svg>
             </div>
           </Reveal>
