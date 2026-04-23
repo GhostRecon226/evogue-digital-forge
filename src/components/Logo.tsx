@@ -1,4 +1,5 @@
-import logoSrc from "@/assets/evogue-logo.png";
+import logoDark from "@/assets/evogue-logo.png";
+import logoLight from "@/assets/evogue-logo-white.png";
 
 type LogoProps = {
   variant?: "dark" | "light";
@@ -10,11 +11,11 @@ const Logo = ({ variant = "dark", className = "" }: LogoProps) => {
   const sizeClasses = isLight ? "h-14 w-auto" : "h-10 md:h-11 w-auto";
   return (
     <img
-      src={logoSrc}
+      src={isLight ? logoLight : logoDark}
       alt="Evogue Consulting"
       loading="eager"
       decoding="async"
-      className={`${sizeClasses} ${isLight ? "brightness-0 invert" : ""} ${className}`}
+      className={`${sizeClasses} ${className}`}
     />
   );
 };
