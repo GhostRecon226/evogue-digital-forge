@@ -335,7 +335,12 @@ const Index = () => {
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {cases.map((c, i) => (
               <Reveal key={c.title} delay={i * 0.12}>
-                <article className="group bg-white border border-brand-border rounded-[10px] overflow-hidden hover:-translate-y-1 hover:shadow-card transition-all duration-300 h-full flex flex-col">
+                <button
+                  type="button"
+                  onClick={() => setActiveCase(c)}
+                  className="group text-left w-full bg-white border border-brand-border rounded-[10px] overflow-hidden hover:-translate-y-1 hover:shadow-card transition-all duration-300 h-full flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                  aria-label={`View case study: ${c.title}`}
+                >
                   <div
                     className="h-44 w-full"
                     style={{
@@ -351,8 +356,14 @@ const Index = () => {
                     </div>
                     <h3 className="mt-4 text-xl font-semibold text-brand-primary">{c.title}</h3>
                     <p className="mt-2 text-brand-secondary/90 leading-relaxed">{c.body}</p>
+                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary">
+                      View case study
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
+                        <path d="M5 12h14M13 5l7 7-7 7" />
+                      </svg>
+                    </span>
                   </div>
-                </article>
+                </button>
               </Reveal>
             ))}
           </div>
