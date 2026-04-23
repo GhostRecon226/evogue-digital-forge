@@ -345,6 +345,43 @@ const Index = () => {
         </div>
       </section>
 
+      {/* PROCESS */}
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <Reveal>
+            <SectionLabel>How We Work</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-2xl">
+              A process that respects your time.
+            </h2>
+            <p className="mt-3 text-brand-secondary/90 max-w-xl">
+              Four phases. Tight loops. No surprises at the end.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 relative grid md:grid-cols-4 gap-6">
+            <div
+              aria-hidden="true"
+              className="hidden md:block absolute left-0 right-0 top-[26px] h-px"
+              style={{
+                background:
+                  "repeating-linear-gradient(to right, hsl(var(--brand-border)) 0 8px, transparent 8px 16px)",
+              }}
+            />
+            {process.map((p, i) => (
+              <Reveal key={p.n} delay={i * 0.1}>
+                <div className="relative">
+                  <div className="relative z-10 w-[52px] h-[52px] rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-primary font-bold tracking-wider text-sm shadow-card">
+                    {p.n}
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-brand-primary">{p.title}</h3>
+                  <p className="mt-2 text-sm text-brand-secondary/90 leading-relaxed">{p.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* AI BANNER */}
       <section className="py-20 md:py-24">
         <div className="container">
