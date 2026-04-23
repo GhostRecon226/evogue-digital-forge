@@ -28,9 +28,9 @@ const Nav = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16">
-        <a href="#home" aria-label="Evogue Consulting home">
+        <Link to="/" aria-label="Evogue Consulting home">
           <Logo />
-        </a>
+        </Link>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a
@@ -43,7 +43,7 @@ const Nav = () => {
           ))}
         </nav>
         <a
-          href="#contact"
+          href="/#contact"
           className="inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-4 py-2.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
         >
           Start a Project
