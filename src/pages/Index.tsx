@@ -740,24 +740,40 @@ const Index = () => {
 
                 {activeCase.images && activeCase.images.length > 0 && (
                   <div className="mt-7">
-                    <div className="label-caps text-brand-secondary">Gallery</div>
-                    <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
-                      {activeCase.images.map((img, idx) => (
-                        <figure
-                          key={idx}
-                          className="group relative aspect-[4/3] rounded-[8px] overflow-hidden border border-brand-border bg-brand-surface"
-                        >
-                          <div
-                            className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
-                            style={{ background: img.gradient }}
-                            role="img"
-                            aria-label={img.alt}
-                          />
-                          <figcaption className="absolute inset-x-0 bottom-0 p-2.5 text-[0.7rem] font-medium text-white bg-gradient-to-t from-brand-primary/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                            {img.alt}
-                          </figcaption>
-                        </figure>
-                      ))}
+                    <div className="flex items-baseline justify-between gap-3">
+                      <div className="label-caps text-brand-secondary">Gallery</div>
+                      <div className="text-xs text-brand-secondary/70">{activeCase.images.length} screenshots</div>
+                    </div>
+                    <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 md:gap-4">
+                      {activeCase.images.map((img, idx) => {
+                        const orientation = (img as { orientation?: "landscape" | "portrait" | "square" }).orientation ?? "landscape";
+                        const aspectClass =
+                          orientation === "portrait"
+                            ? "aspect-[3/4]"
+                            : orientation === "square"
+                              ? "aspect-square"
+                              : "aspect-[16/10] sm:aspect-[4/3]";
+                        const spanClass =
+                          orientation === "portrait"
+                            ? "row-span-2"
+                            : "";
+                        return (
+                          <figure
+                            key={idx}
+                            className={`group relative ${aspectClass} ${spanClass} rounded-[8px] overflow-hidden border border-brand-border bg-brand-surface`}
+                          >
+                            <div
+                              className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
+                              style={{ background: img.gradient }}
+                              role="img"
+                              aria-label={img.alt}
+                            />
+                            <figcaption className="absolute inset-x-0 bottom-0 p-2 sm:p-2.5 text-[0.7rem] font-medium text-white bg-gradient-to-t from-brand-primary/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                              {img.alt}
+                            </figcaption>
+                          </figure>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
