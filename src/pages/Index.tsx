@@ -87,6 +87,12 @@ const cases = [
       "Onboarded users across 3 markets in week one",
       "Design system reused across web and mobile",
     ],
+    images: [
+      { alt: "Wallet dashboard overview", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%)" },
+      { alt: "Onboarding flow screen", gradient: "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-accent) / 0.6) 100%)" },
+      { alt: "Transaction details view", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-accent) / 0.4) 100%)" },
+      { alt: "Mobile wallet home", gradient: "linear-gradient(135deg, hsl(var(--brand-border)) 0%, hsl(var(--brand-primary) / 0.7) 100%)" },
+    ],
   },
   {
     tags: ["Branding", "Design"],
@@ -104,6 +110,13 @@ const cases = [
       "Marketing site launched in 9 weeks",
       "Inbound enterprise leads up materially in Q1 post-launch",
     ],
+    images: [
+      { alt: "Logo lockup and identity system", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%)" },
+      { alt: "Brand color palette", gradient: "linear-gradient(135deg, hsl(var(--brand-accent) / 0.6) 0%, hsl(var(--brand-surface)) 100%)" },
+      { alt: "Marketing site home page", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-border)) 100%)" },
+      { alt: "Service detail page", gradient: "linear-gradient(135deg, hsl(var(--brand-primary) / 0.85) 0%, hsl(var(--brand-accent) / 0.5) 100%)" },
+      { alt: "Brand guidelines spread", gradient: "linear-gradient(135deg, hsl(var(--brand-border)) 0%, hsl(var(--brand-primary)) 100%)" },
+    ],
   },
   {
     tags: ["AI", "Automation"],
@@ -120,6 +133,11 @@ const cases = [
       "60%+ of tier-1 tickets handled by agents",
       "Hours of manual reconciliation eliminated weekly",
       "Ops team refocused on growth, not firefighting",
+    ],
+    images: [
+      { alt: "AI agent conversation interface", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-accent) / 0.6) 100%)" },
+      { alt: "Workflow automation map", gradient: "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-secondary)) 100%)" },
+      { alt: "Ops dashboard analytics", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-primary) / 0.7) 100%)" },
     ],
   },
 ];
@@ -660,7 +678,7 @@ const Index = () => {
       <Footer />
 
       <Dialog open={!!activeCase} onOpenChange={(open) => !open && setActiveCase(null)}>
-        <DialogContent className="max-w-2xl bg-white border-brand-border p-0 overflow-hidden">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-white border-brand-border p-0">
           {activeCase && (
             <>
               <div
@@ -719,6 +737,30 @@ const Index = () => {
                     ))}
                   </ul>
                 </div>
+
+                {activeCase.images && activeCase.images.length > 0 && (
+                  <div className="mt-7">
+                    <div className="label-caps text-brand-secondary">Gallery</div>
+                    <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {activeCase.images.map((img, idx) => (
+                        <figure
+                          key={idx}
+                          className="group relative aspect-[4/3] rounded-[8px] overflow-hidden border border-brand-border bg-brand-surface"
+                        >
+                          <div
+                            className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
+                            style={{ background: img.gradient }}
+                            role="img"
+                            aria-label={img.alt}
+                          />
+                          <figcaption className="absolute inset-x-0 bottom-0 p-2.5 text-[0.7rem] font-medium text-white bg-gradient-to-t from-brand-primary/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            {img.alt}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </>
           )}
