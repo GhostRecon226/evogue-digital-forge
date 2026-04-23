@@ -8,7 +8,7 @@ type NavLink = { label: string; href: string; section?: string };
 const links: NavLink[] = [
   { label: "Home", href: "/#home", section: "home" },
   { label: "About", href: "/about" },
-  { label: "Case Studies", href: "/#case-studies", section: "case-studies" },
+  { label: "Case Studies", href: "/case-studies" },
   { label: "Academy", href: "/#academy", section: "academy" },
   { label: "Contact", href: "/contact" },
 ];
