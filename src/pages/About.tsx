@@ -80,6 +80,12 @@ const About = () => {
           name="description"
           content="Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally. Meet the team and our mission."
         />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+        <meta
+          name="keywords"
+          content="Evogue Consulting, product studio Africa, digital product development, product design, software engineering, AI agents, automation, strategy consulting, African tech, Lagos product studio"
+        />
+        <meta name="author" content="Evogue Consulting" />
         <link rel="canonical" href="https://evogue.consulting/about" />
 
         {/* Open Graph */}
@@ -91,6 +97,7 @@ const About = () => {
           content="Strategy, engineering, and design for teams who care about shipping products that earn their place. Origin: Africa. Reach: Global."
         />
         <meta property="og:site_name" content="Evogue Consulting" />
+        <meta property="og:locale" content="en_US" />
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -100,7 +107,7 @@ const About = () => {
           content="A product studio and consulting firm raising the standard of digital product development across Africa and globally."
         />
 
-        {/* JSON-LD */}
+        {/* JSON-LD: AboutPage */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",
@@ -113,6 +120,59 @@ const About = () => {
             name: "Evogue Consulting",
             url: "https://evogue.consulting",
           },
+        })}</script>
+
+        {/* JSON-LD: FAQPage */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What does Evogue Consulting do?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text:
+                  "Evogue is a product studio and consulting firm offering product design and engineering, strategy and consulting, AI agents and automation, and training and advisory services.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Where is Evogue based?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text:
+                  "Evogue is built on the African continent and works with teams globally. Our origin is Africa, and our reach is global.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you work with clients outside of Africa?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text:
+                  "Yes. More than half of our clients are based in Europe and North America. We bring the same standard to every engagement, regardless of geography.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How quickly can a new project start?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text:
+                  "Typically within two weeks of signing. We protect quality by keeping our active engagements small.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What does a typical engagement look like?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text:
+                  "Most projects run 8 to 16 weeks with fixed scope and weekly demos. Longer retainers are available for ongoing product work.",
+              },
+            },
+          ],
         })}</script>
       </Helmet>
       <Nav />
