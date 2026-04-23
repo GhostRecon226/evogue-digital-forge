@@ -107,25 +107,82 @@ const About = () => {
           content="A product studio and consulting firm raising the standard of digital product development across Africa and globally."
         />
 
+        {/* JSON-LD: Organization */}
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://evogue.consulting/#organization",
+          name: "Evogue Consulting",
+          legalName: "Evogue Consulting",
+          url: "https://evogue.consulting",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://evogue.consulting/og-image.png",
+            width: 512,
+            height: 512,
+          },
+          description:
+            "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
+          foundingLocation: {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Lagos",
+              addressCountry: "NG",
+            },
+          },
+          areaServed: ["Africa", "Europe", "North America", "Worldwide"],
+          knowsAbout: [
+            "Product Design",
+            "Software Engineering",
+            "Strategy Consulting",
+            "AI Agents",
+            "Workflow Automation",
+            "Digital Transformation",
+          ],
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              contactType: "customer support",
+              email: "hello@evogue.consulting",
+              availableLanguage: ["English"],
+            },
+          ],
+          sameAs: [
+            "https://www.linkedin.com/company/evogue-consulting",
+            "https://x.com/evogueconsulting",
+            "https://www.instagram.com/evogueconsulting",
+            "https://github.com/evogue-consulting",
+          ],
+        })}</script>
+
         {/* JSON-LD: AboutPage */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "AboutPage",
+          "@id": "https://evogue.consulting/about#aboutpage",
           name: "About Evogue Consulting",
           url: "https://evogue.consulting/about",
           description:
             "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
-          publisher: {
-            "@type": "Organization",
-            name: "Evogue Consulting",
+          inLanguage: "en",
+          isPartOf: {
+            "@type": "WebSite",
             url: "https://evogue.consulting",
+            name: "Evogue Consulting",
           },
+          about: { "@id": "https://evogue.consulting/#organization" },
+          mainEntity: { "@id": "https://evogue.consulting/#organization" },
+          publisher: { "@id": "https://evogue.consulting/#organization" },
         })}</script>
 
         {/* JSON-LD: FAQPage */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
+          "@id": "https://evogue.consulting/about#faq",
+          isPartOf: { "@id": "https://evogue.consulting/about#aboutpage" },
+          about: { "@id": "https://evogue.consulting/#organization" },
           mainEntity: [
             {
               "@type": "Question",
