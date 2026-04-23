@@ -678,7 +678,7 @@ const Index = () => {
       <Footer />
 
       <Dialog open={!!activeCase} onOpenChange={(open) => !open && setActiveCase(null)}>
-        <DialogContent className="max-w-2xl bg-white border-brand-border p-0 overflow-hidden">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-white border-brand-border p-0">
           {activeCase && (
             <>
               <div
