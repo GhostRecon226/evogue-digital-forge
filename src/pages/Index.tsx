@@ -220,7 +220,7 @@ const Index = () => {
 
           <div className="mt-12 grid sm:grid-cols-2 border border-brand-border rounded-[10px] overflow-hidden">
             {services.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.08}>
+              <Reveal key={s.title} delay={i * 0.1} y={32}>
                 <div
                   className={`group p-8 md:p-10 bg-white hover:bg-brand-surface transition-colors h-full
                     border-brand-border
@@ -260,7 +260,7 @@ const Index = () => {
           </Reveal>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
             {why.map((w, i) => (
-              <Reveal key={w.n} delay={i * 0.12}>
+              <Reveal key={w.n} delay={i * 0.12} y={32}>
                 <div className="bg-white border border-brand-border rounded-[10px] p-7 h-full hover:-translate-y-1 hover:shadow-card transition-all duration-300">
                   <div className="text-brand-accent font-bold tracking-widest text-sm">{w.n}</div>
                   <h3 className="mt-4 text-xl font-semibold text-brand-primary">{w.title}</h3>
