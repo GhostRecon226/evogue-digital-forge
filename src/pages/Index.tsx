@@ -737,6 +737,30 @@ const Index = () => {
                     ))}
                   </ul>
                 </div>
+
+                {activeCase.images && activeCase.images.length > 0 && (
+                  <div className="mt-7">
+                    <div className="label-caps text-brand-secondary">Gallery</div>
+                    <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      {activeCase.images.map((img, idx) => (
+                        <figure
+                          key={idx}
+                          className="group relative aspect-[4/3] rounded-[8px] overflow-hidden border border-brand-border bg-brand-surface"
+                        >
+                          <div
+                            className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
+                            style={{ background: img.gradient }}
+                            role="img"
+                            aria-label={img.alt}
+                          />
+                          <figcaption className="absolute inset-x-0 bottom-0 p-2.5 text-[0.7rem] font-medium text-white bg-gradient-to-t from-brand-primary/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                            {img.alt}
+                          </figcaption>
+                        </figure>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </>
           )}
