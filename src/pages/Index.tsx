@@ -196,6 +196,8 @@ const Pill = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Index = () => {
+  const [activeCase, setActiveCase] = useState<CaseStudy | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <Nav />
