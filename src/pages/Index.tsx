@@ -91,7 +91,7 @@ const cases = [
       { alt: "Wallet dashboard overview", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%)" },
       { alt: "Onboarding flow screen", gradient: "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-accent) / 0.6) 100%)" },
       { alt: "Transaction details view", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-accent) / 0.4) 100%)" },
-      { alt: "Mobile wallet home", gradient: "linear-gradient(135deg, hsl(var(--brand-border)) 0%, hsl(var(--brand-primary) / 0.7) 100%)" },
+      { alt: "Mobile wallet home", gradient: "linear-gradient(135deg, hsl(var(--brand-border)) 0%, hsl(var(--brand-primary) / 0.7) 100%)", orientation: "portrait" as const },
     ],
   },
   {
