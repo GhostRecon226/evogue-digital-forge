@@ -288,7 +288,7 @@ const Contact = () => {
             </Reveal>
 
             {/* Details — 40% */}
-            <Reveal className="md:col-span-2" delay={120}>
+            <Reveal className="md:col-span-2" delay={0.15}>
               <div className="md:pl-4 lg:pl-8">
                 <div className="label-caps text-brand-secondary">Get in touch</div>
                 <div className="mt-6 space-y-6">
@@ -385,7 +385,7 @@ const Contact = () => {
               </div>
             </Reveal>
 
-            <Reveal delay={120}>
+            <Reveal delay={0.15}>
               <Accordion type="single" collapsible className="mt-10 max-w-3xl">
                 {faqs.map((f, i) => (
                   <AccordionItem
