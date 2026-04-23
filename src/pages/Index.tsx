@@ -80,6 +80,48 @@ const cases = [
   },
 ];
 
+const process = [
+  {
+    n: "01",
+    title: "Discover",
+    body: "We sit with your team, study the problem, and map the terrain before drawing a single line.",
+  },
+  {
+    n: "02",
+    title: "Define",
+    body: "We turn ambiguity into a sharp brief: scope, success metrics, timelines, and trade-offs on the table.",
+  },
+  {
+    n: "03",
+    title: "Design & Build",
+    body: "Designers and engineers ship in tight loops. You see progress weekly, not at the end.",
+  },
+  {
+    n: "04",
+    title: "Launch & Learn",
+    body: "We ship, instrument, and stay close. The work isn't done until it's earning its place.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How quickly can we start?",
+    a: "Typically within two weeks of signing. We protect quality by keeping our active engagements small.",
+  },
+  {
+    q: "Do you work with non-African clients?",
+    a: "Yes. We're built on the continent, but more than half of our clients are based in Europe and North America.",
+  },
+  {
+    q: "What does a typical engagement look like?",
+    a: "Most projects run 8 to 16 weeks, fixed scope, weekly demos. Longer retainers available for ongoing product work.",
+  },
+  {
+    q: "Can you work alongside our internal team?",
+    a: "Absolutely. We embed cleanly with in-house designers, engineers, and PMs and hand off as much as you want.",
+  },
+];
+
 const testimonials = [
   {
     quote:
@@ -303,6 +345,43 @@ const Index = () => {
         </div>
       </section>
 
+      {/* PROCESS */}
+      <section className="py-20 md:py-28">
+        <div className="container">
+          <Reveal>
+            <SectionLabel>How We Work</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-2xl">
+              A process that respects your time.
+            </h2>
+            <p className="mt-3 text-brand-secondary/90 max-w-xl">
+              Four phases. Tight loops. No surprises at the end.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 relative grid md:grid-cols-4 gap-6">
+            <div
+              aria-hidden="true"
+              className="hidden md:block absolute left-0 right-0 top-[26px] h-px"
+              style={{
+                background:
+                  "repeating-linear-gradient(to right, hsl(var(--brand-border)) 0 8px, transparent 8px 16px)",
+              }}
+            />
+            {process.map((p, i) => (
+              <Reveal key={p.n} delay={i * 0.1}>
+                <div className="relative">
+                  <div className="relative z-10 w-[52px] h-[52px] rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-primary font-bold tracking-wider text-sm shadow-card">
+                    {p.n}
+                  </div>
+                  <h3 className="mt-5 text-lg font-semibold text-brand-primary">{p.title}</h3>
+                  <p className="mt-2 text-sm text-brand-secondary/90 leading-relaxed">{p.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* AI BANNER */}
       <section className="py-20 md:py-24">
         <div className="container">
@@ -367,25 +446,154 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <section id="contact" className="py-24 md:py-32 bg-brand-surface">
-        <div className="container text-center">
+      {/* FAQ */}
+      <section className="py-20 md:py-28">
+        <div className="container grid lg:grid-cols-[1fr_1.4fr] gap-12 lg:gap-16">
           <Reveal>
-            <SectionLabel>
-              <span className="inline-block">Let's Build</span>
-            </SectionLabel>
-            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-2xl mx-auto">
+            <SectionLabel>FAQ</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
+              The questions we get most.
+            </h2>
+            <p className="mt-4 text-brand-secondary/90 max-w-md leading-relaxed">
+              Don't see yours? Drop us a note and we'll get back within one business day.
+            </p>
+          </Reveal>
+          <div className="divide-y divide-brand-border border-y border-brand-border">
+            {faqs.map((f, i) => (
+              <Reveal key={f.q} delay={i * 0.06}>
+                <details className="group py-5">
+                  <summary className="flex items-center justify-between cursor-pointer list-none gap-6">
+                    <span className="text-base md:text-lg font-semibold text-brand-primary">
+                      {f.q}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 w-8 h-8 rounded-full border border-brand-border flex items-center justify-center text-brand-secondary transition-transform duration-300 group-open:rotate-45"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                        <path d="M12 5v14M5 12h14" />
+                      </svg>
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-brand-secondary/90 leading-relaxed pr-12">
+                    {f.a}
+                  </p>
+                </details>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="py-20 md:py-28 bg-brand-surface relative overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-90 pointer-events-none" />
+        <div className="container relative grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
+          <Reveal>
+            <SectionLabel>Let's Build</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
               Ready to build something worth using?
             </h2>
-            <p className="mt-4 text-brand-secondary/90 max-w-xl mx-auto">
-              Let's talk about your product, your goals, and how we can help.
+            <p className="mt-5 text-brand-secondary/90 max-w-md leading-relaxed">
+              Tell us about your product, your goals, and where you're stuck. We'll come back with thoughts and next steps within one business day.
             </p>
-            <a
-              href="mailto:hello@evogue.consulting"
-              className="mt-8 inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-7 py-4 rounded-[4px] hover:bg-brand-secondary transition-colors"
+
+            <div className="mt-10 space-y-5">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-primary shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4 6h16v12H4z" /><path d="M4 6l8 7 8-7" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="label-caps text-brand-secondary">Email</div>
+                  <a href="mailto:hello@evogue.consulting" className="mt-1 block text-brand-primary font-semibold hover:text-brand-secondary transition-colors">
+                    hello@evogue.consulting
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-primary shrink-0">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 21s-7-6.2-7-12a7 7 0 1114 0c0 5.8-7 12-7 12z" /><circle cx="12" cy="9" r="2.5" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="label-caps text-brand-secondary">Based In</div>
+                  <div className="mt-1 text-brand-primary font-semibold">Lagos, Nigeria · Working Globally</div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.15}>
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.currentTarget);
+                const name = fd.get("name");
+                const email = fd.get("email");
+                const company = fd.get("company") || "";
+                const message = fd.get("message") || "";
+                const subject = encodeURIComponent(`Project enquiry from ${name}`);
+                const body = encodeURIComponent(
+                  `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`
+                );
+                window.location.href = `mailto:hello@evogue.consulting?subject=${subject}&body=${body}`;
+              }}
+              className="bg-white border border-brand-border rounded-[10px] p-7 md:p-9 shadow-card"
             >
-              Start a Project
-            </a>
+              <div className="grid sm:grid-cols-2 gap-5">
+                <label className="block">
+                  <span className="label-caps text-brand-secondary">Name</span>
+                  <input
+                    name="name"
+                    required
+                    type="text"
+                    className="mt-2 w-full bg-brand-surface border border-brand-border rounded-[6px] px-4 py-3 text-sm text-brand-primary placeholder:text-brand-secondary/50 focus:outline-none focus:border-brand-primary transition-colors"
+                    placeholder="Ada Lovelace"
+                  />
+                </label>
+                <label className="block">
+                  <span className="label-caps text-brand-secondary">Email</span>
+                  <input
+                    name="email"
+                    required
+                    type="email"
+                    className="mt-2 w-full bg-brand-surface border border-brand-border rounded-[6px] px-4 py-3 text-sm text-brand-primary placeholder:text-brand-secondary/50 focus:outline-none focus:border-brand-primary transition-colors"
+                    placeholder="you@company.com"
+                  />
+                </label>
+              </div>
+              <label className="block mt-5">
+                <span className="label-caps text-brand-secondary">Company</span>
+                <input
+                  name="company"
+                  type="text"
+                  className="mt-2 w-full bg-brand-surface border border-brand-border rounded-[6px] px-4 py-3 text-sm text-brand-primary placeholder:text-brand-secondary/50 focus:outline-none focus:border-brand-primary transition-colors"
+                  placeholder="Optional"
+                />
+              </label>
+              <label className="block mt-5">
+                <span className="label-caps text-brand-secondary">What can we help with?</span>
+                <textarea
+                  name="message"
+                  required
+                  rows={5}
+                  className="mt-2 w-full bg-brand-surface border border-brand-border rounded-[6px] px-4 py-3 text-sm text-brand-primary placeholder:text-brand-secondary/50 focus:outline-none focus:border-brand-primary transition-colors resize-none"
+                  placeholder="A short paragraph about your product, goals, and timeline."
+                />
+              </label>
+              <button
+                type="submit"
+                className="mt-7 w-full sm:w-auto inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-7 py-3.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
+              >
+                Send Enquiry
+              </button>
+              <p className="mt-4 text-xs text-brand-secondary/70">
+                We reply within one business day.
+              </p>
+            </form>
           </Reveal>
         </div>
       </section>
