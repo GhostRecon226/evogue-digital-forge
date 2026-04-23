@@ -1,28 +1,63 @@
 
 
-## Replace placeholder logo with new uploaded asset
+# Case Studies Page
 
-### What will change
+Add a dedicated Case Studies experience: an index page with filtering and a project grid, plus a dynamic individual case study page reachable from each card.
 
-1. **Save the logo** to `src/assets/evogue-logo.png` from `user-uploads://Untitled_design_1.png` (square lockup: circular "E" mark above serif "EVOGUE" wordmark with green "CONSULTING" subtext, on white).
+## Routes
 
-2. **Rewrite `src/components/Logo.tsx`**:
-   - Import the asset: `import logoSrc from "@/assets/evogue-logo.png"`.
-   - Render `<img src={logoSrc} alt="Evogue Consulting" />` — drop the inline SVG mark and the "EVOGUE / Consulting" text block (the wordmark is baked into the image).
-   - Keep the `variant="dark" | "light"` and `className` props so `Nav.tsx` and `Footer.tsx` need no changes.
-   - For `variant="light"` (dark green footer), apply Tailwind `brightness-0 invert` so the dark text/ring renders white. The bright accent green inside the "E" mark will flatten to white — acceptable trade-off for a single-source logo.
-   - Sizing: `h-10 md:h-11 w-auto` in nav, `h-14 w-auto` in footer. The lockup is square, so it needs more vertical room than the previous side-by-side mark.
-   - Add `loading="eager"` + `decoding="async"` for the nav instance to protect LCP.
+- `/case-studies` — index (hero, filter bar, grid, CTA banner)
+- `/case-studies/:slug` — individual case study layout
+- Update homepage nav anchor `#case-studies` to also link here from the "Case Studies" nav item
 
-3. **No changes to `Nav.tsx` or `Footer.tsx`** — they consume `<Logo />` and `<Logo variant="light" />` unchanged. Nav row stays `h-16` and the `h-10/h-11` logo fits within it.
+## Files
 
-### Technical notes
+**New**
+- `src/data/caseStudies.ts` — typed array of 6 case studies (slug, tags, name, client, summary, metrics, problem/approach/outcome paragraphs, details: industry, services, duration, year). Single source of truth for both list and detail pages.
+- `src/pages/CaseStudies.tsx` — index page
+- `src/pages/CaseStudyDetail.tsx` — individual layout
 
-- PNG imported through Vite for fingerprinting and caching.
-- `w-auto` + fixed height class preserves the square aspect ratio without CLS.
-- `aria-hidden` on the `<img>` is not needed — the `alt` provides the accessible name; the `aria-label` already on the nav anchor remains as a redundant safeguard.
+**Edited**
+- `src/App.tsx` — register the two new routes above the catch-all
+- `src/components/Nav.tsx` — point the "Case Studies" link to `/case-studies` (keep behavior consistent with About/Contact pattern)
 
-### Caveat
+## Section-by-section build (`/case-studies`)
 
-The uploaded PNG has a white background baked in (not transparent). Invisible on the white nav, but the `invert` filter on the footer relies on the white pixels inverting to the dark green range — it will look clean but the bright accent-green stripe inside the "E" loses its color. If you later upload a transparent PNG or SVG (ideally a white-on-transparent variant for the footer), I'll swap it in for a crisper result.
+1. **Hero** — `bg-brand-surface` + `dot-grid` overlay (matches homepage). Pill `CASE STUDIES`, h1 "Work that speaks for itself.", secondary green subhead. Fades in via `Reveal`.
+2. **Filter bar** — sticky-feeling row of 6 pills (All, Product Design, Engineering, Strategy, Branding, AI and Automation). Local `useState` for active filter. Selected: `bg-brand-primary text-white`; unselected: white bg, `border-brand` thin border, `text-brand-primary`. Hover lifts color to secondary green.
+3. **Grid** — `md:grid-cols-2 gap-6`, cards rendered with Framer Motion `AnimatePresence` + `layout` so non-matching cards fade/scale out and the grid reflows smoothly. Card structure exactly per spec: 200px gradient thumbnail (`linear-gradient(135deg, brand-surface → brand-border → brand-accent/35)`), tag chips (reuse `Pill` style), name, client line, 2-line summary (`line-clamp-2`), 3-metric row (small pill style with accent-tinted background), and a "View Case Study →" link revealed on hover. Hover: `-translate-y-1`, `shadow-card`, border transitions to `brand-secondary`. Cards stagger in via `Reveal delay={i * 0.08}`.
+4. **CTA banner** — `bg-brand-primary` strip, accent-green eyebrow, white headline "Seen enough? Let's talk.", light-green subtext, white button → `/contact`.
+5. **Footer** — existing `<Footer />`.
+
+## Individual case study (`/case-studies/:slug`)
+
+Lookup by slug; if not found render a small "Not found, back to Case Studies" state.
+
+- Back link top-left ("← Back to Case Studies", `text-brand-secondary`, hover deep green).
+- Hero block: tag row, large h1 name, one-line summary, 3 metric pills inline.
+- Full-width 320px gradient image placeholder, rounded.
+- Two-column body (`lg:grid-cols-3`, gap-12):
+  - **Left (col-span-2)**: "The Problem", "Our Approach", "The Outcome" — each with `label-caps` label + 2–3 paragraph body.
+  - **Right (col-span-1, sticky `lg:sticky lg:top-32 self-start`)**:
+    - Project details card (border-brand, rounded): Client, Industry, Services, Duration, Year.
+    - CTA card: "Have a similar project?" + "Start a Project" button → `/contact`.
+- Bottom strip: right-aligned "Next Case Study →" linking to the next slug in the array (wraps to first).
+
+## Animations
+
+- Reuse `Reveal` for hero, section headings, and card stagger.
+- Filter transitions: Framer Motion `AnimatePresence` with `layout` on each card; fade + slight scale on enter/exit (~250ms).
+- Smooth scroll already inherited from global `html { scroll-behavior: smooth }`.
+- Hover lift on cards via Tailwind transitions (already used on homepage).
+
+## SEO / polish
+
+- `<Helmet>` titles + meta descriptions on both pages (matches Contact page pattern).
+- `scroll-margin-top` already handles the sticky nav offset globally.
+- Mobile: filter bar becomes horizontally scrollable (`overflow-x-auto`, `snap-x`) so all six pills remain reachable; grid collapses to 1 column.
+
+## Out of scope
+
+- No CMS/backend wiring — case studies stay in the static `caseStudies.ts` array. (Easy to migrate to a `case_studies` table later if you want.)
+- Email-form/cloud work continues to wait on DNS verification — unchanged by this task.
 
