@@ -8,14 +8,22 @@ type LogoProps = {
 
 const Logo = ({ variant = "dark", className = "" }: LogoProps) => {
   const isLight = variant === "light";
-  const sizeClasses = isLight ? "h-14 w-auto" : "h-16 md:h-20 lg:h-24 w-auto";
+  // Fluid sizing with clamp() so the logo scales smoothly between breakpoints
+  // Dark (header): 56px → 96px. Light (footer): fixed 56px.
+  const style = isLight
+    ? { height: "56px", width: "auto" as const }
+    : { height: "clamp(56px, 7vw, 96px)", width: "auto" as const };
+
   return (
     <img
       src={isLight ? logoLight : logoDark}
       alt="Evogue Consulting"
       loading="eager"
       decoding="async"
-      className={`${sizeClasses} ${className}`}
+      style={style}
+      className={`block max-h-full object-contain transition-[filter,opacity] duration-300 ease-out ${
+        isLight ? "" : "hover:brightness-110"
+      } ${className}`}
     />
   );
 };

@@ -82,8 +82,13 @@ const Nav = () => {
 
   return (
     <header className={headerClass}>
-      <div className="container flex items-center h-20 md:h-24 gap-4 sm:gap-6">
-        <Link to="/" aria-label="Evogue Consulting home" onClick={() => setOpen(false)}>
+      <div className="container flex items-center gap-4 sm:gap-6 py-3 md:py-4 min-h-[88px] md:min-h-[112px] leading-none">
+        <Link
+          to="/"
+          aria-label="Evogue Consulting home"
+          onClick={() => setOpen(false)}
+          className="inline-flex items-center shrink-0 py-1"
+        >
           <Logo />
         </Link>
 

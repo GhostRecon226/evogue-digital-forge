@@ -90,9 +90,15 @@
     scroll-behavior: smooth;
   }
 
-  /* Offset in-page anchors so the sticky nav doesn't cover section tops */
+  /* Offset in-page anchors so the sticky nav doesn't cover section tops.
+     Matches the fluid header height (min 88px mobile → 112px+ desktop). */
   section[id] {
-    scroll-margin-top: 112px;
+    scroll-margin-top: 96px;
+  }
+  @media (min-width: 768px) {
+    section[id] {
+      scroll-margin-top: 128px;
+    }
   }
 
   body {
