@@ -75,18 +75,56 @@ const cases = [
     tags: ["Web App", "Strategy"],
     title: "Project Alpha",
     body: "A fintech platform serving users across West Africa. Designed, built, and launched in 12 weeks.",
+    client: "Confidential Fintech",
+    year: "2024",
+    role: "Strategy · Product Design · Engineering",
+    challenge:
+      "A regional fintech needed to launch a consumer wallet across three West African markets without a clear product hypothesis or design system.",
+    approach:
+      "We ran a two-week discovery, defined the MVP scope, designed a modular UI system, and shipped a production-grade web app in 12 weeks with weekly stakeholder demos.",
+    outcomes: [
+      "12 week launch from kickoff",
+      "Onboarded users across 3 markets in week one",
+      "Design system reused across web and mobile",
+    ],
   },
   {
     tags: ["Branding", "Design"],
     title: "Project Beta",
     body: "Brand identity and digital presence for a global logistics company.",
+    client: "Global Logistics Group",
+    year: "2024",
+    role: "Brand Strategy · Identity · Web",
+    challenge:
+      "A 30-year-old logistics company felt invisible online and was losing enterprise pitches to younger competitors.",
+    approach:
+      "We rebuilt their positioning, designed a confident identity system, and shipped a marketing site that finally matched the scale of their operation.",
+    outcomes: [
+      "New identity rolled out across 8 regions",
+      "Marketing site launched in 9 weeks",
+      "Inbound enterprise leads up materially in Q1 post-launch",
+    ],
   },
   {
     tags: ["AI", "Automation"],
     title: "Project Gamma",
     body: "Custom AI agents and workflow automation for an e-commerce operation.",
+    client: "Mid-market E-commerce",
+    year: "2025",
+    role: "AI Engineering · Automation · Advisory",
+    challenge:
+      "Customer ops were drowning in repetitive tickets and manual order workflows that didn't scale past a few thousand orders a week.",
+    approach:
+      "We mapped the highest-cost workflows, deployed custom AI agents for tier-1 support, and automated reconciliation between their storefront, ERP, and 3PL.",
+    outcomes: [
+      "60%+ of tier-1 tickets handled by agents",
+      "Hours of manual reconciliation eliminated weekly",
+      "Ops team refocused on growth, not firefighting",
+    ],
   },
 ];
+
+type CaseStudy = (typeof cases)[number];
 
 const process = [
   {
