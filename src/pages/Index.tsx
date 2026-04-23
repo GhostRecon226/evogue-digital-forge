@@ -1,16 +1,398 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import Reveal from "@/components/Reveal";
+import CountUp from "@/components/CountUp";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const stats = [
+  { value: 40, suffix: "+", label: "Products Shipped" },
+  { value: 3, suffix: "", label: "Continents Served" },
+  { value: 98, suffix: "%", label: "Client Retention" },
+  { value: 200, suffix: "+", label: "Academy Graduates" },
+];
+
+const services = [
+  {
+    title: "Product Design and Engineering",
+    body: "Websites, web apps, and mobile products built to perform and built to last.",
+    icon: (
+      <path d="M4 6h16v10H4zM2 20h20M9 16v4M15 16v4" strokeWidth="1.6" />
+    ),
+  },
+  {
+    title: "Strategy and Consulting",
+    body: "We help teams think clearly about what to build, why, and how to get there.",
+    icon: (
+      <path d="M3 12l4-4 4 4 4-6 6 8M3 20h18" strokeWidth="1.6" />
+    ),
+  },
+  {
+    title: "AI Agents and Automation",
+    body: "Custom AI agents and workflow automations tailored to your brand and operations.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="3" strokeWidth="1.6" />
+        <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1" strokeWidth="1.6" />
+      </>
+    ),
+  },
+  {
+    title: "Training and Advisory",
+    body: "Upskilling teams and advising organisations on product, tech, and digital transformation.",
+    icon: (
+      <path d="M3 9l9-5 9 5-9 5-9-5zM7 11v5c2 1.5 8 1.5 10 0v-5M21 9v6" strokeWidth="1.6" />
+    ),
+  },
+];
+
+const why = [
+  {
+    n: "01",
+    title: "Origin with context",
+    body: "Built on the African continent, working with teams globally. We bring perspective most studios don't have.",
+  },
+  {
+    n: "02",
+    title: "No vanity work",
+    body: "Clear communication, sensible timelines, and shipping things that move metrics. That's the standard.",
+  },
+  {
+    n: "03",
+    title: "End to end",
+    body: "Strategy through engineering through design. One team, full coverage, no handoff chaos.",
+  },
+];
+
+const cases = [
+  {
+    tags: ["Web App", "Strategy"],
+    title: "Project Alpha",
+    body: "A fintech platform serving users across West Africa. Designed, built, and launched in 12 weeks.",
+  },
+  {
+    tags: ["Branding", "Design"],
+    title: "Project Beta",
+    body: "Brand identity and digital presence for a global logistics company.",
+  },
+  {
+    tags: ["AI", "Automation"],
+    title: "Project Gamma",
+    body: "Custom AI agents and workflow automation for an e-commerce operation.",
+  },
+];
+
+const testimonials = [
+  {
+    quote:
+      "Evogue felt less like a vendor and more like a co-founder. They moved fast, asked the right questions, and shipped a product our users love.",
+    name: "Ade Okonkwo",
+    role: "CEO, Fintech Startup",
+    initials: "AO",
+  },
+  {
+    quote:
+      "The automations they built saved us hours every week. Practical, well-thought-out, and zero hype. Exactly what we needed.",
+    name: "Sarah M.",
+    role: "Operations Lead, E-Commerce Co.",
+    initials: "SM",
+  },
+];
+
+const SectionLabel = ({ children }: { children: React.ReactNode }) => (
+  <div className="label-caps text-brand-secondary mb-4">{children}</div>
+);
+
+const Pill = ({ children }: { children: React.ReactNode }) => (
+  <span className="inline-flex items-center px-3 py-1 rounded-full text-[0.7rem] font-semibold tracking-wider uppercase border border-brand-border text-brand-secondary bg-brand-surface">
+    {children}
+  </span>
+);
+
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="min-h-screen bg-background">
+      <Nav />
+
+      {/* HERO */}
+      <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-surface overflow-hidden">
+        <div className="absolute inset-0 dot-grid opacity-90 pointer-events-none" />
+        <div className="container relative">
+          <Reveal>
+            <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-brand-secondary/40 text-brand-secondary label-caps">
+              Product Studio + Consulting Firm
+            </div>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-primary leading-[1.05] max-w-4xl">
+              Building digital products that earn their place.
+            </h1>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
+              We partner with ambitious teams to design, engineer, and scale software people actually want to use. Origin: Africa. Reach: Global.
+            </p>
+          </Reveal>
+          <Reveal delay={0.3}>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#case-studies"
+                className="inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
+              >
+                See Our Work
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center border border-brand-primary text-brand-primary text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-primary hover:text-white transition-colors"
+              >
+                Start a Project
+              </a>
+            </div>
+          </Reveal>
+
+          <div className="mt-16 pt-10 border-t border-brand-border grid grid-cols-2 md:grid-cols-4 gap-y-8">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={0.1 * i}>
+                <div className="px-2">
+                  <div className="text-3xl md:text-4xl font-bold text-brand-primary">
+                    <CountUp end={s.value} suffix={s.suffix} />
+                  </div>
+                  <div className="mt-1.5 text-sm text-brand-secondary/80">{s.label}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section id="about" className="py-20 md:py-28">
+        <div className="container">
+          <Reveal>
+            <SectionLabel>What We Do</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
+              Strategy. Engineering. Design.
+            </h2>
+            <p className="mt-3 text-brand-secondary/90 max-w-xl">
+              No vanity work. Just products that move metrics.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid sm:grid-cols-2 border border-brand-border rounded-[10px] overflow-hidden">
+            {services.map((s, i) => (
+              <Reveal key={s.title} delay={i * 0.08}>
+                <div
+                  className={`group p-8 md:p-10 bg-white hover:bg-brand-surface transition-colors h-full
+                    border-brand-border
+                    ${i % 2 === 0 ? "sm:border-r" : ""}
+                    ${i < 2 ? "border-b" : ""}
+                  `}
+                >
+                  <svg
+                    width="36"
+                    height="36"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="hsl(var(--brand-primary))"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {s.icon}
+                  </svg>
+                  <h3 className="mt-5 text-xl font-semibold text-brand-primary">{s.title}</h3>
+                  <p className="mt-2.5 text-brand-secondary/90 leading-relaxed">{s.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY EVOGUE */}
+      <section className="py-20 md:py-28 bg-brand-surface">
+        <div className="container">
+          <Reveal>
+            <SectionLabel>Why Evogue</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-2xl">
+              Built different, on purpose.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {why.map((w, i) => (
+              <Reveal key={w.n} delay={i * 0.12}>
+                <div className="bg-white border border-brand-border rounded-[10px] p-7 h-full hover:-translate-y-1 hover:shadow-card transition-all duration-300">
+                  <div className="text-brand-accent font-bold tracking-widest text-sm">{w.n}</div>
+                  <h3 className="mt-4 text-xl font-semibold text-brand-primary">{w.title}</h3>
+                  <p className="mt-2.5 text-brand-secondary/90 leading-relaxed">{w.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CASE STUDIES */}
+      <section id="case-studies" className="py-20 md:py-28">
+        <div className="container">
+          <Reveal>
+            <SectionLabel>Case Studies</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
+              A few things we've built.
+            </h2>
+            <p className="mt-3 text-brand-secondary/90">
+              Real projects. Documentation coming soon.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {cases.map((c, i) => (
+              <Reveal key={c.title} delay={i * 0.12}>
+                <article className="group bg-white border border-brand-border rounded-[10px] overflow-hidden hover:-translate-y-1 hover:shadow-card transition-all duration-300 h-full flex flex-col">
+                  <div
+                    className="h-44 w-full"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 60%, hsl(var(--brand-accent) / 0.35) 100%)",
+                    }}
+                  />
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="flex flex-wrap gap-2">
+                      {c.tags.map((t) => (
+                        <Pill key={t}>{t}</Pill>
+                      ))}
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold text-brand-primary">{c.title}</h3>
+                    <p className="mt-2 text-brand-secondary/90 leading-relaxed">{c.body}</p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ACADEMY */}
+      <section id="academy" className="py-20 md:py-28 bg-brand-surface">
+        <div className="container grid lg:grid-cols-2 gap-12 items-center">
+          <Reveal>
+            <SectionLabel>Evogue Academy</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
+              Building the next generation of African tech talent.
+            </h2>
+            <p className="mt-5 text-brand-secondary/90 leading-relaxed max-w-lg">
+              The Academy is where we hand-hold non-tech individuals into tech career paths. Project management, business analysis, and more. Practical, structured, and built for the continent.
+            </p>
+            <a
+              href="#"
+              className="mt-7 inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
+            >
+              Visit the Academy
+            </a>
+          </Reveal>
+          <Reveal delay={0.15}>
+            <div className="bg-white border border-brand-border rounded-[10px] p-8 md:p-10">
+              <div className="text-6xl md:text-7xl font-bold text-brand-primary leading-none">
+                <CountUp end={200} suffix="+" />
+              </div>
+              <div className="mt-2 label-caps text-brand-secondary">Graduates</div>
+              <div className="mt-8 flex flex-wrap gap-2">
+                {["Project Management", "Business Analysis", "Product Management", "Digital Strategy"].map((p) => (
+                  <Pill key={p}>{p}</Pill>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* AI BANNER */}
+      <section className="py-20 md:py-24">
+        <div className="container">
+          <Reveal>
+            <div className="bg-brand-primary rounded-[10px] p-8 md:p-14 grid lg:grid-cols-[1.4fr_auto] gap-8 items-center">
+              <div>
+                <div className="label-caps text-brand-accent mb-3">AI Services</div>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                  We're infusing AI into everything.
+                </h2>
+                <p className="mt-4 text-brand-accent/90 max-w-xl leading-relaxed">
+                  From custom AI agents for your brand to workflow automations that save real hours. We help teams work smarter without the hype.
+                </p>
+              </div>
+              <a
+                href="#"
+                className="inline-flex items-center justify-center bg-white text-brand-primary text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-accent transition-colors whitespace-nowrap"
+              >
+                Explore AI Services
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="py-20 md:py-28 bg-brand-surface">
+        <div className="container">
+          <Reveal>
+            <SectionLabel>What Clients Say</SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
+              Straight from the people we work with.
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid md:grid-cols-2 gap-6">
+            {testimonials.map((t, i) => (
+              <Reveal key={t.name} delay={i * 0.12}>
+                <figure className="relative bg-white border border-brand-border rounded-[10px] p-8 md:p-10 h-full">
+                  <div
+                    className="absolute top-4 right-6 text-7xl leading-none font-serif select-none"
+                    style={{ color: "hsl(var(--brand-border))" }}
+                    aria-hidden="true"
+                  >
+                    “
+                  </div>
+                  <blockquote className="text-brand-primary/90 text-lg leading-relaxed">
+                    {t.quote}
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center gap-3">
+                    <div className="w-11 h-11 rounded-full bg-brand-primary text-white flex items-center justify-center font-semibold text-sm">
+                      {t.initials}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-brand-primary text-sm">{t.name}</div>
+                      <div className="text-xs text-brand-secondary/80">{t.role}</div>
+                    </div>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="contact" className="py-24 md:py-32 bg-brand-surface">
+        <div className="container text-center">
+          <Reveal>
+            <SectionLabel>
+              <span className="inline-block">Let's Build</span>
+            </SectionLabel>
+            <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-2xl mx-auto">
+              Ready to build something worth using?
+            </h2>
+            <p className="mt-4 text-brand-secondary/90 max-w-xl mx-auto">
+              Let's talk about your product, your goals, and how we can help.
+            </p>
+            <a
+              href="mailto:hello@evogue.consulting"
+              className="mt-8 inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-7 py-4 rounded-[4px] hover:bg-brand-secondary transition-colors"
+            >
+              Start a Project
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
