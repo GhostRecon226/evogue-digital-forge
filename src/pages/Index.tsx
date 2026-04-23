@@ -80,6 +80,48 @@ const cases = [
   },
 ];
 
+const process = [
+  {
+    n: "01",
+    title: "Discover",
+    body: "We sit with your team, study the problem, and map the terrain before drawing a single line.",
+  },
+  {
+    n: "02",
+    title: "Define",
+    body: "We turn ambiguity into a sharp brief: scope, success metrics, timelines, and trade-offs on the table.",
+  },
+  {
+    n: "03",
+    title: "Design & Build",
+    body: "Designers and engineers ship in tight loops. You see progress weekly, not at the end.",
+  },
+  {
+    n: "04",
+    title: "Launch & Learn",
+    body: "We ship, instrument, and stay close. The work isn't done until it's earning its place.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How quickly can we start?",
+    a: "Typically within two weeks of signing. We protect quality by keeping our active engagements small.",
+  },
+  {
+    q: "Do you work with non-African clients?",
+    a: "Yes. We're built on the continent, but more than half of our clients are based in Europe and North America.",
+  },
+  {
+    q: "What does a typical engagement look like?",
+    a: "Most projects run 8 to 16 weeks, fixed scope, weekly demos. Longer retainers available for ongoing product work.",
+  },
+  {
+    q: "Can you work alongside our internal team?",
+    a: "Absolutely. We embed cleanly with in-house designers, engineers, and PMs and hand off as much as you want.",
+  },
+];
+
 const testimonials = [
   {
     quote:
