@@ -134,6 +134,11 @@ const cases = [
       "Hours of manual reconciliation eliminated weekly",
       "Ops team refocused on growth, not firefighting",
     ],
+    images: [
+      { alt: "AI agent conversation interface", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-accent) / 0.6) 100%)" },
+      { alt: "Workflow automation map", gradient: "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-secondary)) 100%)" },
+      { alt: "Ops dashboard analytics", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-primary) / 0.7) 100%)" },
+    ],
   },
 ];
 
