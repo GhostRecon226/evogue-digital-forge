@@ -107,130 +107,136 @@ const About = () => {
           content="A product studio and consulting firm raising the standard of digital product development across Africa and globally."
         />
 
-        {/* JSON-LD: Organization */}
+        {/* JSON-LD graph: Organization + WebSite + AboutPage + FAQPage */}
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Organization",
-          "@id": "https://evogue.consulting/#organization",
-          name: "Evogue Consulting",
-          legalName: "Evogue Consulting",
-          url: "https://evogue.consulting",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://evogue.consulting/og-image.png",
-            width: 512,
-            height: 512,
-          },
-          description:
-            "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
-          foundingLocation: {
-            "@type": "Place",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Lagos",
-              addressCountry: "NG",
-            },
-          },
-          areaServed: ["Africa", "Europe", "North America", "Worldwide"],
-          knowsAbout: [
-            "Product Design",
-            "Software Engineering",
-            "Strategy Consulting",
-            "AI Agents",
-            "Workflow Automation",
-            "Digital Transformation",
-          ],
-          contactPoint: [
+          "@graph": [
             {
-              "@type": "ContactPoint",
-              contactType: "customer support",
-              email: "hello@evogue.consulting",
-              availableLanguage: ["English"],
-            },
-          ],
-          sameAs: [
-            "https://www.linkedin.com/company/evogue-consulting",
-            "https://x.com/evogueconsulting",
-            "https://www.instagram.com/evogueconsulting",
-            "https://github.com/evogue-consulting",
-          ],
-        })}</script>
-
-        {/* JSON-LD: AboutPage */}
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "@id": "https://evogue.consulting/about#aboutpage",
-          name: "About Evogue Consulting",
-          url: "https://evogue.consulting/about",
-          description:
-            "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
-          inLanguage: "en",
-          isPartOf: {
-            "@type": "WebSite",
-            "@id": "https://evogue.consulting/#website",
-            url: "https://evogue.consulting",
-            name: "Evogue Consulting",
-            publisher: { "@id": "https://evogue.consulting/#organization" },
-          },
-          about: { "@id": "https://evogue.consulting/#organization" },
-          mainEntity: { "@id": "https://evogue.consulting/#organization" },
-          publisher: { "@id": "https://evogue.consulting/#organization" },
-        })}</script>
-
-        {/* JSON-LD: FAQPage */}
-        <script type="application/ld+json">{JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "@id": "https://evogue.consulting/about#faq",
-          isPartOf: { "@id": "https://evogue.consulting/about#aboutpage" },
-          about: { "@id": "https://evogue.consulting/#organization" },
-          publisher: { "@id": "https://evogue.consulting/#organization" },
-          mainEntity: [
-            {
-              "@type": "Question",
-              name: "What does Evogue Consulting do?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text:
-                  "Evogue is a product studio and consulting firm offering product design and engineering, strategy and consulting, AI agents and automation, and training and advisory services.",
+              "@type": "Organization",
+              "@id": "https://evogue.consulting/#organization",
+              name: "Evogue Consulting",
+              legalName: "Evogue Consulting",
+              url: "https://evogue.consulting",
+              logo: {
+                "@type": "ImageObject",
+                "@id": "https://evogue.consulting/#logo",
+                url: "https://evogue.consulting/logo.png",
+                contentUrl: "https://evogue.consulting/logo.png",
+                width: 512,
+                height: 512,
+                caption: "Evogue Consulting",
               },
+              image: { "@id": "https://evogue.consulting/#logo" },
+              description:
+                "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
+              foundingLocation: {
+                "@type": "Place",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Lagos",
+                  addressCountry: "NG",
+                },
+              },
+              areaServed: ["Africa", "Europe", "North America", "Worldwide"],
+              knowsAbout: [
+                "Product Design",
+                "Software Engineering",
+                "Strategy Consulting",
+                "AI Agents",
+                "Workflow Automation",
+                "Digital Transformation",
+              ],
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  contactType: "customer support",
+                  email: "hello@evogue.consulting",
+                  url: "https://evogue.consulting/#contact",
+                  availableLanguage: ["English"],
+                },
+              ],
+              sameAs: [
+                "https://www.linkedin.com/company/evogue-consulting",
+                "https://x.com/evogueconsulting",
+                "https://www.instagram.com/evogueconsulting",
+                "https://github.com/evogue-consulting",
+              ],
             },
             {
-              "@type": "Question",
-              name: "Where is Evogue based?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text:
-                  "Evogue is built on the African continent and works with teams globally. Our origin is Africa, and our reach is global.",
-              },
+              "@type": "WebSite",
+              "@id": "https://evogue.consulting/#website",
+              url: "https://evogue.consulting",
+              name: "Evogue Consulting",
+              publisher: { "@id": "https://evogue.consulting/#organization" },
+              inLanguage: "en",
             },
             {
-              "@type": "Question",
-              name: "Do you work with clients outside of Africa?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text:
-                  "Yes. More than half of our clients are based in Europe and North America. We bring the same standard to every engagement, regardless of geography.",
-              },
+              "@type": "AboutPage",
+              "@id": "https://evogue.consulting/about#aboutpage",
+              url: "https://evogue.consulting/about",
+              name: "About Evogue Consulting",
+              description:
+                "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
+              inLanguage: "en",
+              isPartOf: { "@id": "https://evogue.consulting/#website" },
+              about: { "@id": "https://evogue.consulting/#organization" },
+              publisher: { "@id": "https://evogue.consulting/#organization" },
+              primaryImageOfPage: { "@id": "https://evogue.consulting/#logo" },
             },
             {
-              "@type": "Question",
-              name: "How quickly can a new project start?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text:
-                  "Typically within two weeks of signing. We protect quality by keeping our active engagements small.",
-              },
-            },
-            {
-              "@type": "Question",
-              name: "What does a typical engagement look like?",
-              acceptedAnswer: {
-                "@type": "Answer",
-                text:
-                  "Most projects run 8 to 16 weeks with fixed scope and weekly demos. Longer retainers are available for ongoing product work.",
-              },
+              "@type": "FAQPage",
+              "@id": "https://evogue.consulting/about#faq",
+              isPartOf: { "@id": "https://evogue.consulting/about#aboutpage" },
+              about: { "@id": "https://evogue.consulting/#organization" },
+              publisher: { "@id": "https://evogue.consulting/#organization" },
+              inLanguage: "en",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "What does Evogue Consulting do?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "Evogue is a product studio and consulting firm offering product design and engineering, strategy and consulting, AI agents and automation, and training and advisory services.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Where is Evogue based?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "Evogue is built on the African continent and works with teams globally. Our origin is Africa, and our reach is global.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Do you work with clients outside of Africa?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "Yes. More than half of our clients are based in Europe and North America. We bring the same standard to every engagement, regardless of geography.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "How quickly can a new project start?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "Typically within two weeks of signing. We protect quality by keeping our active engagements small.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What does a typical engagement look like?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text:
+                      "Most projects run 8 to 16 weeks with fixed scope and weekly demos. Longer retainers are available for ongoing product work.",
+                  },
+                },
+              ],
             },
           ],
         })}</script>
