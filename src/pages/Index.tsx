@@ -312,6 +312,7 @@ const Index = () => {
                 </div>
               </Reveal>
             ))}
+            </div>
           </div>
         </div>
       </section>
