@@ -4,6 +4,9 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import heroPortrait from "@/assets/hero-portrait.jpg";
+import heroPortrait2 from "@/assets/hero-portrait-2.jpg";
+import heroPortrait3 from "@/assets/hero-portrait-3.jpg";
+import HeroCarousel from "@/components/HeroCarousel";
 import {
   Dialog,
   DialogContent,
@@ -267,14 +270,7 @@ const Index = () => {
                   aria-hidden="true"
                   className="absolute -inset-8 md:-inset-12 rounded-full bg-gradient-to-br from-brand-primary/10 via-brand-accent/[0.06] to-transparent blur-3xl"
                 />
-                <div className="relative aspect-[4/5] rotate-[10deg] transition-transform duration-500 hover:rotate-[8deg]">
-                  <img
-                    src={heroPortrait}
-                    alt="Evogue Consulting team member"
-                    loading="eager"
-                    className="relative w-full h-full object-cover object-center"
-                  />
-                </div>
+                <HeroCarousel images={[heroPortrait, heroPortrait2, heroPortrait3]} />
               </div>
             </Reveal>
           </div>
