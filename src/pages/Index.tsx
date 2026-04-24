@@ -52,7 +52,7 @@ const services = [
   },
   {
     title: "Training and Advisory",
-    body: "We upskill teams and advise organisations on product management, business analysis, agile practices, and digital strategy. Our training programmes are practical, structured, and built around real industry workflows.",
+    body: "We get your team up to speed on product, tech, and digital practices that actually stick. No generic workshops. Just practical skills your people will use on Monday morning.",
     icon: (
       <path d="M3 9l9-5 9 5-9 5-9-5zM7 11v5c2 1.5 8 1.5 10 0v-5M21 9v6" strokeWidth="1.6" />
     ),
