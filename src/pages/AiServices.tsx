@@ -436,14 +436,13 @@ const AiServices = () => {
 
                 {/* Connector L2 -> L3 (vertical line, both mobile + desktop) */}
                 <div
-                  className="w-px"
-                  style={{ height: 32, backgroundColor: "#d0e8da", marginTop: 8 }}
+                  className={`org-connector org-connector-v w-px ${isL2L3TrunkActive() ? "is-active" : ""}`}
+                  style={{ height: 32, marginTop: 8 }}
                   aria-hidden
                 />
                 {/* Horizontal spreader — desktop only */}
                 <div
-                  className="hidden md:block h-px w-[90%] max-w-[1000px]"
-                  style={{ backgroundColor: "#d0e8da" }}
+                  className={`org-connector org-connector-h hidden md:block h-px w-[90%] max-w-[1000px] ${isL2L3TrunkActive() ? "is-active" : ""}`}
                   aria-hidden
                 />
 
