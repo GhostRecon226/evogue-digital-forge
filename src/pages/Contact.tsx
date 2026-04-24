@@ -426,16 +426,16 @@ const Contact = () => {
             <Reveal>
               <div className="label-caps text-brand-accent">Ready when you are</div>
               <h2 className="mt-4 text-3xl md:text-5xl font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
-                No long forms. No long waits.
+                We're ready when you are.
               </h2>
               <p className="mt-5 text-lg text-white/75 max-w-xl mx-auto">
-                Just tell us what you're building and we'll take it from there.
+                No long waits. No long forms. Just a straight conversation about what you need.
               </p>
               <a
                 href="#contact"
                 className="mt-8 inline-flex items-center justify-center bg-white text-brand-primary text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-accent hover:text-brand-primary transition-colors"
               >
-                Start a Project
+                Send Us a Message
               </a>
             </Reveal>
           </div>
