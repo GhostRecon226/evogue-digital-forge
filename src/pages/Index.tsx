@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
+import StatsIntro from "@/components/StatsIntro";
 import heroPortrait from "@/assets/hero-portrait-1.png";
 import heroPortrait2 from "@/assets/hero-portrait-2.png";
 import heroPortrait3 from "@/assets/hero-portrait-3.png";
@@ -296,11 +297,7 @@ const Index = () => {
           </div>
 
           <div className="mt-16 pt-10 border-t border-brand-border">
-            <Reveal>
-              <p className="label-caps text-brand-secondary text-center">
-                We let the numbers do some of the talking.
-              </p>
-            </Reveal>
+            <StatsIntro />
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-y-8">
             {stats.map((s, i) => (
               <Reveal key={s.label} delay={0.1 * i}>
