@@ -268,6 +268,11 @@ const About = () => {
                 <p>
                   We believed teams here deserved better. Better thinking, better design, better engineering. Not a cut-price version of what global studios were doing, but the real thing built with the same rigour and the same standards.
                 </p>
+                <figure className="my-2 border-l-4 border-brand-accent pl-5 md:pl-6 py-2">
+                  <blockquote className="text-xl md:text-2xl font-semibold text-brand-primary leading-snug tracking-tight">
+                    "Not a cut-price version of what global studios were doing — the real thing, built with the same rigour and the same standards."
+                  </blockquote>
+                </figure>
                 <p>
                   So we built the kind of studio we wished existed. One that combines strategy, engineering, and design under one roof, communicates clearly, ships on time, and cares about whether the product actually moves the needle.
                 </p>
