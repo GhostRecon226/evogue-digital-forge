@@ -479,7 +479,8 @@ const AiServices = () => {
                   </div>
                 </div>
               </Reveal>
-            </div>
+              </div>
+            </TooltipProvider>
           </div>
         </section>
 
