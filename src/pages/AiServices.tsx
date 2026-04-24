@@ -425,7 +425,7 @@ const AiServices = () => {
 
             {/* Org Chart */}
             <TooltipProvider delayDuration={150}>
-              <div className="mt-14 md:mt-20 flex flex-col items-center">
+              <div ref={orgChartRef} className="mt-14 md:mt-20 flex flex-col items-center">
                 {/* Level 1 */}
                 <Reveal delay={0.05}>
                   <Tooltip>
