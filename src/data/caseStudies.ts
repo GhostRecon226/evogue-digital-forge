@@ -1,3 +1,5 @@
+import falaProductsThumb from "@/assets/case-studies/fala-products.jpg";
+
 export type CaseStudyCategory =
   | "Product Design"
   | "Engineering"
@@ -13,6 +15,8 @@ export type CaseStudy = {
   detailTags?: string[];
   categories: CaseStudyCategory[];
   summary: string;
+  thumbnail?: string;
+  thumbnailAlt?: string;
   metrics: string[];
   details: {
     client: string;
@@ -47,6 +51,8 @@ export const caseStudies: CaseStudy[] = [
     categories: ["Branding", "Product Design", "Strategy"],
     summary:
       "Built the brand identity, e-commerce website, and business strategy for a Nigerian solar and lifestyle brand entering the market.",
+    thumbnail: falaProductsThumb,
+    thumbnailAlt: "Fala Products solar fan and lifestyle essentials",
     metrics: ["Full Brand System", "Website Launch", "Strategy and Advisory"],
     details: {
       client: "Fala Production Ltd.",
