@@ -74,8 +74,10 @@ const Nav = () => {
     return false;
   };
 
+  const forceGlass = pathname.startsWith("/ai-services");
+
   const headerClass = `fixed top-0 inset-x-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out ${
-    scrolled
+    scrolled || forceGlass
       ? "bg-white/70 backdrop-blur-xl border-b border-brand-border/80 shadow-[0_1px_0_0_hsl(var(--brand-border)/0.4)]"
       : "bg-white/0 backdrop-blur-0 border-b border-transparent"
   }`;
