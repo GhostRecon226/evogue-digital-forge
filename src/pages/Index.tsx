@@ -1,23 +1,17 @@
-import { useState } from "react";
 import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import StatsIntro from "@/components/StatsIntro";
+import CaseStudyCard from "@/components/CaseStudyCard";
+import { caseStudies } from "@/data/caseStudies";
 import heroPortrait from "@/assets/hero-portrait-1.png";
 import heroPortrait2 from "@/assets/hero-portrait-2.png";
 import heroPortrait3 from "@/assets/hero-portrait-3.png";
 import heroPortrait4 from "@/assets/hero-portrait-4.png";
 import heroPortrait6 from "@/assets/hero-portrait-6.png";
 import HeroCarousel from "@/components/HeroCarousel";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
 
 const stats = [
   { value: 40, suffix: "+", label: "Products Shipped" },
@@ -78,79 +72,8 @@ const why = [
   },
 ];
 
-const cases = [
-  {
-    tags: ["Web App", "Strategy"],
-    title: "Project Alpha",
-    body: "A fintech platform serving users across West Africa. Designed, built, and launched in 12 weeks.",
-    client: "Confidential Fintech",
-    year: "2024",
-    role: "Strategy · Product Design · Engineering",
-    challenge:
-      "A regional fintech needed to launch a consumer wallet across three West African markets without a clear product hypothesis or design system.",
-    approach:
-      "We ran a two-week discovery, defined the MVP scope, designed a modular UI system, and shipped a production-grade web app in 12 weeks with weekly stakeholder demos.",
-    outcomes: [
-      "12 week launch from kickoff",
-      "Onboarded users across 3 markets in week one",
-      "Design system reused across web and mobile",
-    ],
-    images: [
-      { alt: "Wallet dashboard overview", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%)" },
-      { alt: "Onboarding flow screen", gradient: "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-accent) / 0.6) 100%)" },
-      { alt: "Transaction details view", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-accent) / 0.4) 100%)" },
-      { alt: "Mobile wallet home", gradient: "linear-gradient(135deg, hsl(var(--brand-border)) 0%, hsl(var(--brand-primary) / 0.7) 100%)", orientation: "portrait" as const },
-    ],
-  },
-  {
-    tags: ["Branding", "Design"],
-    title: "Project Beta",
-    body: "Brand identity and digital presence for a global logistics company.",
-    client: "Global Logistics Group",
-    year: "2024",
-    role: "Brand Strategy · Identity · Web",
-    challenge:
-      "A 30-year-old logistics company felt invisible online and was losing enterprise pitches to younger competitors.",
-    approach:
-      "We rebuilt their positioning, designed a confident identity system, and shipped a marketing site that finally matched the scale of their operation.",
-    outcomes: [
-      "New identity rolled out across 8 regions",
-      "Marketing site launched in 9 weeks",
-      "Inbound enterprise leads up materially in Q1 post-launch",
-    ],
-    images: [
-      { alt: "Logo lockup and identity system", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-secondary)) 100%)" },
-      { alt: "Brand color palette", gradient: "linear-gradient(135deg, hsl(var(--brand-accent) / 0.6) 0%, hsl(var(--brand-surface)) 100%)", orientation: "square" as const },
-      { alt: "Marketing site home page", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-border)) 100%)" },
-      { alt: "Service detail page", gradient: "linear-gradient(135deg, hsl(var(--brand-primary) / 0.85) 0%, hsl(var(--brand-accent) / 0.5) 100%)" },
-      { alt: "Brand guidelines spread", gradient: "linear-gradient(135deg, hsl(var(--brand-border)) 0%, hsl(var(--brand-primary)) 100%)" },
-    ],
-  },
-  {
-    tags: ["AI", "Automation"],
-    title: "Project Gamma",
-    body: "Custom AI agents and workflow automation for an e-commerce operation.",
-    client: "Mid-market E-commerce",
-    year: "2025",
-    role: "AI Engineering · Automation · Advisory",
-    challenge:
-      "Customer ops were drowning in repetitive tickets and manual order workflows that didn't scale past a few thousand orders a week.",
-    approach:
-      "We mapped the highest-cost workflows, deployed custom AI agents for tier-1 support, and automated reconciliation between their storefront, ERP, and 3PL.",
-    outcomes: [
-      "60%+ of tier-1 tickets handled by agents",
-      "Hours of manual reconciliation eliminated weekly",
-      "Ops team refocused on growth, not firefighting",
-    ],
-    images: [
-      { alt: "AI agent conversation interface", gradient: "linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-accent) / 0.6) 100%)" },
-      { alt: "Workflow automation map", gradient: "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-secondary)) 100%)" },
-      { alt: "Ops dashboard analytics", gradient: "linear-gradient(160deg, hsl(var(--brand-secondary)) 0%, hsl(var(--brand-primary) / 0.7) 100%)" },
-    ],
-  },
-];
+const featuredCaseStudies = caseStudies.slice(0, 3);
 
-type CaseStudy = (typeof cases)[number];
 
 const process = [
   {
