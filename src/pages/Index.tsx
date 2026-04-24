@@ -311,7 +311,7 @@ const Index = () => {
               A few things we've built.
             </h2>
             <p className="mt-3 text-brand-secondary/90">
-              Real projects. Documentation coming soon.
+              Real clients. Real outcomes.
             </p>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
