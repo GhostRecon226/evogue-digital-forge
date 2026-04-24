@@ -1,10 +1,17 @@
-## Fix WhatsApp "blocked" link
+## Goal
+Remove the "Edit with Lovable" watermark/badge from the published Evogue Consulting site (custom domains and `*.lovable.app` URL).
 
-Switch the floating button to the more reliable `api.whatsapp.com/send` endpoint and remove the apostrophe in the prefilled message that can cause encoding issues.
+## Change
+- Call `publish_settings--set_badge_visibility` with `hide_badge: true`.
 
-### Change
-In `src/components/WhatsAppButton.tsx`:
-- URL: `https://wa.me/2348107396844?text=...` → `https://api.whatsapp.com/send?phone=2348107396844&text=...`
-- Message: "Hello Evogue team, I'm interested in booking a consultation." → "Hello Evogue team, I am interested in booking a consultation."
+## Requirements
+- Workspace must be on **Pro plan or higher**. If it isn't, the toggle will be rejected and the badge will stay visible until the plan is upgraded.
 
-That's it — single small edit, no other files touched.
+## After approval
+1. Toggle the badge off via the publish settings tool.
+2. You may need to click **Publish → Update** once for the change to propagate to the live site, then hard-refresh (Cmd/Ctrl+Shift+R) to confirm the badge is gone on:
+   - https://www.evogueconsulting.com
+   - https://www.evogue.com.ng
+   - https://evogue-origin-impact.lovable.app
+
+No code changes required.
