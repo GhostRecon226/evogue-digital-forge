@@ -395,12 +395,13 @@ const AiServices = () => {
                   ))}
                 </div>
 
-                {/* Connector L2 -> L3 */}
+                {/* Connector L2 -> L3 (vertical line, both mobile + desktop) */}
                 <div
-                  className="hidden md:block w-px"
+                  className="w-px"
                   style={{ height: 32, backgroundColor: "#d0e8da", marginTop: 8 }}
                   aria-hidden
                 />
+                {/* Horizontal spreader — desktop only */}
                 <div
                   className="hidden md:block h-px w-[90%] max-w-[1000px]"
                   style={{ backgroundColor: "#d0e8da" }}
