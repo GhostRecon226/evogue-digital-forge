@@ -94,23 +94,19 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
         </ul>
 
         {/*
-          The single focusable target. The ::after pseudo-element expands the
-          link's hit area to cover the entire card, so mouse users can click
-          anywhere — but keyboard users get one clear focus target with a
-          visible underline + ring on the actual "View Case Study" text.
+          Single focusable target. The ::after pseudo-element stretches to
+          cover the entire card (the parent <article> is the positioning
+          context via `relative`), so mouse users can click anywhere on the
+          card while keyboard users get one clear focus ring on the actual
+          "View Case Study" text.
         */}
         <Link
           to={href}
           aria-label={`View case study: ${study.name} — ${study.client}`}
-          className="relative mt-2 self-start inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary rounded-[4px] px-1 -mx-1 underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-secondary focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white after:content-[''] after:absolute after:inset-0 after:-top-[9999px] after:-left-[9999px] after:right-[-9999px] after:bottom-[-9999px] after:z-10 group-hover:text-brand-secondary"
-          style={{
-            // Constrain the ::after overlay to the card via the parent's
-            // overflow-hidden + positioning — the huge inset values above
-            // ensure it always covers the full card no matter its size.
-          }}
+          className="relative z-10 mt-2 self-start inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary rounded-[4px] px-1 -mx-1 underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-secondary focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white after:content-[''] after:absolute after:inset-0 after:rounded-[10px] after:z-[-1]"
         >
-          <span className="relative z-20">View Case Study</span>
-          <ArrowRight className="relative z-20 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+          <span>View Case Study</span>
+          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
         </Link>
       </div>
     </motion.article>
