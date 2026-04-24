@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
 import StatsIntro from "@/components/StatsIntro";
+import aboutHero from "@/assets/about-hero.jpg";
 
 const beliefs = [
   {
@@ -228,21 +229,41 @@ const About = () => {
       <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-surface overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-90 pointer-events-none" />
         <div className="container relative">
-          <Reveal>
-            <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-brand-secondary/40 text-brand-secondary label-caps">
-              About Us
+          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center">
+            <div>
+              <Reveal>
+                <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-brand-secondary/40 text-brand-secondary label-caps">
+                  About Us
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-primary leading-[1.05]">
+                  We build products. We raise standards.
+                </h1>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
+                  Evogue Consulting is a product studio and consulting with one goal: to raise the standard of digital product development on the African continent and beyond.
+                </p>
+              </Reveal>
             </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-primary leading-[1.05] max-w-4xl">
-              We build products. We raise standards.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
-              Evogue Consulting is a product studio and consulting with one goal: to raise the standard of digital product development on the African continent and beyond.
-            </p>
-          </Reveal>
+            <Reveal delay={0.25}>
+              <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-3 md:-inset-4 rounded-[14px] bg-brand-accent/20 -z-10 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4"
+                />
+                <img
+                  src={aboutHero}
+                  alt="Illustration of the Evogue Consulting team collaborating around a workspace with sketches, design tools, and screens"
+                  width={1280}
+                  height={1280}
+                  fetchPriority="high"
+                  className="relative w-full h-auto rounded-[12px] border border-brand-border shadow-card object-cover"
+                />
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
