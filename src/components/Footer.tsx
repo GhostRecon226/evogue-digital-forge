@@ -6,7 +6,7 @@ const quickLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Case Studies", to: "/case-studies" },
-  { label: "Academy", to: "/#academy" },
+  { label: "Academy ↗", to: "https://www.evogueacademy.com", external: true },
   { label: "Contact", to: "/contact" },
 ];
 
@@ -42,10 +42,22 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.label}>
-                  <Link to={l.to} className={footerLinkClass}>
-                    {l.label}
-                    <span aria-hidden="true" className={underlineClass} />
-                  </Link>
+                  {l.external ? (
+                    <a
+                      href={l.to}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={footerLinkClass}
+                    >
+                      {l.label}
+                      <span aria-hidden="true" className={underlineClass} />
+                    </a>
+                  ) : (
+                    <Link to={l.to} className={footerLinkClass}>
+                      {l.label}
+                      <span aria-hidden="true" className={underlineClass} />
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

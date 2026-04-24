@@ -3,13 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
-type NavLink = { label: string; href: string; section?: string };
+type NavLink = { label: string; href: string; section?: string; external?: boolean };
 
 const links: NavLink[] = [
   { label: "Home", href: "/#home", section: "home" },
   { label: "About", href: "/about" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Academy", href: "/#academy", section: "academy" },
+  { label: "Academy ↗", href: "https://www.evogueacademy.com", external: true },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -99,6 +99,8 @@ const Nav = () => {
               <a
                 key={l.href}
                 href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
                 aria-current={active ? "page" : undefined}
                 className={`relative text-sm font-medium transition-colors duration-200 ${
                   active ? "text-brand-primary" : "text-brand-primary/70 hover:text-brand-primary"
@@ -153,6 +155,8 @@ const Nav = () => {
               <a
                 key={l.href}
                 href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
                 onClick={() => setOpen(false)}
                 aria-current={active ? "page" : undefined}
                 className={`flex items-center justify-between py-3 border-b border-brand-border/60 last:border-b-0 text-base font-medium transition-colors ${
