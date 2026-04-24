@@ -375,6 +375,48 @@ const AiServices = () => {
           </div>
         </section>
 
+        {/* Why Evogue */}
+        <section style={{ backgroundColor: "#f7fdf9" }}>
+          <div className="container py-20 md:py-28">
+            <Reveal>
+              <div className="label-caps text-brand-accent mb-4">Why Evogue for AI</div>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-3xl">
+                We build AI that fits your business. Not the other way around.
+              </h2>
+            </Reveal>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {[
+                { n: "01", title: "Built for your context", body: "We don't install generic tools and call it done. Every solution is built around how your team actually works, what your customers actually ask, and what outcomes actually move your business forward." },
+                { n: "02", title: "We speak both languages", body: "Most AI vendors speak tech. Most consultants speak business. We speak both fluently. That means you get solutions that are technically sound and practically useful from day one." },
+                { n: "03", title: "We stay in the room", body: "We don't disappear after deployment. We monitor, iterate, and improve your AI solution over time. If it stops performing, we fix it before you notice." },
+              ].map((item, i) => (
+                <Reveal key={item.n} delay={i * 0.08}>
+                  <article
+                    className="h-full bg-white rounded-[8px] p-7 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_-12px_rgba(0,196,122,0.25)]"
+                    style={{ borderColor: "#d0e8da" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#00C47A"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#d0e8da"; }}
+                  >
+                    <div
+                      className="text-3xl md:text-4xl font-semibold tracking-tight"
+                      style={{ color: "#00C47A" }}
+                    >
+                      {item.n}
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold text-brand-primary tracking-tight">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-brand-secondary/90 leading-relaxed">
+                      {item.body}
+                    </p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Banner */}
         <section className="bg-brand-primary">
           <div className="container py-20 md:py-24 text-center">
