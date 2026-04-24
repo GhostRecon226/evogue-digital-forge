@@ -608,12 +608,12 @@ const Index = () => {
         <div className="absolute inset-0 dot-grid opacity-90 pointer-events-none" />
         <div className="container relative grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-start">
           <Reveal>
-            <SectionLabel>Let's Build</SectionLabel>
+            <SectionLabel>Start a Project</SectionLabel>
             <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
-              Ready to build something worth using?
+              Tell us what you're building.
             </h2>
             <p className="mt-5 text-brand-secondary/90 max-w-md leading-relaxed">
-              Tell us about your product, your goals, and where you're stuck. We'll come back with thoughts and next steps within one business day.
+              We'll tell you honestly if and how we can help.
             </p>
 
             <div className="mt-10 space-y-5">
