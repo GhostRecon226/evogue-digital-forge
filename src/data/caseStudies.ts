@@ -1,5 +1,6 @@
 import falaProductsThumb from "@/assets/case-studies/fala-products.jpg";
 import futureTechAcademyThumb from "@/assets/case-studies/the-future-tech-academy.jpg";
+import teamconsolThumb from "@/assets/case-studies/teamconsol.jpg";
 
 export type CaseStudyCategory =
   | "Product Design"
@@ -121,6 +122,46 @@ export const caseStudies: CaseStudy[] = [
       description:
         "How Evogue Consulting built the brand identity, website, and business strategy for The Future Tech Academy, a Forex and AI training academy in Nigeria.",
       ogImage: "/og/the-future-tech-academy.jpg",
+    },
+  },
+  {
+    slug: "teamconsol",
+    name: "TeamConsol",
+    client: "Global shipping and logistics company, Nigeria",
+    tags: ["LOGISTICS", "BRANDING", "STRATEGY"],
+    detailTags: ["LOGISTICS", "BRANDING", "STRATEGY", "ADVISORY"],
+    categories: ["Branding", "Strategy"],
+    summary:
+      "Built the brand identity, website, and business strategy for a global shipping and logistics company entering a competitive market.",
+    thumbnail: teamconsolThumb,
+    thumbnailAlt: "TeamConsol — Global shipping and logistics company",
+    metrics: ["Full Brand System", "Website Launch", "Strategy and Advisory"],
+    details: {
+      client: "TeamConsol",
+      industry: "Shipping and Logistics",
+      services: "Brand Identity, Web Design and Development, Business Strategy, Advisory",
+      location: "Nigeria, Global Operations",
+      website: "www.teamconsol.com",
+    },
+    problem: [
+      "TeamConsol operates in one of the most trust-dependent industries on earth. Shipping and logistics clients don't just want a service provider, they want certainty. Certainty that their cargo moves, that timelines are met, and that the company they're dealing with is real, professional, and capable. TeamConsol had the operations. What they needed was a digital presence that reflected that capability from the first click.",
+    ],
+    approach: [
+      "We approached this as a credibility problem first and a design problem second. Before anything was designed or built, we spent time understanding the business model, the target clients, and what signals of trust matter most in the logistics space. We built a brand identity that felt established, global, and dependable. We designed and built the website to communicate competence immediately. We worked through the business strategy to sharpen their positioning and identify the clearest path to acquiring their target clients. And we stayed on as advisors as the business established itself in the market.",
+    ],
+    outcome: [
+      "TeamConsol launched with a digital presence that commands attention in a competitive industry. The website is live, the brand identity is consistent and credible, and the business has a clear strategic foundation to grow from. They are now in their early growth phase actively pursuing clients across global shipping lanes.",
+    ],
+    testimonial: {
+      quote:
+        "Logistics is a relationship business. Evogue understood that from day one. They built us something that opens doors before we even make a call.",
+      name: "TeamConsol Team",
+    },
+    seo: {
+      title: "TeamConsol — Brand, Website & Strategy for a Global Shipping and Logistics Company",
+      description:
+        "How Evogue Consulting built the brand identity, website, and business strategy for TeamConsol, a global shipping and logistics company headquartered in Nigeria.",
+      ogImage: "/og/teamconsol.jpg",
     },
   },
   {
