@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
