@@ -1,26 +1,29 @@
 
 
-## Slide-In Transition for Hero Carousel
+## Add 3 More Hero Carousel Photos (Including Group Shots)
 
-Replace the current cross-fade between hero portraits with a smooth horizontal slide-in animation, so each new image glides in from the right while the previous one slides out to the left.
+Expand the homepage hero carousel from 3 to 6 portraits by generating 3 new branded photos — including group shots — that match the existing studio-style set.
 
 ### What will change
 
-- When the carousel advances (auto every 5s, or via dot click), the next portrait slides in from the right edge as the current one slides out to the left.
-- Movement uses a soft easing curve (~700ms) so it feels polished, not abrupt.
-- Manual dot navigation also slides in the same direction for consistency.
-- Aspect ratio, dot indicators, pause-on-hover, and accessibility behavior stay exactly the same.
+- Hero carousel rotates through 6 images instead of 3 (still auto-advances every 5s, same slide-in transition, same dot indicators — they'll just show 6 dots now).
+- 3 new AI-generated photos added, all featuring Evogue logo on shirts:
+  1. **Group photo** — 3 team members together, smiling, branded shirts visible.
+  2. **Group photo** — 2 team members in a collaborative pose (e.g. reviewing something together), branded shirts.
+  3. **Solo portrait** — a different team member in a fresh pose, for variety alongside the group shots.
+- Style-matched to existing portraits: warm lighting, professional studio feel, 4:5 aspect ratio.
 
 ### Technical details
 
-- Edit `src/components/HeroCarousel.tsx`:
-  - Keep the absolute-stacked image layers, but swap the opacity-based transition for a `transform: translateX(...)` transition.
-  - Each slide gets one of three states: active (`translate-x-0`), waiting on the right (`translate-x-full`), or exiting to the left (`-translate-x-full`).
-  - Apply `transition-transform duration-700 ease-out` to each `<img>`.
-  - Keep `overflow-hidden` on the container so off-screen slides are clipped cleanly.
-  - Preserve `aria-hidden`, `loading`, and dot-button logic unchanged.
+- **Image generation**: Use `google/gemini-3-pro-image-preview` via the ai-gateway skill, passing `evogue-logo.png` as a visual reference so the logo on shirts matches the real brand mark. Generate at 4:5 portrait orientation.
+- **Files saved**: `src/assets/hero-portrait-4.jpg`, `hero-portrait-5.jpg`, `hero-portrait-6.jpg`.
+- **Wiring**: Edit `src/pages/Index.tsx` to import the 3 new assets and append them to the `images` array passed to `<HeroCarousel />`. No changes needed to `HeroCarousel.tsx` — it already handles any number of slides.
+- **QA**: Each generated image will be inspected before wiring; if the logo on shirts comes out distorted or unreadable, regenerate with a tighter prompt.
 
 ### Files
 
-- Edit: `src/components/HeroCarousel.tsx`
+- New: `src/assets/hero-portrait-4.jpg`
+- New: `src/assets/hero-portrait-5.jpg`
+- New: `src/assets/hero-portrait-6.jpg`
+- Edit: `src/pages/Index.tsx`
 
