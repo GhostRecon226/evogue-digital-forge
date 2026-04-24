@@ -58,8 +58,7 @@ const HeroCarousel = ({
               alt={`${alt} ${i + 1}`}
               loading={i === 0 ? "eager" : "lazy"}
               aria-hidden={!isActive}
-              style={{ mixBlendMode: "multiply" }}
-              className={`absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out ${translate}`}
+              className={`absolute inset-0 w-full h-full object-contain object-bottom transition-transform duration-700 ease-out ${translate}`}
             />
           );
         })}
