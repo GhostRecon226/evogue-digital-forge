@@ -1,16 +1,23 @@
-## Update hero subheadline on Home page
+# Fala Products thumbnail: new image + fill the card
 
-Replace the hero subheadline paragraph in `src/pages/Index.tsx` (line 257) with the exact new copy.
+## What's done already
+A new on-brand product photo has been generated and saved to `src/assets/case-studies/fala-products.jpg` — a solar desk fan paired with a forest-green tee and natural canvas tote on a warm minimalist surface. It already replaces the cropped screenshot used before.
 
-### Change
+Preview:
 
-**File:** `src/pages/Index.tsx` (line 257, inside the hero `<p>` element)
+![preview](attachment://fala_preview)
 
-- **From:** "Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We partner with ambitious teams across Africa, Europe, and beyond to design, engineer, and scale software people actually want to use."
-- **To:** "We work with founders, product leads, and growing businesses across Africa and globally to design, engineer, and scale software people actually want to use."
+## What still needs to change (one tiny edit)
 
-### Notes
+**File:** `src/components/CaseStudyCard.tsx`
 
-- No other files reference this subheadline copy.
-- The hero headline ("Building digital products that earn their place.") and the "Product Studio + Consulting Firm" eyebrow above it remain unchanged.
-- No SEO/meta description changes are included here — let me know if you'd like the homepage meta description updated to match the new positioning.
+Switch the thumbnail `<img>` from `object-contain` (with padding, leaving empty space around the image) to `object-cover` so the new image fills the entire 200px tall thumbnail area edge to edge.
+
+- Remove `object-contain p-4`
+- Add `object-cover`
+- Keep the subtle hover zoom
+
+That's the only code change. The placeholder gradient cards (Project Beta, Gamma, etc.) are untouched and continue to show the centered project name on the green gradient.
+
+## Result
+The Fala Products card will display the bespoke generated product shot, filling the full thumbnail area with no empty padding, with a gentle zoom and the existing dark-overlay on hover.
