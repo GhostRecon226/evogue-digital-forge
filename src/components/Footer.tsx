@@ -18,7 +18,7 @@ const supportLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-surface text-brand-primary">
+    <footer className="bg-[hsl(138_40%_92%)] text-brand-primary">
       <div className="container pt-20 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand */}
