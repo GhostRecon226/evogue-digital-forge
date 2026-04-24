@@ -1,28 +1,16 @@
-# Update site-wide email to hello@evogue.com.ng
+## Update hero subheadline on Home page
 
-Several pages still display old email addresses (`hello@evogue.consulting` and `hello@evogue.co`). These will be unified to `hello@evogue.com.ng`, which already appears in the footer, Privacy, and Terms pages.
+Replace the hero subheadline paragraph in `src/pages/Index.tsx` (line 257) with the exact new copy.
 
-## Files to update
+### Change
 
-1. **src/pages/Index.tsx** (3 occurrences)
-   - Line 630–631: contact link `href="mailto:hello@evogue.consulting"` and visible text → `hello@evogue.com.ng`
-   - Line 662: `window.location.href = mailto:hello@evogue.consulting?...` → `hello@evogue.com.ng`
+**File:** `src/pages/Index.tsx` (line 257, inside the hero `<p>` element)
 
-2. **src/pages/Contact.tsx** (2 occurrences)
-   - Line 314: `value: "hello@evogue.co"` → `"hello@evogue.com.ng"`
-   - Line 315: `href: "mailto:hello@evogue.co"` → `"mailto:hello@evogue.com.ng"`
+- **From:** "Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We partner with ambitious teams across Africa, Europe, and beyond to design, engineer, and scale software people actually want to use."
+- **To:** "We work with founders, product leads, and growing businesses across Africa and globally to design, engineer, and scale software people actually want to use."
 
-3. **src/pages/About.tsx** (1 occurrence)
-   - Line 153: `email: "hello@evogue.consulting"` → `"hello@evogue.com.ng"`
+### Notes
 
-## Files left untouched (already correct)
-
-- `src/components/Footer.tsx` — already `hello@evogue.com.ng`
-- `src/pages/Privacy.tsx` — already `hello@evogue.com.ng`
-- `src/pages/Terms.tsx` — already `hello@evogue.com.ng`
-- Form input placeholders like `you@company.com` (sample placeholder text, not a real address)
-
-## Out of scope
-
-- No backend / email infrastructure changes. The sender domain (`notify.evogue.com.ng`) and queue setup remain as configured.
-- No copy/content rewrites — only the email string is swapped.
+- No other files reference this subheadline copy.
+- The hero headline ("Building digital products that earn their place.") and the "Product Studio + Consulting Firm" eyebrow above it remain unchanged.
+- No SEO/meta description changes are included here — let me know if you'd like the homepage meta description updated to match the new positioning.
