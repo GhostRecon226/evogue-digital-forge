@@ -47,14 +47,18 @@ const CaseStudies = () => {
                 </p>
               </div>
               <div className="md:col-span-5 animate-fade-in order-first md:order-last">
-                <img
-                  src={caseStudiesHero}
-                  alt="Abstract illustration of layered project cards symbolising a portfolio of shipped client work"
-                  width={1024}
-                  height={1024}
-                  className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-none md:w-full h-auto select-none pointer-events-none"
-                  draggable={false}
-                />
+                <div className="relative mx-auto w-full max-w-[260px] sm:max-w-sm md:max-w-none aspect-[5/4] sm:aspect-[4/3] md:aspect-square overflow-hidden">
+                  <img
+                    src={caseStudiesHero}
+                    alt="Abstract illustration of layered project cards symbolising a portfolio of shipped client work"
+                    width={1024}
+                    height={1024}
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-contain object-center scale-[1.35] sm:scale-125 md:scale-100 select-none pointer-events-none"
+                    draggable={false}
+                  />
+                </div>
               </div>
             </div>
           </div>
