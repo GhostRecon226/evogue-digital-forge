@@ -42,7 +42,7 @@ const services = [
   },
   {
     title: "AI Agents and Automation",
-    body: "Evogue builds custom AI agents and workflow automations tailored to your brand and operations. We help businesses integrate AI into their products and internal processes to reduce manual overhead and improve efficiency.",
+    body: "We build AI agents and automations that save your team real hours every week. Less manual work, more time on the things that actually grow your business.",
     icon: (
       <>
         <circle cx="12" cy="12" r="3" strokeWidth="1.6" />
