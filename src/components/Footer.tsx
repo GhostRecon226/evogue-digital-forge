@@ -130,7 +130,9 @@ const Footer = () => {
                   />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/evogueconsult"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                   className="group relative inline-flex text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
                 >

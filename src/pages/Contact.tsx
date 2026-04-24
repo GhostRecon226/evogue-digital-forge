@@ -355,7 +355,7 @@ const Contact = () => {
                   {[
                     { icon: Linkedin, label: "LinkedIn", href: "#" },
                     { icon: Twitter, label: "Twitter / X", href: "#" },
-                    { icon: Instagram, label: "Instagram", href: "#" },
+                    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/evogueconsult" },
                   ].map(({ icon: Icon, label, href }) => (
                     <li key={label}>
                       <a
