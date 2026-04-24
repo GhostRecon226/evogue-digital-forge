@@ -94,16 +94,16 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
         </ul>
 
         {/*
-          Single focusable target. The ::after pseudo-element stretches to
-          cover the entire card (the parent <article> is the positioning
-          context via `relative`), so mouse users can click anywhere on the
-          card while keyboard users get one clear focus ring on the actual
-          "View Case Study" text.
+          Single focusable, link-styled target. The whole card lifts on hover
+          and on keyboard focus (via focus-within on the article), but the
+          actual click/focus target is this clearly-styled link — giving
+          keyboard users one obvious destination instead of a phantom card
+          link with no visible focus indicator on its text.
         */}
         <Link
           to={href}
           aria-label={`View case study: ${study.name} — ${study.client}`}
-          className="relative z-10 mt-2 self-start inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary rounded-[4px] px-1 -mx-1 underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-secondary focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white after:content-[''] after:absolute after:inset-0 after:rounded-[10px] after:z-[-1]"
+          className="mt-2 self-start inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary rounded-[4px] px-1.5 py-0.5 -mx-1.5 underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-secondary hover:decoration-brand-secondary focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white"
         >
           <span>View Case Study</span>
           <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
