@@ -100,6 +100,7 @@ const Privacy = () => (
 
     <main className="pt-32 md:pt-40">
       <section className="container max-w-3xl">
+        <PageBreadcrumbs items={[{ label: "Home", to: "/" }, { label: "Privacy Policy" }]} />
         <Reveal>
           <p className="text-xs uppercase tracking-[0.2em] text-brand-primary/60 mb-4">Legal</p>
           <h1 className="text-4xl md:text-6xl font-semibold leading-tight">Privacy Policy</h1>
