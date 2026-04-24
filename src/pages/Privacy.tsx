@@ -51,7 +51,7 @@ const sections = [
     title: "7. Your rights",
     body: [
       "Subject to applicable law, you have the right to access, correct, delete, or restrict the use of your personal information, and to object to certain processing. You may also withdraw consent at any time where processing is based on consent.",
-      "To exercise any of these rights, please email hello@evogue.com.ng.",
+      "To exercise any of these rights, please email Hello@evogueconsulting.com.",
     ],
   },
   {
@@ -81,7 +81,7 @@ const sections = [
   {
     title: "12. Contact us",
     body: [
-      "If you have questions or concerns about this policy or how we handle your information, contact us at hello@evogue.com.ng or +234 706 565 2820.",
+      "If you have questions or concerns about this policy or how we handle your information, contact us at Hello@evogueconsulting.com or +234 706 565 2820.",
     ],
   },
 ];

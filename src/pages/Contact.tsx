@@ -308,8 +308,8 @@ const Contact = () => {
                     {
                       icon: Mail,
                       label: "Email",
-                      value: "hello@evogue.com.ng",
-                      href: "mailto:hello@evogue.com.ng",
+                      value: "Hello@evogueconsulting.com",
+                      href: "mailto:Hello@evogueconsulting.com",
                     },
                     {
                       icon: MapPin,

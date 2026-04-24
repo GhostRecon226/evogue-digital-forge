@@ -72,7 +72,7 @@ const sections = [
   {
     title: "11. Contact",
     body: [
-      "Questions about these Terms can be sent to hello@evogue.com.ng.",
+      "Questions about these Terms can be sent to Hello@evogueconsulting.com.",
     ],
   },
 ];
