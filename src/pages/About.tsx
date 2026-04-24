@@ -286,7 +286,7 @@ const About = () => {
       </section>
 
       {/* IDEAL CLIENT CALLOUT */}
-      <section className="py-16 md:py-20">
+      <section className="py-20 md:py-28">
         <div className="container">
           <Reveal>
             <figure className="mx-auto max-w-3xl text-center">
