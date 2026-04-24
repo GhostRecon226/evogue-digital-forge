@@ -74,34 +74,76 @@ const AiServices = () => {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="bg-brand-surface dot-grid">
-          <div className="container pt-40 md:pt-48 pb-20 md:pb-28">
+        <section
+          className="relative overflow-hidden"
+          style={{ backgroundColor: "#0D3D25" }}
+        >
+          {/* Animated dot grid background */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 opacity-[0.18]"
+            style={{
+              backgroundImage:
+                "radial-gradient(rgba(0, 196, 122, 0.55) 1px, transparent 1px)",
+              backgroundSize: "22px 22px",
+              animation: "dotDrift 18s linear infinite",
+            }}
+          />
+          {/* Soft vignette to fade dots toward edges */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse at center, transparent 0%, rgba(13, 61, 37, 0.55) 70%, rgba(13, 61, 37, 0.9) 100%)",
+            }}
+          />
+
+          <div className="relative container pt-40 md:pt-48 pb-20 md:pb-28">
             <div className="max-w-3xl animate-fade-in">
-              <span className="inline-flex items-center rounded-full border border-brand bg-white px-3 py-1 label-caps text-brand-primary">
+              <span
+                className="inline-flex items-center rounded-full border px-3 py-1 label-caps"
+                style={{
+                  color: "#00C47A",
+                  borderColor: "rgba(0, 196, 122, 0.35)",
+                  backgroundColor: "rgba(0, 196, 122, 0.08)",
+                }}
+              >
                 AI Services
               </span>
-              <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-brand-primary leading-[1.05]">
-                AI that earns its place in your business.
+              <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-white leading-[1.05]">
+                AI that works for your business. Not just around it.
               </h1>
-              <p className="mt-5 text-lg md:text-xl text-brand-secondary max-w-2xl leading-relaxed">
-                We design and ship AI agents, automations, and integrations that solve real problems — not science projects. Production systems your team can rely on, measure, and grow into.
+              <p
+                className="mt-5 text-lg md:text-xl max-w-2xl leading-relaxed"
+                style={{ color: "#B8E5CC" }}
+              >
+                Most businesses are sitting on hours of work that AI can handle right now. We find those hours, build the solution, and deploy it. You keep the humans for the work that actually needs them.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-5 py-3 rounded-[4px] hover:bg-brand-secondary transition-colors"
+                  className="inline-flex items-center justify-center bg-white text-sm font-semibold px-5 py-3 rounded-[4px] hover:opacity-90 transition-opacity"
+                  style={{ color: "#0D3D25" }}
                 >
                   Start a Project
                 </Link>
-                <Link
-                  to="/case-studies"
-                  className="inline-flex items-center justify-center bg-white text-brand-primary border border-brand text-sm font-semibold px-5 py-3 rounded-[4px] hover:border-brand-secondary hover:text-brand-secondary transition-colors"
+                <a
+                  href="#how-it-works"
+                  className="inline-flex items-center justify-center bg-transparent text-white border border-white/70 text-sm font-semibold px-5 py-3 rounded-[4px] hover:bg-white/10 hover:border-white transition-colors"
                 >
-                  See Our Work
-                </Link>
+                  See How It Works
+                </a>
               </div>
             </div>
           </div>
+
+          <style>{`
+            @keyframes dotDrift {
+              0% { background-position: 0 0; }
+              100% { background-position: 22px 22px; }
+            }
+          `}</style>
         </section>
 
         {/* Capabilities */}
