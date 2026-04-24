@@ -136,6 +136,25 @@ const AiServices = () => {
     return false;
   };
 
+  // Mobile chain rule: nodes are stacked vertically, so a stub above
+  // sibling `i` should light when ANY active sibling is at index >= i (the
+  // path runs continuously from the top of the stack down to the deepest
+  // active node in that level).
+  const isL2MobileStubActive = (i: number) => {
+    const active = activeL2Set();
+    if (active.size === 0) return false;
+    let max = -1;
+    active.forEach((v) => { if (v > max) max = v; });
+    return i <= max;
+  };
+  const isL3MobileStubActive = (i: number) => {
+    const active = activeL3Set();
+    if (active.size === 0) return false;
+    let max = -1;
+    active.forEach((v) => { if (v > max) max = v; });
+    return i <= max;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Seo
