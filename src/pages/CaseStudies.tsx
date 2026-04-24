@@ -8,6 +8,7 @@ import Reveal from "@/components/Reveal";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import { caseStudies, filterCategories, type CaseStudy } from "@/data/caseStudies";
 import caseStudiesHero from "@/assets/case-studies-hero.png";
+import ParallaxImage from "@/components/ParallaxImage";
 import {
   Tooltip,
   TooltipContent,
@@ -52,7 +53,7 @@ const CaseStudies = () => {
                   Evogue Consulting has delivered digital products across multiple industries including fintech, e-commerce, logistics, SaaS, and the nonprofit sector. Our engagements span product design and engineering, brand identity, AI automation, strategy consulting, and team training.
                 </p>
               </div>
-              <div className="md:col-span-5 animate-fade-in order-first md:order-last">
+              <Reveal className="md:col-span-5 order-first md:order-last" delay={0.1} y={16}>
                 <TooltipProvider delayDuration={200}>
                   <Tooltip>
                     <TooltipTrigger asChild>
@@ -62,16 +63,18 @@ const CaseStudies = () => {
                         aria-label="Abstract illustration of layered project cards symbolising a portfolio of shipped client work"
                         className="group relative mx-auto w-full max-w-[260px] sm:max-w-sm md:max-w-none aspect-[5/4] sm:aspect-[4/3] md:aspect-square overflow-hidden rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-surface cursor-default"
                       >
-                        <img
-                          src={caseStudiesHero}
-                          alt=""
-                          width={1024}
-                          height={1024}
-                          loading="lazy"
-                          decoding="async"
-                          className="absolute inset-0 w-full h-full object-contain object-center scale-[1.35] sm:scale-125 md:scale-100 select-none pointer-events-none transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:scale-[1.45] sm:group-hover:scale-[1.35] md:group-hover:scale-[1.07] group-focus-visible:scale-[1.45] sm:group-focus-visible:scale-[1.35] md:group-focus-visible:scale-[1.07]"
-                          draggable={false}
-                        />
+                        <ParallaxImage distance={20} className="absolute inset-0 w-full h-full">
+                          <img
+                            src={caseStudiesHero}
+                            alt=""
+                            width={1024}
+                            height={1024}
+                            loading="lazy"
+                            decoding="async"
+                            className="absolute inset-0 w-full h-full object-contain object-center scale-[1.45] sm:scale-[1.35] md:scale-110 select-none pointer-events-none transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:scale-[1.55] sm:group-hover:scale-[1.45] md:group-hover:scale-[1.17] group-focus-visible:scale-[1.55] sm:group-focus-visible:scale-[1.45] md:group-focus-visible:scale-[1.17]"
+                            draggable={false}
+                          />
+                        </ParallaxImage>
                       </div>
                     </TooltipTrigger>
                     <TooltipContent side="top" className="max-w-xs text-center">
@@ -79,7 +82,7 @@ const CaseStudies = () => {
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
-              </div>
+              </Reveal>
             </div>
           </div>
         </section>
