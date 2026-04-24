@@ -12,6 +12,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const helpOptions = [
   "Product Design and Engineering",
@@ -124,7 +125,7 @@ const SelectField = ({
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
@@ -135,12 +136,29 @@ const Contact = () => {
       return;
     }
     setSubmitting(true);
-    // Placeholder submit — wire to backend later
-    setTimeout(() => {
-      setSubmitting(false);
-      toast.success("Thanks! We'll get back to you within 24 hours.");
+    try {
+      const submissionId = crypto.randomUUID();
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "contact-confirmation",
+          recipientEmail: parsed.data.email,
+          idempotencyKey: `contact-confirm-${submissionId}`,
+          templateData: {
+            name: parsed.data.fullName,
+            helpWith: parsed.data.helpWith,
+            message: parsed.data.message,
+          },
+        },
+      });
+      if (error) throw error;
+      toast.success("Thanks! We'll get back to you within 24 hours. Check your inbox for a confirmation.");
       form.reset();
-    }, 600);
+    } catch (err) {
+      console.error("Contact form submission error:", err);
+      toast.error("Something went wrong. Please email us directly at Hello@evogueconsulting.com");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (

@@ -10,7 +10,9 @@ export interface TemplateEntry {
 }
 
 import { template as aiReadinessChecklist } from './ai-readiness-checklist.tsx'
+import { template as contactConfirmation } from './contact-confirmation.tsx'
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
   'ai-readiness-checklist': aiReadinessChecklist,
+  'contact-confirmation': contactConfirmation,
 }
