@@ -417,6 +417,139 @@ const AiServices = () => {
           </div>
         </section>
 
+        {/* Pricing */}
+        <section id="pricing" className="bg-white scroll-mt-24">
+          <div className="container py-20 md:py-28">
+            <Reveal>
+              <div className="label-caps text-brand-accent mb-4">Investment</div>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-3xl">
+                Priced for the outcome. Not the hour.
+              </h2>
+              <p className="mt-5 text-lg text-brand-secondary/90 max-w-2xl leading-relaxed">
+                We scope every engagement before pricing it. No surprises, no scope creep, no vague retainers. Book a call and you&rsquo;ll have a clear proposal in 48 hours.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid gap-6 lg:grid-cols-3 lg:items-stretch">
+              {/* Starter */}
+              <Reveal delay={0}>
+                <article
+                  className="h-full bg-white rounded-[10px] p-7 md:p-8 border flex flex-col"
+                  style={{ borderColor: "#d0e8da" }}
+                >
+                  <div className="label-caps text-brand-accent">Starter</div>
+                  <div className="mt-3 flex items-baseline gap-2">
+                    <span className="text-sm text-brand-secondary">From</span>
+                    <span className="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight">$1,500</span>
+                  </div>
+                  <p className="mt-4 text-brand-secondary/90 leading-relaxed">
+                    For teams who want to understand where AI fits before committing to a build. You leave with a clear roadmap and a prioritised list of opportunities.
+                  </p>
+                  <ul className="mt-6 space-y-3 text-sm text-brand-primary">
+                    {["AI Strategy Session", "Opportunity Mapping", "Roadmap Document"].map((f) => (
+                      <li key={f} className="flex items-start gap-2">
+                        <span style={{ color: "#00C47A" }} aria-hidden="true">✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="mt-8 inline-flex items-center justify-center text-sm font-semibold px-5 py-3 rounded-[4px] border-2 transition-colors"
+                    style={{ borderColor: "#0D3D25", color: "#0D3D25" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#0D3D25"; e.currentTarget.style.color = "#ffffff"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#0D3D25"; }}
+                  >
+                    Book a Call
+                  </Link>
+                </article>
+              </Reveal>
+
+              {/* Build — featured */}
+              <Reveal delay={0.08}>
+                <article
+                  className="relative h-full rounded-[10px] p-7 md:p-9 flex flex-col lg:-translate-y-2 shadow-[0_24px_50px_-20px_rgba(13,61,37,0.45)]"
+                  style={{ backgroundColor: "#0D3D25", color: "#ffffff" }}
+                >
+                  <span
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-3 py-1 text-[10px] font-semibold tracking-[0.14em] uppercase"
+                    style={{ backgroundColor: "#00C47A", color: "#0D3D25" }}
+                  >
+                    Most Popular
+                  </span>
+                  <div className="label-caps" style={{ color: "#00C47A" }}>Build</div>
+                  <div className="mt-3 flex items-baseline gap-2">
+                    <span className="text-sm text-white/70">From</span>
+                    <span className="text-3xl md:text-4xl font-semibold tracking-tight text-white">$5,000</span>
+                  </div>
+                  <p className="mt-4 text-white/85 leading-relaxed">
+                    For businesses ready to deploy. We build, test, and launch your first AI agent or automation end to end.
+                  </p>
+                  <ul className="mt-6 space-y-3 text-sm text-white">
+                    {[
+                      "Everything in Starter",
+                      "Custom AI Agent or Automation",
+                      "Testing and QA",
+                      "Deployment and Handover",
+                    ].map((f) => (
+                      <li key={f} className="flex items-start gap-2">
+                        <span style={{ color: "#00C47A" }} aria-hidden="true">✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="mt-8 inline-flex items-center justify-center bg-white text-sm font-semibold px-5 py-3 rounded-[4px] hover:opacity-90 transition-opacity"
+                    style={{ color: "#0D3D25" }}
+                  >
+                    Start a Project
+                  </Link>
+                </article>
+              </Reveal>
+
+              {/* Scale */}
+              <Reveal delay={0.16}>
+                <article
+                  className="h-full bg-white rounded-[10px] p-7 md:p-8 border flex flex-col"
+                  style={{ borderColor: "#d0e8da" }}
+                >
+                  <div className="label-caps text-brand-accent">Scale</div>
+                  <div className="mt-3 flex items-baseline gap-2">
+                    <span className="text-3xl md:text-4xl font-semibold text-brand-primary tracking-tight">Custom</span>
+                    <span className="text-sm text-brand-secondary">pricing</span>
+                  </div>
+                  <p className="mt-4 text-brand-secondary/90 leading-relaxed">
+                    For organisations integrating AI across multiple functions. We become your embedded AI team.
+                  </p>
+                  <ul className="mt-6 space-y-3 text-sm text-brand-primary">
+                    {[
+                      "Everything in Build",
+                      "Multiple Agents or Automations",
+                      "Ongoing Monitoring and Optimisation",
+                      "Monthly Strategy Sessions",
+                    ].map((f) => (
+                      <li key={f} className="flex items-start gap-2">
+                        <span style={{ color: "#00C47A" }} aria-hidden="true">✓</span>
+                        <span>{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Link
+                    to="/contact"
+                    className="mt-8 inline-flex items-center justify-center text-sm font-semibold px-5 py-3 rounded-[4px] border-2 transition-colors"
+                    style={{ borderColor: "#0D3D25", color: "#0D3D25" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = "#0D3D25"; e.currentTarget.style.color = "#ffffff"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = "#0D3D25"; }}
+                  >
+                    Let&rsquo;s Talk
+                  </Link>
+                </article>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* CTA Banner */}
         <section className="bg-brand-primary">
           <div className="container py-20 md:py-24 text-center">
