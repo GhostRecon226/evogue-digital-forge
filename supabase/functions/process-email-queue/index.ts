@@ -10,7 +10,7 @@ const DEFAULT_TRANSACTIONAL_TTL_MINUTES = 60
 // Check if an error is a rate-limit (429) response.
 // Uses EmailAPIError.status when available (email-js >=0.x with structured errors),
 // falls back to parsing the error message for older versions.
-function isRateLimited(error: unknown): boolean {
+export function isRateLimited(error: unknown): boolean {
   if (error && typeof error === 'object' && 'status' in error) {
     return (error as { status: number }).status === 429
   }
@@ -19,7 +19,7 @@ function isRateLimited(error: unknown): boolean {
 
 // Check if an error is a forbidden (403) response, which means emails are
 // disabled for this project. Retrying won't help — move straight to DLQ.
-function isForbidden(error: unknown): boolean {
+export function isForbidden(error: unknown): boolean {
   if (error && typeof error === 'object' && 'status' in error) {
     return (error as { status: number }).status === 403
   }
@@ -27,14 +27,14 @@ function isForbidden(error: unknown): boolean {
 }
 
 // Extract Retry-After seconds from a structured EmailAPIError, or default to 60s.
-function getRetryAfterSeconds(error: unknown): number {
+export function getRetryAfterSeconds(error: unknown): number {
   if (error && typeof error === 'object' && 'retryAfterSeconds' in error) {
     return (error as { retryAfterSeconds: number | null }).retryAfterSeconds ?? 60
   }
   return 60
 }
 
-function parseJwtClaims(token: string): Record<string, unknown> | null {
+export function parseJwtClaims(token: string): Record<string, unknown> | null {
   const parts = token.split('.')
   if (parts.length < 2) {
     return null
@@ -53,8 +53,9 @@ function parseJwtClaims(token: string): Record<string, unknown> | null {
 }
 
 // Move a message to the dead letter queue and log the reason.
-async function moveToDlq(
-  supabase: ReturnType<typeof createClient>,
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export async function moveToDlq(
+  supabase: any,
   queue: string,
   msg: { msg_id: number; message: Record<string, unknown> },
   reason: string
