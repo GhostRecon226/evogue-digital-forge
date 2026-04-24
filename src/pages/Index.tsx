@@ -254,7 +254,7 @@ const Index = () => {
               </Reveal>
               <Reveal delay={0.2}>
                 <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
-                  Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We partner with ambitious teams across Africa, Europe, and beyond to design, engineer, and scale software people actually want to use.
+                  We work with founders, product leads, and growing businesses across Africa and globally to design, engineer, and scale software people actually want to use.
                 </p>
               </Reveal>
               <Reveal delay={0.3}>
