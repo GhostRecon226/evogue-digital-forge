@@ -647,9 +647,18 @@ const AiServices = () => {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div
+                              role="button"
+                              tabIndex={0}
                               onMouseEnter={() => setOrgHover({ level: 3, index: i })}
                               onMouseLeave={() => setOrgHover(null)}
-                              className={`relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-help transition-transform hover:-translate-y-0.5 ${
+                              onClick={() => toggleOrgHover({ level: 3, index: i })}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  toggleOrgHover({ level: 3, index: i });
+                                }
+                              }}
+                              className={`relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-pointer select-none transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00C47A] ${
                                 isL3Active(i) ? "org-node-active" : ""
                               }`}
                               style={{ backgroundColor: "#e8f5ee", borderColor: "#0D3D25", color: "#0D3D25" }}
