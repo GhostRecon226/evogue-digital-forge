@@ -177,7 +177,7 @@ const AiServices = () => {
         </section>
 
         {/* Process */}
-        <section className="bg-brand-surface">
+        <section id="how-it-works" className="bg-brand-surface scroll-mt-24">
           <div className="container py-20 md:py-28">
             <Reveal>
               <div className="label-caps text-brand-secondary mb-4">How we work</div>
