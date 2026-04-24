@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/accordion";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
+import contactHero from "@/assets/contact-hero.png";
 
 const helpOptions = [
   "Product Design and Engineering",
@@ -213,16 +214,28 @@ const Contact = () => {
         {/* Section 1: Hero */}
         <section className="bg-brand-surface dot-grid">
           <div className="container pt-40 md:pt-48 pb-20 md:pb-28">
-            <div className="max-w-3xl animate-fade-in">
-              <span className="inline-flex items-center rounded-full border border-brand bg-white px-3 py-1 label-caps text-brand-primary">
-                Contact
-              </span>
-              <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-brand-primary leading-[1.05]">
-                Let's build something worth using.
-              </h1>
-              <p className="mt-5 text-lg md:text-xl text-brand-secondary max-w-2xl leading-relaxed">
-                Tell us about your project. We are based in Lagos, Nigeria and work with clients across Africa, Europe, and beyond. We respond within 24 hours on business days.
-              </p>
+            <div className="grid gap-10 md:gap-12 md:grid-cols-12 items-center">
+              <div className="md:col-span-7 animate-fade-in">
+                <span className="inline-flex items-center rounded-full border border-brand bg-white px-3 py-1 label-caps text-brand-primary">
+                  Contact
+                </span>
+                <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-brand-primary leading-[1.05]">
+                  Let's build something worth using.
+                </h1>
+                <p className="mt-5 text-lg md:text-xl text-brand-secondary max-w-2xl leading-relaxed">
+                  Tell us about your project. We are based in Lagos, Nigeria and work with clients across Africa, Europe, and beyond. We respond within 24 hours on business days.
+                </p>
+              </div>
+              <div className="md:col-span-5 animate-fade-in order-first md:order-last">
+                <img
+                  src={contactHero}
+                  alt="Abstract illustration of two hands reaching toward each other, symbolising connection and conversation"
+                  width={1024}
+                  height={1024}
+                  className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-none md:w-full h-auto select-none pointer-events-none"
+                  draggable={false}
+                />
+              </div>
             </div>
           </div>
         </section>
