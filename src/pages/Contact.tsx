@@ -222,8 +222,8 @@ const Contact = () => {
                 <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-brand-primary leading-[1.05]">
                   Let's build something worth using.
                 </h1>
-                <p className="mt-5 text-lg md:text-xl text-brand-secondary max-w-2xl leading-relaxed">
-                  Tell us about your project. We are based in Lagos, Nigeria and work with clients across Africa, Europe, and beyond. We respond within 24 hours on business days.
+                <p className="mt-5 text-lg md:text-xl text-brand-secondary max-w-2xl leading-relaxed whitespace-pre-line">
+                  {"Tell us about your project. We work with clients across Africa, Europe, and beyond.\n\n\nWe respond within 24 hours on business days."}
                 </p>
               </div>
               <div className="md:col-span-5 animate-fade-in order-first md:order-last">
@@ -385,7 +385,7 @@ const Contact = () => {
               <div className="md:pl-4 lg:pl-8">
                 <div className="label-caps text-brand-secondary">Get in touch</div>
                 <p className="mt-4 text-sm md:text-base text-brand-secondary/90 leading-relaxed">
-                  Evogue Consulting is headquartered in Lagos, Nigeria. We are a remote-first team and collaborate with clients across Africa, Europe, and global markets.
+                  Evogue Consulting is a remote-first team and collaborate with clients across Africa, Europe, and global markets.
                 </p>
                 <div className="mt-6 space-y-6">
                   {[
