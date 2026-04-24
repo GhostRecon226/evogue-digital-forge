@@ -30,7 +30,7 @@ const HeroCarousel = ({
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="relative aspect-[4/5] rotate-[10deg] transition-transform duration-500 hover:rotate-[8deg] overflow-hidden">
+      <div className="relative aspect-[4/5] overflow-hidden">
         {images.map((src, i) => (
           <img
             key={src}
