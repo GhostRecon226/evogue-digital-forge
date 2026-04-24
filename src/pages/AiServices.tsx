@@ -583,14 +583,24 @@ const AiServices = () => {
                   ].map((n, i) => (
                     <Reveal key={n.title} delay={0.2 + i * 0.05}>
                       <div className="relative flex flex-col items-center w-full">
-                        {/* Vertical stub above each L3 node — mobile shows on all but the first (L2->L3 connector lands on first) */}
+                        {/* Stub above L3 node — DESKTOP only (per-node active rule) */}
                         <div
-                          className={`org-connector org-connector-v w-px ${
-                            i === 0 ? "hidden md:block" : "block sm:hidden md:block"
-                          } ${isL3Active(i) ? "is-active" : ""}`}
+                          className={`org-connector org-connector-v w-px hidden md:block ${
+                            isL3Active(i) ? "is-active" : ""
+                          }`}
                           style={{ height: 24 }}
                           aria-hidden
                         />
+                        {/* Stub above L3 node — MOBILE only (chain rule). Hidden at sm where the layout becomes a 2-col grid (siblings aren't directly above). Skip on first node since the L2->L3 trunk lands there. */}
+                        {i > 0 && (
+                          <div
+                            className={`org-connector org-connector-v w-px block sm:hidden ${
+                              isL3MobileStubActive(i) ? "is-active" : ""
+                            }`}
+                            style={{ height: 24 }}
+                            aria-hidden
+                          />
+                        )}
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div
