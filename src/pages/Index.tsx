@@ -35,7 +35,7 @@ const services = [
   },
   {
     title: "Strategy and Consulting",
-    body: "We help businesses and teams think clearly about what to build, why to build it, and how to get there. Our strategy engagements cover product discovery, roadmap planning, market positioning, and digital transformation advisory.",
+    body: "We help you cut through the noise, figure out exactly what to build, and create a path that actually makes sense for your team and your budget.",
     icon: (
       <path d="M3 12l4-4 4 4 4-6 6 8M3 20h18" strokeWidth="1.6" />
     ),
