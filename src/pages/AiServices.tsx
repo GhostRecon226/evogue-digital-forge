@@ -99,10 +99,42 @@ const AiServices = () => {
     return false;
   };
   const isL1Active = () => orgHover !== null;
-  // L1 -> L2 trunk active whenever any L2 is active
+  // Vertical trunk drops are shared by every path, so they animate whenever
+  // any node is hovered. Horizontal spreaders are split per-branch below.
   const isL1L2TrunkActive = () => orgHover !== null;
-  // L2 -> L3 trunk active whenever any L3 is active
   const isL2L3TrunkActive = () => orgHover !== null;
+
+  // Active L2/L3 column sets for the hovered path
+  const activeL2Set = (): Set<number> => {
+    if (!orgHover) return new Set();
+    if (orgHover.level === 1) return new Set([0, 1, 2]);
+    if (orgHover.level === 2) return new Set([orgHover.index]);
+    return new Set([l3Parent[orgHover.index]]);
+  };
+  const activeL3Set = (): Set<number> => {
+    if (!orgHover) return new Set();
+    if (orgHover.level === 1) return new Set([0, 1, 2, 3, 4]);
+    if (orgHover.level === 2)
+      return new Set(l3Parent.map((p, i) => (p === orgHover.index ? i : -1)).filter((i) => i >= 0));
+    return new Set([orgHover.index]);
+  };
+
+  // For a horizontal spreader with `cols` columns whose trunk drops at the center
+  // column, return whether the left- or right-half of column `i` lies on the
+  // path between center and any active branch column in `active`.
+  // halfActive(i, side): side = 'left' | 'right'
+  const halfActive = (i: number, cols: number, active: Set<number>, side: "left" | "right") => {
+    if (active.size === 0) return false;
+    const center = Math.floor(cols / 2);
+    for (const b of active) {
+      if (b === center) continue;
+      const lo = Math.min(center, b);
+      const hi = Math.max(center, b);
+      if (side === "left" && lo < i && i <= hi) return true;
+      if (side === "right" && lo <= i && i < hi) return true;
+    }
+    return false;
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
