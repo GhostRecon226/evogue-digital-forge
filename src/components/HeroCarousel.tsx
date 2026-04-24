@@ -12,12 +12,24 @@ const HeroCarousel = ({
   intervalMs = 5000,
 }: HeroCarouselProps) => {
   const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
+
+  const goTo = (next: number) => {
+    setPrevIndex((p) => {
+      // use functional update to read current index
+      return index;
+    });
+    setIndex(next);
+  };
 
   useEffect(() => {
     if (paused || images.length <= 1) return;
     const id = window.setInterval(() => {
-      setIndex((i) => (i + 1) % images.length);
+      setIndex((i) => {
+        setPrevIndex(i);
+        return (i + 1) % images.length;
+      });
     }, intervalMs);
     return () => window.clearInterval(id);
   }, [paused, images.length, intervalMs]);
@@ -31,18 +43,25 @@ const HeroCarousel = ({
       onBlur={() => setPaused(false)}
     >
       <div className="relative aspect-[4/5] overflow-hidden">
-        {images.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt={`${alt} ${i + 1}`}
-            loading={i === 0 ? "eager" : "lazy"}
-            aria-hidden={i !== index}
-            className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-1000 ease-out ${
-              i === index ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
+        {images.map((src, i) => {
+          const isActive = i === index;
+          const isPrev = i === prevIndex;
+          const translate = isActive
+            ? "translate-x-0"
+            : isPrev
+            ? "-translate-x-full"
+            : "translate-x-full";
+          return (
+            <img
+              key={src}
+              src={src}
+              alt={`${alt} ${i + 1}`}
+              loading={i === 0 ? "eager" : "lazy"}
+              aria-hidden={!isActive}
+              className={`absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out ${translate}`}
+            />
+          );
+        })}
       </div>
 
       {images.length > 1 && (
@@ -58,7 +77,7 @@ const HeroCarousel = ({
               role="tab"
               aria-selected={i === index}
               aria-label={`Show image ${i + 1} of ${images.length}`}
-              onClick={() => setIndex(i)}
+              onClick={() => goTo(i)}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 i === index
                   ? "w-6 bg-brand-primary"
