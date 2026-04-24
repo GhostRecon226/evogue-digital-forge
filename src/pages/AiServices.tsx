@@ -78,6 +78,31 @@ const AiServices = () => {
   // Org chart hover state for animated data-flow connectors
   // level: 1 = CEO, 2 = human role, 3 = AI worker
   const [orgHover, setOrgHover] = useState<{ level: 1 | 2 | 3; index: number } | null>(null);
+  const orgChartRef = useRef<HTMLDivElement>(null);
+
+  // Tap-to-toggle for touch devices: tap a node to preview its data-flow path,
+  // tap the same node again or anywhere outside the chart to clear it.
+  const toggleOrgHover = (target: { level: 1 | 2 | 3; index: number }) => {
+    setOrgHover((prev) =>
+      prev && prev.level === target.level && prev.index === target.index ? null : target,
+    );
+  };
+
+  // Clear the active org-chart preview when the user taps outside the chart
+  // (touch devices). We listen on `pointerdown` so it fires before click and
+  // works for both touch and mouse, but only when something is active.
+  useEffect(() => {
+    if (!orgHover) return;
+    const handler = (e: PointerEvent) => {
+      const root = orgChartRef.current;
+      if (!root) return;
+      if (e.target instanceof Node && !root.contains(e.target)) {
+        setOrgHover(null);
+      }
+    };
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
+  }, [orgHover]);
 
   // Map each L3 AI worker to its L2 human parent index
   // [SDR, Receptionist, Ops Coordinator, CSM, AR]
