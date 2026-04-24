@@ -10,6 +10,7 @@ export type CaseStudy = {
   name: string;
   client: string;
   tags: string[];
+  detailTags?: string[];
   categories: CaseStudyCategory[];
   summary: string;
   metrics: string[];
@@ -42,6 +43,7 @@ export const caseStudies: CaseStudy[] = [
     name: "Fala Products",
     client: "Solar fans and lifestyle essentials brand, Nigeria",
     tags: ["E-COMMERCE", "BRANDING", "STRATEGY"],
+    detailTags: ["E-COMMERCE", "BRANDING", "STRATEGY", "ADVISORY"],
     categories: ["Branding", "Product Design", "Strategy"],
     summary:
       "Built the brand identity, e-commerce website, and business strategy for a Nigerian solar and lifestyle brand entering the market.",
