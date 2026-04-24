@@ -521,8 +521,8 @@ const Index = () => {
                 </div>
                 <div>
                   <div className="label-caps text-brand-secondary">Email</div>
-                  <a href="mailto:hello@evogue.com.ng" className="mt-1 block text-brand-primary font-semibold hover:text-brand-secondary transition-colors">
-                    hello@evogue.com.ng
+                  <a href="mailto:Hello@evogueconsulting.com" className="mt-1 block text-brand-primary font-semibold hover:text-brand-secondary transition-colors">
+                    Hello@evogueconsulting.com
                   </a>
                 </div>
               </div>
@@ -553,7 +553,7 @@ const Index = () => {
                 const body = encodeURIComponent(
                   `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\n${message}`
                 );
-                window.location.href = `mailto:hello@evogue.com.ng?subject=${subject}&body=${body}`;
+                window.location.href = `mailto:Hello@evogueconsulting.com?subject=${subject}&body=${body}`;
               }}
               className="bg-white border border-brand-border rounded-[10px] p-7 md:p-9 shadow-card"
             >

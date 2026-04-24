@@ -131,7 +131,7 @@ const About = () => {
                 {
                   "@type": "ContactPoint",
                   contactType: "customer support",
-                  email: "hello@evogue.com.ng",
+                  email: "Hello@evogueconsulting.com",
                   url: "https://evogue.consulting/#contact",
                   availableLanguage: ["English"],
                 },
