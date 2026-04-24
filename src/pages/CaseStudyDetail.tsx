@@ -108,14 +108,28 @@ const CaseStudyDetail = () => {
 
             {/* Hero image */}
             <Reveal delay={0.1} className="mt-10">
-              <div
-                className="w-full h-[320px] rounded-[12px]"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 55%, hsl(var(--brand-accent) / 0.35) 100%)",
-                }}
-                aria-hidden="true"
-              />
+              <div className="relative w-full h-[320px] md:h-[460px] rounded-[12px] overflow-hidden border border-brand bg-brand-surface">
+                {study.thumbnail ? (
+                  <img
+                    src={study.thumbnail}
+                    alt={study.thumbnailAlt ?? `${study.name} — ${study.client}`}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : (
+                  <div
+                    className="absolute inset-0 flex items-center justify-center px-6 text-center"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 55%, hsl(var(--brand-accent) / 0.35) 100%)",
+                    }}
+                    aria-hidden="true"
+                  >
+                    <span className="text-2xl md:text-3xl font-semibold text-brand-primary tracking-tight">
+                      {study.name}
+                    </span>
+                  </div>
+                )}
+              </div>
             </Reveal>
           </div>
         </section>
