@@ -3,12 +3,12 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
-import heroPortrait from "@/assets/hero-portrait.jpg";
-import heroPortrait2 from "@/assets/hero-portrait-2.jpg";
-import heroPortrait3 from "@/assets/hero-portrait-3.jpg";
-import heroPortrait4 from "@/assets/hero-portrait-4.jpg";
-import heroPortrait5 from "@/assets/hero-portrait-5.jpg";
-import heroPortrait6 from "@/assets/hero-portrait-6.jpg";
+import heroPortrait from "@/assets/hero-portrait-1.png";
+import heroPortrait2 from "@/assets/hero-portrait-2.png";
+import heroPortrait3 from "@/assets/hero-portrait-3.png";
+import heroPortrait4 from "@/assets/hero-portrait-4.png";
+import heroPortrait5 from "@/assets/hero-portrait-5.png";
+import heroPortrait6 from "@/assets/hero-portrait-6.png";
 import HeroCarousel from "@/components/HeroCarousel";
 import {
   Dialog,
