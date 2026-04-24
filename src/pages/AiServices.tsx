@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
@@ -74,6 +75,35 @@ const process = [
 ];
 
 const AiServices = () => {
+  // Org chart hover state for animated data-flow connectors
+  // level: 1 = CEO, 2 = human role, 3 = AI worker
+  const [orgHover, setOrgHover] = useState<{ level: 1 | 2 | 3; index: number } | null>(null);
+
+  // Map each L3 AI worker to its L2 human parent index
+  // [SDR, Receptionist, Ops Coordinator, CSM, AR]
+  // Parents: [Sales Lead=0, Ops Manager=1, Ops Manager=1, Account Manager=2, Ops Manager=1]
+  const l3Parent = [0, 1, 1, 2, 1];
+
+  const isL2Active = (i: number) => {
+    if (!orgHover) return false;
+    if (orgHover.level === 1) return true;
+    if (orgHover.level === 2) return orgHover.index === i;
+    if (orgHover.level === 3) return l3Parent[orgHover.index] === i;
+    return false;
+  };
+  const isL3Active = (i: number) => {
+    if (!orgHover) return false;
+    if (orgHover.level === 1) return true;
+    if (orgHover.level === 2) return l3Parent[i] === orgHover.index;
+    if (orgHover.level === 3) return orgHover.index === i;
+    return false;
+  };
+  const isL1Active = () => orgHover !== null;
+  // L1 -> L2 trunk active whenever any L2 is active
+  const isL1L2TrunkActive = () => orgHover !== null;
+  // L2 -> L3 trunk active whenever any L3 is active
+  const isL2L3TrunkActive = () => orgHover !== null;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Seo
@@ -325,7 +355,11 @@ const AiServices = () => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <div
-                        className="rounded-[10px] px-6 py-4 text-center shadow-sm min-w-[260px] cursor-help transition-transform hover:-translate-y-0.5"
+                        onMouseEnter={() => setOrgHover({ level: 1, index: 0 })}
+                        onMouseLeave={() => setOrgHover(null)}
+                        className={`rounded-[10px] px-6 py-4 text-center shadow-sm min-w-[260px] cursor-help transition-transform hover:-translate-y-0.5 ${
+                          isL1Active() ? "org-node-active" : ""
+                        }`}
                         style={{ backgroundColor: "#0D3D25", color: "#ffffff" }}
                       >
                         <div className="font-semibold text-base md:text-lg">Founder / CEO</div>
@@ -340,14 +374,13 @@ const AiServices = () => {
 
                 {/* Connector L1 -> L2 (vertical line, both mobile + desktop) */}
                 <div
-                  className="w-px"
-                  style={{ height: 32, backgroundColor: "#d0e8da" }}
+                  className={`org-connector org-connector-v w-px ${isL1L2TrunkActive() ? "is-active" : ""}`}
+                  style={{ height: 32 }}
                   aria-hidden
                 />
                 {/* Horizontal spreader — desktop only */}
                 <div
-                  className="hidden md:block h-px w-[80%] max-w-[760px]"
-                  style={{ backgroundColor: "#d0e8da" }}
+                  className={`org-connector org-connector-h hidden md:block h-px w-[80%] max-w-[760px] ${isL1L2TrunkActive() ? "is-active" : ""}`}
                   aria-hidden
                 />
 
@@ -374,14 +407,20 @@ const AiServices = () => {
                       <div className="relative flex flex-col items-center w-full">
                         {/* Vertical stub above each L2 node — mobile gets one too (skip first on mobile since L1 connector already lands there) */}
                         <div
-                          className={`w-px ${i === 0 ? "hidden md:block" : "block"}`}
-                          style={{ height: 24, backgroundColor: "#d0e8da" }}
+                          className={`org-connector org-connector-v w-px ${i === 0 ? "hidden md:block" : "block"} ${
+                            isL2Active(i) ? "is-active" : ""
+                          }`}
+                          style={{ height: 24 }}
                           aria-hidden
                         />
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div
-                              className="w-full rounded-[10px] px-5 py-4 text-center bg-white border-2 cursor-help transition-transform hover:-translate-y-0.5"
+                              onMouseEnter={() => setOrgHover({ level: 2, index: i })}
+                              onMouseLeave={() => setOrgHover(null)}
+                              className={`w-full rounded-[10px] px-5 py-4 text-center bg-white border-2 cursor-help transition-transform hover:-translate-y-0.5 ${
+                                isL2Active(i) ? "org-node-active" : ""
+                              }`}
                               style={{ borderColor: "#0D3D25", color: "#0D3D25" }}
                             >
                               <div className="font-semibold text-base">{n.title}</div>
@@ -397,14 +436,13 @@ const AiServices = () => {
 
                 {/* Connector L2 -> L3 (vertical line, both mobile + desktop) */}
                 <div
-                  className="w-px"
-                  style={{ height: 32, backgroundColor: "#d0e8da", marginTop: 8 }}
+                  className={`org-connector org-connector-v w-px ${isL2L3TrunkActive() ? "is-active" : ""}`}
+                  style={{ height: 32, marginTop: 8 }}
                   aria-hidden
                 />
                 {/* Horizontal spreader — desktop only */}
                 <div
-                  className="hidden md:block h-px w-[90%] max-w-[1000px]"
-                  style={{ backgroundColor: "#d0e8da" }}
+                  className={`org-connector org-connector-h hidden md:block h-px w-[90%] max-w-[1000px] ${isL2L3TrunkActive() ? "is-active" : ""}`}
                   aria-hidden
                 />
 
@@ -441,14 +479,20 @@ const AiServices = () => {
                       <div className="relative flex flex-col items-center w-full">
                         {/* Vertical stub above each L3 node — mobile shows on all but the first (L2->L3 connector lands on first) */}
                         <div
-                          className={`w-px ${i === 0 ? "hidden md:block" : "block sm:hidden md:block"}`}
-                          style={{ height: 24, backgroundColor: "#d0e8da" }}
+                          className={`org-connector org-connector-v w-px ${
+                            i === 0 ? "hidden md:block" : "block sm:hidden md:block"
+                          } ${isL3Active(i) ? "is-active" : ""}`}
+                          style={{ height: 24 }}
                           aria-hidden
                         />
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div
-                              className="relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-help transition-transform hover:-translate-y-0.5"
+                              onMouseEnter={() => setOrgHover({ level: 3, index: i })}
+                              onMouseLeave={() => setOrgHover(null)}
+                              className={`relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-help transition-transform hover:-translate-y-0.5 ${
+                                isL3Active(i) ? "org-node-active" : ""
+                              }`}
                               style={{ backgroundColor: "#e8f5ee", borderColor: "#0D3D25", color: "#0D3D25" }}
                             >
                               <span
