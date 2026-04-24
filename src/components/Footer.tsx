@@ -11,7 +11,7 @@ const quickLinks = [
 ];
 
 const supportLinks = [
-  { label: "FAQ", to: "/#faq" },
+  { label: "FAQ", to: "/faq" },
   { label: "Terms & Conditions", to: "/terms" },
   { label: "Privacy Policy", to: "/privacy" },
 ];
