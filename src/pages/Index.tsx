@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
+import StatsIntro from "@/components/StatsIntro";
 import heroPortrait from "@/assets/hero-portrait-1.png";
 import heroPortrait2 from "@/assets/hero-portrait-2.png";
 import heroPortrait3 from "@/assets/hero-portrait-3.png";
