@@ -385,7 +385,7 @@ const Contact = () => {
               <div className="md:pl-4 lg:pl-8">
                 <div className="label-caps text-brand-secondary">Get in touch</div>
                 <p className="mt-4 text-sm md:text-base text-brand-secondary/90 leading-relaxed">
-                  Evogue Consulting is headquartered in Lagos, Nigeria. We are a remote-first team and collaborate with clients across Africa, Europe, and global markets.
+                  Evogue Consulting is a remote-first team and collaborate with clients across Africa, Europe, and global markets.
                 </p>
                 <div className="mt-6 space-y-6">
                   {[
