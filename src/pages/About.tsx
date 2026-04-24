@@ -4,6 +4,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
+import StatsIntro from "@/components/StatsIntro";
 
 const beliefs = [
   {
