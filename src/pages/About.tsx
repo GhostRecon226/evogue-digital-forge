@@ -75,10 +75,10 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>About Evogue Consulting | Product Studio Raising the Standard</title>
+        <title>About Evogue Consulting | Product Studio Based in Lagos, Nigeria</title>
         <meta
           name="description"
-          content="Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally. Meet the team and our mission."
+          content="Learn about Evogue Consulting, a product studio and consulting firm founded in Lagos, Nigeria. We design, build, and scale digital products for teams across Africa and globally."
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <meta
@@ -259,7 +259,7 @@ const About = () => {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
-              Evogue is a product studio and consulting firm with one goal: to raise the standard of digital product development on the African continent and beyond.
+              Evogue Consulting is a product studio and consulting firm founded in Lagos, Nigeria, with one goal: to raise the standard of digital product development on the African continent and beyond.
             </p>
           </Reveal>
         </div>
@@ -283,13 +283,13 @@ const About = () => {
             <Reveal delay={0.15}>
               <div className="space-y-5 text-brand-secondary/90 text-base md:text-lg leading-relaxed">
                 <p>
-                  Great products don't happen by accident. They come from a tight blend of strategy, engineering, and human-centered design. That blend is what we bring to every engagement.
+                  Evogue was built on a simple conviction. The African continent deserved better digital products. Not just functional ones but products people actually want to use, built with strategy, care, and technical precision.
                 </p>
                 <p>
-                  We started Evogue because we believed the continent deserved better digital products. Not just functional ones. Products people actually want to use.
+                  We started in Lagos, Nigeria, and built our practice around a tight blend of strategy, engineering, and human-centered design. That blend is what we bring to every engagement, whether the client is a startup in Accra, a scaleup in London, or an enterprise in Lagos.
                 </p>
                 <p>
-                  That conviction hasn't changed. What's grown is our reach. Today we work with teams across Africa and globally, bringing the same standard to every project.
+                  Today, Evogue is a full-service product studio working with ambitious teams across Africa, Europe, and beyond.
                 </p>
               </div>
             </Reveal>
@@ -426,12 +426,11 @@ const About = () => {
             </h2>
             <div className="mt-8 space-y-5 text-brand-accent/90 leading-relaxed text-base md:text-lg max-w-xl">
               <p>
-                We started with a conviction that the African continent deserved a higher standard of digital product development. That's still true.
+                Evogue was founded in Lagos, Nigeria, with a specific mission: to raise the standard of digital product development on the African continent. We believe Africa's tech ecosystem deserves the same quality of product thinking, engineering, and design that global markets expect.
               </p>
               <p>
-                But ambition doesn't have a geography. We work with teams anywhere in the world, and we bring the same standard to every engagement.
+                That conviction has not changed. What has grown is our reach. We now work with teams across Africa, Europe, and globally, bringing the same standard to every project regardless of geography.
               </p>
-              <p>That perspective, built from the continent outward, is what makes us different.</p>
             </div>
           </Reveal>
           <Reveal delay={0.15}>
