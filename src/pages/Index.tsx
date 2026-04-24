@@ -262,29 +262,31 @@ const Index = () => {
 
             <Reveal delay={0.2} className="lg:col-span-5">
               <div className="relative mx-auto max-w-md lg:max-w-none lg:ml-auto">
-                {/* Decorative backdrop */}
+                {/* Soft brand-tinted glow that bleeds into the surface */}
                 <div
                   aria-hidden="true"
-                  className="absolute -inset-4 rounded-[14px] bg-gradient-to-br from-brand-primary/15 via-brand-accent/10 to-transparent blur-2xl"
+                  className="absolute -inset-8 md:-inset-12 rounded-full bg-gradient-to-br from-brand-primary/10 via-brand-accent/[0.06] to-transparent blur-3xl"
                 />
-                <div
-                  aria-hidden="true"
-                  className="absolute -bottom-4 -right-4 w-2/3 h-2/3 rounded-[10px] border border-brand-primary/20 hidden md:block"
-                />
-                <div className="relative overflow-hidden rounded-[12px] border border-brand-border shadow-card bg-brand-surface aspect-[4/5]">
+                <div className="relative aspect-[4/5]">
                   <img
                     src={heroPortrait}
                     alt="Evogue Consulting team member"
                     loading="eager"
                     className="w-full h-full object-cover object-center"
+                    style={{
+                      WebkitMaskImage:
+                        "radial-gradient(ellipse 75% 85% at 50% 42%, #000 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0) 100%)",
+                      maskImage:
+                        "radial-gradient(ellipse 75% 85% at 50% 42%, #000 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0) 100%)",
+                    }}
                   />
-                  {/* Blend overlay to merge with surface */}
+                  {/* Edge wash to lock the fade against #f7fdf9 on every breakpoint */}
                   <div
                     aria-hidden="true"
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       background:
-                        "linear-gradient(180deg, hsl(var(--brand-surface) / 0) 55%, hsl(var(--brand-surface) / 0.55) 100%)",
+                        "radial-gradient(ellipse 80% 90% at 50% 45%, hsl(var(--brand-surface) / 0) 55%, hsl(var(--brand-surface) / 0.55) 78%, hsl(var(--brand-surface)) 100%)",
                     }}
                   />
                 </div>
