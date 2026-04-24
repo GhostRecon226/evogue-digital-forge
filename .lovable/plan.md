@@ -1,63 +1,35 @@
 
 
-# Case Studies Page
+# Make Hero Portrait Background Match Hero Surface
 
-Add a dedicated Case Studies experience: an index page with filtering and a project grid, plus a dynamic individual case study page reachable from each card.
+The current `hero-portrait.jpg` has its own baked-in background color (from the original upload), which is why even with the radial mask, you still see a different tone behind the subject. We'll remove the image's background and replace it with a transparent PNG so the hero's `#f7fdf9` (`--brand-surface`) shows through cleanly behind the subject.
 
-## Routes
+## What we'll change
 
-- `/case-studies` — index (hero, filter bar, grid, CTA banner)
-- `/case-studies/:slug` — individual case study layout
-- Update homepage nav anchor `#case-studies` to also link here from the "Case Studies" nav item
+1. **Process the source image** (`src/assets/hero-portrait.jpg`)
+   - Use a background-removal step to isolate the subject.
+   - Export as `src/assets/hero-portrait.png` with a fully transparent background.
+   - Keep the original JPG in place as a fallback (no deletion needed).
 
-## Files
+2. **Update the Hero image markup** (`src/pages/Index.tsx`, lines ~263–294)
+   - Swap the import to the new transparent PNG.
+   - Remove the `WebkitMaskImage` / `maskImage` radial mask — it's no longer needed once the background is gone.
+   - Remove the radial "edge wash" overlay (`absolute inset-0` div) for the same reason.
+   - Keep the soft brand-tinted glow halo behind the subject for depth.
+   - Result: the subject sits directly on the hero's `#f7fdf9` background with a subtle glow, no visible rectangle or color mismatch.
 
-**New**
-- `src/data/caseStudies.ts` — typed array of 6 case studies (slug, tags, name, client, summary, metrics, problem/approach/outcome paragraphs, details: industry, services, duration, year). Single source of truth for both list and detail pages.
-- `src/pages/CaseStudies.tsx` — index page
-- `src/pages/CaseStudyDetail.tsx` — individual layout
+3. **Preserve responsiveness & accessibility**
+   - Keep the `aspect-[4/5]` container, `object-cover object-center`, `lg:col-span-5` placement, and `Reveal` animation untouched.
+   - Keep the existing `alt` text.
 
-**Edited**
-- `src/App.tsx` — register the two new routes above the catch-all
-- `src/components/Nav.tsx` — point the "Case Studies" link to `/case-studies` (keep behavior consistent with About/Contact pattern)
+## Technical notes
 
-## Section-by-section build (`/case-studies`)
-
-1. **Hero** — `bg-brand-surface` + `dot-grid` overlay (matches homepage). Pill `CASE STUDIES`, h1 "Work that speaks for itself.", secondary green subhead. Fades in via `Reveal`.
-2. **Filter bar** — sticky-feeling row of 6 pills (All, Product Design, Engineering, Strategy, Branding, AI and Automation). Local `useState` for active filter. Selected: `bg-brand-primary text-white`; unselected: white bg, `border-brand` thin border, `text-brand-primary`. Hover lifts color to secondary green.
-3. **Grid** — `md:grid-cols-2 gap-6`, cards rendered with Framer Motion `AnimatePresence` + `layout` so non-matching cards fade/scale out and the grid reflows smoothly. Card structure exactly per spec: 200px gradient thumbnail (`linear-gradient(135deg, brand-surface → brand-border → brand-accent/35)`), tag chips (reuse `Pill` style), name, client line, 2-line summary (`line-clamp-2`), 3-metric row (small pill style with accent-tinted background), and a "View Case Study →" link revealed on hover. Hover: `-translate-y-1`, `shadow-card`, border transitions to `brand-secondary`. Cards stagger in via `Reveal delay={i * 0.08}`.
-4. **CTA banner** — `bg-brand-primary` strip, accent-green eyebrow, white headline "Seen enough? Let's talk.", light-green subtext, white button → `/contact`.
-5. **Footer** — existing `<Footer />`.
-
-## Individual case study (`/case-studies/:slug`)
-
-Lookup by slug; if not found render a small "Not found, back to Case Studies" state.
-
-- Back link top-left ("← Back to Case Studies", `text-brand-secondary`, hover deep green).
-- Hero block: tag row, large h1 name, one-line summary, 3 metric pills inline.
-- Full-width 320px gradient image placeholder, rounded.
-- Two-column body (`lg:grid-cols-3`, gap-12):
-  - **Left (col-span-2)**: "The Problem", "Our Approach", "The Outcome" — each with `label-caps` label + 2–3 paragraph body.
-  - **Right (col-span-1, sticky `lg:sticky lg:top-32 self-start`)**:
-    - Project details card (border-brand, rounded): Client, Industry, Services, Duration, Year.
-    - CTA card: "Have a similar project?" + "Start a Project" button → `/contact`.
-- Bottom strip: right-aligned "Next Case Study →" linking to the next slug in the array (wraps to first).
-
-## Animations
-
-- Reuse `Reveal` for hero, section headings, and card stagger.
-- Filter transitions: Framer Motion `AnimatePresence` with `layout` on each card; fade + slight scale on enter/exit (~250ms).
-- Smooth scroll already inherited from global `html { scroll-behavior: smooth }`.
-- Hover lift on cards via Tailwind transitions (already used on homepage).
-
-## SEO / polish
-
-- `<Helmet>` titles + meta descriptions on both pages (matches Contact page pattern).
-- `scroll-margin-top` already handles the sticky nav offset globally.
-- Mobile: filter bar becomes horizontally scrollable (`overflow-x-auto`, `snap-x`) so all six pills remain reachable; grid collapses to 1 column.
+- Background removal will be done via the `@huggingface/transformers` browser-side model OR a one-shot processing script during implementation that writes the cleaned PNG to `src/assets/`. We'll do the latter (build-time, not runtime) so there's zero performance cost in the browser — the served asset is already transparent.
+- `--brand-surface` in `src/index.css` resolves to `#f7fdf9`, which is what will show through the transparent areas — exactly the user's requested behavior.
+- No changes needed to Tailwind config, other pages, or the case studies system.
 
 ## Out of scope
 
-- No CMS/backend wiring — case studies stay in the static `caseStudies.ts` array. (Easy to migrate to a `case_studies` table later if you want.)
-- Email-form/cloud work continues to wait on DNS verification — unchanged by this task.
+- No changes to copy, CTAs, stats row, or layout proportions.
+- No changes to other images on the site.
 
