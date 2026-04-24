@@ -200,6 +200,66 @@ const AiServices = () => {
           </div>
         </section>
 
+        {/* AI Digital Workers */}
+        <section style={{ backgroundColor: "#f7fdf9" }}>
+          <div className="container py-20 md:py-28">
+            <Reveal>
+              <div className="label-caps text-brand-accent mb-4">AI Digital Workers</div>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-3xl">
+                Hire AI. Not headcount.
+              </h2>
+              <p className="mt-5 text-lg text-brand-secondary/90 max-w-3xl leading-relaxed">
+                These aren&rsquo;t tools you buy and figure out yourself. These are deployable AI workers with defined roles, measurable outputs, and zero onboarding time. You tell us which role you need filled. We deploy it in weeks.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                { title: "SDR Agent", category: "Sales", body: "Books meetings while you sleep. Handles outreach, qualifies leads, updates your CRM, and follows up without you lifting a finger." },
+                { title: "Receptionist Agent", category: "Operations", body: "Your front desk, always on. Answers inbound enquiries, qualifies leads, and books appointments at 2am if needed." },
+                { title: "Customer Success Agent", category: "Customer Success", body: "Monitors every client relationship in your portfolio. Spots churn before it happens and escalates to your team before it's too late." },
+                { title: "Content and Social Agent", category: "Marketing", body: "Keeps your brand presence consistent without consuming your week. Generates, schedules, and publishes content across your platforms automatically." },
+                { title: "AR and Collections Agent", category: "Finance", body: "Chases invoices so your team doesn't have to. Consistent, firm, and entirely without awkwardness." },
+                { title: "Onboarding Agent", category: "Operations", body: "Turns a chaotic first week into a smooth, guided experience. Every new client gets the same high-quality onboarding, every time." },
+              ].map((worker, i) => (
+                <Reveal key={worker.title} delay={i * 0.05}>
+                  <article
+                    className="h-full bg-white rounded-[8px] p-7 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_-12px_rgba(0,196,122,0.25)]"
+                    style={{ borderColor: "#d0e8da" }}
+                    onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#00C47A"; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#d0e8da"; }}
+                  >
+                    <span
+                      className="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-semibold tracking-[0.12em] uppercase"
+                      style={{ color: "#00C47A", backgroundColor: "rgba(0, 196, 122, 0.10)", border: "1px solid rgba(0, 196, 122, 0.25)" }}
+                    >
+                      {worker.category}
+                    </span>
+                    <h3 className="mt-4 text-xl font-semibold text-brand-primary tracking-tight">{worker.title}</h3>
+                    <p className="mt-3 text-brand-secondary/90 leading-relaxed">{worker.body}</p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* Cost comparison strip */}
+          <div style={{ backgroundColor: "#0D3D25" }}>
+            <div className="container py-10 md:py-12 flex flex-col md:flex-row md:items-center gap-6 md:gap-10">
+              <p className="text-white text-base md:text-lg leading-relaxed md:flex-1">
+                A full-time employee costs $55,000 to $85,000 a year. An AI Digital Worker costs a fraction of that and never takes a day off.
+              </p>
+              <a
+                href="#pricing"
+                className="inline-flex items-center justify-center bg-white text-sm font-semibold px-5 py-3 rounded-[4px] hover:opacity-90 transition-opacity self-start md:self-auto whitespace-nowrap"
+                style={{ color: "#0D3D25" }}
+              >
+                See Pricing
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Capabilities */}
         <section className="bg-background border-b border-brand">
           <div className="container py-20 md:py-28">
