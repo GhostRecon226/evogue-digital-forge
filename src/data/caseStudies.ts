@@ -13,6 +13,8 @@ export type CaseStudy = {
   detailTags?: string[];
   categories: CaseStudyCategory[];
   summary: string;
+  thumbnail?: string;
+  thumbnailAlt?: string;
   metrics: string[];
   details: {
     client: string;
