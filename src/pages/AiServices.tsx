@@ -603,22 +603,36 @@ const AiServices = () => {
         </section>
 
         {/* CTA Banner */}
-        <section className="bg-brand-primary">
+        <section style={{ backgroundColor: "#0D3D25" }}>
           <div className="container py-20 md:py-24 text-center">
             <Reveal>
-              <div className="label-caps text-brand-accent">Start a Project</div>
+              <div className="label-caps" style={{ color: "#00C47A" }}>
+                Let's Build
+              </div>
               <h2 className="mt-4 text-3xl md:text-5xl font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
-                Have an AI idea? Let's pressure-test it.
+                Ready to find out what AI can do for your business?
               </h2>
-              <p className="mt-5 text-lg text-white/75 max-w-xl mx-auto">
-                Tell us what you're trying to solve. We'll tell you honestly whether AI is the right tool — and if so, what to build.
-              </p>
-              <Link
-                to="/contact"
-                className="mt-8 inline-flex items-center justify-center bg-white text-brand-primary text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-accent hover:text-brand-primary transition-colors"
+              <p
+                className="mt-5 text-lg max-w-2xl mx-auto leading-relaxed"
+                style={{ color: "#B8E5CC" }}
               >
-                Start a Project
-              </Link>
+                Book a free 30-minute discovery call. We'll identify your highest-impact AI opportunity and tell you exactly how we'd approach it. No pitch. Just clarity.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center bg-white text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:opacity-90 transition-opacity"
+                  style={{ color: "#0D3D25" }}
+                >
+                  Book a Discovery Call
+                </Link>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center bg-transparent text-white border border-white/70 text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-white/10 hover:border-white transition-colors"
+                >
+                  Start a Project
+                </Link>
+              </div>
             </Reveal>
           </div>
         </section>
