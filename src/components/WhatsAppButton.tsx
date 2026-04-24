@@ -1,8 +1,10 @@
 const WHATSAPP_NUMBER = "2348107396844";
-const WHATSAPP_MESSAGE = "Hello Evogue team, I'm interested in booking a consultation.";
+const WHATSAPP_MESSAGE = "Hello Evogue team, I am interested in booking a consultation.";
 
 const WhatsAppButton = () => {
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+  const href = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(
+    WHATSAPP_MESSAGE,
+  )}`;
 
   return (
     <a
