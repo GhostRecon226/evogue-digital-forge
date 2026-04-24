@@ -156,7 +156,7 @@ const About = () => {
                 },
               ],
               sameAs: [
-                "https://www.linkedin.com/company/evogue-consulting",
+                "https://www.linkedin.com/company/evogueconsulting/",
                 "https://x.com/evogueconsulting",
                 "https://www.instagram.com/evogueconsult",
                 "https://github.com/evogue-consulting",
