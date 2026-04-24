@@ -126,4 +126,31 @@
   .bg-brand-surface { background-color: hsl(var(--brand-surface)); }
   .bg-brand-dark-strip { background-color: hsl(var(--brand-dark-strip)); }
   .border-brand { border-color: hsl(var(--brand-border)); }
+
+  /* Tracking-in caps reveal — used for stats intro line */
+  @keyframes track-in {
+    0% {
+      letter-spacing: -0.02em;
+      opacity: 0;
+      filter: blur(2px);
+    }
+    100% {
+      letter-spacing: 0.18em;
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  .animate-track-in {
+    animation: track-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  /* Accent rule that grows from center — paired with the intro line */
+  @keyframes grow-rule {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  .animate-grow-rule {
+    transform-origin: center;
+    animation: grow-rule 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+  }
 }
