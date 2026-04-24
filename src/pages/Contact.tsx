@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: "What about the Academy?",
-    a: "The Academy is a separate programme for individuals, not businesses. Visit the Academy page for full details on programmes and enrollment.",
+    a: "The Academy is a separate programme for individuals, not businesses. Visit www.evogueacademy.com for full details on programmes and enrollment.",
   },
 ];
 
