@@ -429,11 +429,7 @@ const About = () => {
             </h2>
           </Reveal>
           <div className="mt-12 pt-10 border-t border-brand-border">
-            <Reveal>
-              <p className="label-caps text-brand-secondary text-center">
-                We let the numbers do some of the talking.
-              </p>
-            </Reveal>
+            <StatsIntro />
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-y-8">
               {stats.map((s, i) => (
                 <Reveal key={s.label} delay={0.1 * i}>
