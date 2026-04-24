@@ -388,7 +388,7 @@ const AiServices = () => {
               </p>
             </Reveal>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="mt-12 grid gap-8 md:gap-6 md:grid-cols-3">
               {[
                 { n: "01", title: "Built for your context", body: "We don't install generic tools and call it done. Every solution is built around how your team actually works, what your customers actually ask, and what outcomes actually move your business forward." },
                 { n: "02", title: "We speak both languages", body: "Most AI vendors speak tech. Most consultants speak business. We speak both fluently. That means you get solutions that are technically sound and practically useful from day one." },
@@ -396,7 +396,9 @@ const AiServices = () => {
               ].map((item, i) => (
                 <Reveal key={item.n} delay={i * 0.08}>
                   <article
-                    className="h-full bg-white rounded-[8px] p-7 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_-12px_rgba(0,196,122,0.25)]"
+                    className={`h-full bg-white rounded-[8px] p-7 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_-12px_rgba(0,196,122,0.25)] ${
+                      i > 0 ? "pt-9 md:pt-7 border-t-2 md:border-t" : ""
+                    }`}
                     style={{ borderColor: "#d0e8da" }}
                     onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#00C47A"; }}
                     onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#d0e8da"; }}
