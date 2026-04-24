@@ -352,7 +352,7 @@ const AiServices = () => {
                 />
 
                 {/* Level 2 — Humans */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-0 md:pt-6 max-w-4xl relative">
+                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6 mt-0 md:mt-0 md:pt-6 max-w-4xl relative">
                   {[
                     {
                       title: "Sales Lead",
