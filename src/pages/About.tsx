@@ -249,17 +249,13 @@ const About = () => {
             </div>
             <Reveal delay={0.25}>
               <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-                <div
-                  aria-hidden="true"
-                  className="absolute -inset-3 md:-inset-4 rounded-[14px] bg-brand-accent/20 -z-10 translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4"
-                />
                 <img
                   src={aboutHero}
                   alt="Illustration of the Evogue Consulting team collaborating around a workspace with sketches, design tools, and screens"
                   width={1280}
                   height={1280}
                   fetchPriority="high"
-                  className="relative w-full h-auto rounded-[12px] border border-brand-border shadow-card object-cover"
+                  className="w-full h-auto object-cover"
                 />
               </div>
             </Reveal>
