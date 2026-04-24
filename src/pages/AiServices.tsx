@@ -410,11 +410,36 @@ const AiServices = () => {
                   style={{ height: 32 }}
                   aria-hidden
                 />
-                {/* Horizontal spreader — desktop only */}
-                <div
-                  className={`org-connector org-connector-h hidden md:block h-px w-[80%] max-w-[760px] ${isL1L2TrunkActive() ? "is-active" : ""}`}
-                  aria-hidden
-                />
+                {/* Horizontal spreader — desktop only, split into per-column halves */}
+                {(() => {
+                  const cols = 3;
+                  const active = activeL2Set();
+                  return (
+                    <div className="hidden md:grid grid-cols-3 gap-6 w-full max-w-4xl">
+                      {Array.from({ length: cols }).map((_, i) => {
+                        const center = Math.floor(cols / 2);
+                        return (
+                          <div key={i} className="flex h-px">
+                            {/* left half — invisible for leftmost column */}
+                            <div
+                              className={`org-connector org-connector-h h-px flex-1 ${
+                                i === 0 ? "opacity-0" : ""
+                              } ${halfActive(i, cols, active, "left") ? "is-active" : ""}`}
+                              aria-hidden
+                            />
+                            {/* right half — invisible for rightmost column */}
+                            <div
+                              className={`org-connector org-connector-h h-px flex-1 ${
+                                i === cols - 1 ? "opacity-0" : ""
+                              } ${halfActive(i, cols, active, "right") ? "is-active" : ""}`}
+                              aria-hidden
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
 
                 {/* Level 2 — Humans */}
                 <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6 mt-0 md:mt-0 md:pt-6 max-w-4xl relative">
