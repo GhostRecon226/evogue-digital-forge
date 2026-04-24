@@ -37,7 +37,7 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
             src={study.thumbnail}
             alt={study.thumbnailAlt ?? `${study.name} project thumbnail`}
             loading="lazy"
-            className="absolute inset-0 h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
           />
         ) : (
           <div
