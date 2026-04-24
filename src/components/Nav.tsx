@@ -9,6 +9,7 @@ const links: NavLink[] = [
   { label: "Home", href: "/#home", section: "home" },
   { label: "About", href: "/about" },
   { label: "Case Studies", href: "/case-studies" },
+  { label: "AI Services", href: "/ai-services" },
   { label: "Academy ↗", href: "https://www.evogueacademy.com", external: true },
   { label: "Contact", href: "/contact" },
 ];
