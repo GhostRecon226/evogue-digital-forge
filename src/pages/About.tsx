@@ -75,37 +75,16 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="About Evogue Consulting | Product Studio Based in Lagos, Nigeria"
+        description="Learn about Evogue Consulting, a product studio and consulting firm founded in Lagos, Nigeria. We design, build, and scale digital products for teams across Africa and globally."
+        path="/about"
+      />
       <Helmet>
-        <title>About Evogue Consulting | Product Studio Based in Lagos, Nigeria</title>
-        <meta
-          name="description"
-          content="Learn about Evogue Consulting, a product studio and consulting firm founded in Lagos, Nigeria. We design, build, and scale digital products for teams across Africa and globally."
-        />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <meta
           name="keywords"
           content="Evogue Consulting, product studio Africa, digital product development, product design, software engineering, AI agents, automation, strategy consulting, African tech, Lagos product studio"
-        />
-        <meta name="author" content="Evogue Consulting" />
-        <link rel="canonical" href="https://evogue.consulting/about" />
-
-        {/* Open Graph */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://evogue.consulting/about" />
-        <meta property="og:title" content="About Evogue Consulting | Product Studio Raising the Standard" />
-        <meta
-          property="og:description"
-          content="Strategy, engineering, and design for teams who care about shipping products that earn their place. Origin: Africa. Reach: Global."
-        />
-        <meta property="og:site_name" content="Evogue Consulting" />
-        <meta property="og:locale" content="en_US" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="About Evogue Consulting" />
-        <meta
-          name="twitter:description"
-          content="A product studio and consulting firm raising the standard of digital product development across Africa and globally."
         />
 
         {/* JSON-LD graph: Organization + WebSite + AboutPage + FAQPage */}
