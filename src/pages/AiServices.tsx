@@ -355,7 +355,11 @@ const AiServices = () => {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <div
-                        className="rounded-[10px] px-6 py-4 text-center shadow-sm min-w-[260px] cursor-help transition-transform hover:-translate-y-0.5"
+                        onMouseEnter={() => setOrgHover({ level: 1, index: 0 })}
+                        onMouseLeave={() => setOrgHover(null)}
+                        className={`rounded-[10px] px-6 py-4 text-center shadow-sm min-w-[260px] cursor-help transition-transform hover:-translate-y-0.5 ${
+                          isL1Active() ? "org-node-active" : ""
+                        }`}
                         style={{ backgroundColor: "#0D3D25", color: "#ffffff" }}
                       >
                         <div className="font-semibold text-base md:text-lg">Founder / CEO</div>
