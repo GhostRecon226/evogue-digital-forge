@@ -185,7 +185,7 @@ const CaseStudyDetail = () => {
                           }
                         : null,
                     ]
-                      .filter((row): row is { k: string; v: React.ReactNode } => row !== null)
+                      .filter((row) => row !== null)
                       .map((row) => (
                         <div key={row.k} className="flex flex-col">
                           <dt className="text-xs font-semibold uppercase tracking-wider text-brand-primary/60">
