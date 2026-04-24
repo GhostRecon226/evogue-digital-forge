@@ -479,14 +479,20 @@ const AiServices = () => {
                       <div className="relative flex flex-col items-center w-full">
                         {/* Vertical stub above each L3 node — mobile shows on all but the first (L2->L3 connector lands on first) */}
                         <div
-                          className={`w-px ${i === 0 ? "hidden md:block" : "block sm:hidden md:block"}`}
-                          style={{ height: 24, backgroundColor: "#d0e8da" }}
+                          className={`org-connector org-connector-v w-px ${
+                            i === 0 ? "hidden md:block" : "block sm:hidden md:block"
+                          } ${isL3Active(i) ? "is-active" : ""}`}
+                          style={{ height: 24 }}
                           aria-hidden
                         />
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div
-                              className="relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-help transition-transform hover:-translate-y-0.5"
+                              onMouseEnter={() => setOrgHover({ level: 3, index: i })}
+                              onMouseLeave={() => setOrgHover(null)}
+                              className={`relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-help transition-transform hover:-translate-y-0.5 ${
+                                isL3Active(i) ? "org-node-active" : ""
+                              }`}
                               style={{ backgroundColor: "#e8f5ee", borderColor: "#0D3D25", color: "#0D3D25" }}
                             >
                               <span
