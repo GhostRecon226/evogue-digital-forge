@@ -429,7 +429,9 @@ const Index = () => {
               The Academy is where we hand-hold non-tech individuals into tech career paths. Project management, business analysis, and more. Practical, structured, and built for the continent.
             </p>
             <a
-              href="#"
+              href="https://www.evogueacademy.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-7 inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
             >
               Visit the Academy
