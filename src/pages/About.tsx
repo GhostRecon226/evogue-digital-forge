@@ -77,6 +77,8 @@ const SectionLabel = ({ children }: { children: React.ReactNode }) => (
 );
 
 const About = () => {
+  const heroImageRef = useRef<HTMLDivElement>(null);
+  const heroImageInView = useInView(heroImageRef, { once: true, margin: "-80px" });
   return (
     <div className="min-h-screen bg-background">
       <Seo
