@@ -2,18 +2,20 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+// @ts-expect-error — plain JS module without types
 import { generateSitemap } from "./scripts/generate-sitemap.mjs";
 
 // Vite plugin: regenerates public/sitemap.xml automatically.
 // - Runs once when the dev server starts and on every build
 // - Re-runs whenever src/data/caseStudies.ts is edited
 function sitemapPlugin() {
-  const run = (label) => {
+  const run = (label: string) => {
     try {
-      const { count, slugs } = generateSitemap();
+      const { count, slugs } = generateSitemap() as { count: number; slugs: string[] };
       console.log(`[sitemap] ${label}: ${count} URLs (${slugs.length} case studies)`);
     } catch (err) {
-      console.warn("[sitemap] generation failed:", err?.message ?? err);
+      const message = err instanceof Error ? err.message : String(err);
+      console.warn("[sitemap] generation failed:", message);
     }
   };
   return {
@@ -22,9 +24,9 @@ function sitemapPlugin() {
     buildStart() {
       run("build");
     },
-    configureServer(server) {
+    configureServer(server: { watcher: { on: (event: string, cb: (file: string) => void) => void } }) {
       run("dev start");
-      server.watcher.on("change", (file) => {
+      server.watcher.on("change", (file: string) => {
         if (file.replace(/\\/g, "/").endsWith("src/data/caseStudies.ts")) {
           run("caseStudies.ts changed");
         }
