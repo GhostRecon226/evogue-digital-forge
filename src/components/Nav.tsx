@@ -3,6 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
+type NavProps = {
+  /** When true, the nav starts transparent with white text/logo, then switches
+   *  to the solid white state once the user scrolls past the hero. Use on
+   *  pages with a dark hero (e.g. AI Services). */
+  transparentOnDarkHero?: boolean;
+};
+
 type NavLink = { label: string; href: string; section?: string; external?: boolean };
 
 const links: NavLink[] = [
@@ -14,15 +21,16 @@ const links: NavLink[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-const Nav = () => {
+const Nav = ({ transparentOnDarkHero = false }: NavProps) => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("home");
   const { pathname, hash } = useLocation();
 
-  // Sticky glass state
+  // Sticky glass state — threshold lowered to 80px so the dark-hero pages
+  // swap to the solid state right after the hero edge.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 80);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -74,14 +82,23 @@ const Nav = () => {
     return false;
   };
 
-  const headerClass = `fixed top-0 inset-x-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow] duration-300 ease-out ${
+  // Dark-hero overlay: only active before the scroll threshold on pages
+  // that opt-in (e.g. AI Services). Once scrolled, both modes share the
+  // same solid-white state for consistent contrast.
+  const onDarkHero = transparentOnDarkHero && !scrolled;
+
+  const headerClass = `fixed top-0 inset-x-0 z-50 transition-[background-color,backdrop-filter,border-color,box-shadow,color] duration-300 ease-out ${
     scrolled
-      ? "bg-white/70 backdrop-blur-xl border-b border-brand-border/80 shadow-[0_1px_0_0_hsl(var(--brand-border)/0.4)]"
-      : "bg-white/0 backdrop-blur-0 border-b border-transparent"
+      ? "bg-white backdrop-blur-xl border-b shadow-[0_1px_0_0_hsl(var(--brand-border)/0.4)]"
+      : onDarkHero
+        ? "bg-transparent backdrop-blur-0 border-b border-transparent"
+        : "bg-white/0 backdrop-blur-0 border-b border-transparent"
   }`;
 
+  const headerStyle = scrolled ? { borderBottomColor: "#d0e8da" } : undefined;
+
   return (
-    <header className={headerClass}>
+    <header className={headerClass} style={headerStyle}>
       <div className="container flex items-center gap-4 sm:gap-6 py-3 md:py-4 min-h-[88px] md:min-h-[112px] leading-none">
         <Link
           to="/"
@@ -89,7 +106,7 @@ const Nav = () => {
           onClick={() => setOpen(false)}
           className="inline-flex items-center shrink-0 py-1"
         >
-          <Logo />
+          <Logo variant={onDarkHero ? "light" : "dark"} />
         </Link>
 
         {/* Desktop links */}
@@ -104,15 +121,21 @@ const Nav = () => {
                 rel={l.external ? "noopener noreferrer" : undefined}
                 aria-current={active ? "page" : undefined}
                 className={`relative text-sm font-medium transition-colors duration-200 ${
-                  active ? "text-brand-primary" : "text-brand-primary/70 hover:text-brand-primary"
+                  onDarkHero
+                    ? active
+                      ? "text-white"
+                      : "text-white/80 hover:text-white"
+                    : active
+                      ? "text-brand-primary"
+                      : "text-brand-primary/70 hover:text-brand-primary"
                 }`}
               >
                 {l.label}
                 <span
                   aria-hidden="true"
-                  className={`pointer-events-none absolute -bottom-1.5 left-0 right-0 mx-auto h-[2px] rounded-full bg-brand-primary transition-all duration-300 ease-out ${
-                    active ? "w-5 opacity-100" : "w-0 opacity-0"
-                  }`}
+                  className={`pointer-events-none absolute -bottom-1.5 left-0 right-0 mx-auto h-[2px] rounded-full transition-all duration-300 ease-out ${
+                    onDarkHero ? "bg-white" : "bg-brand-primary"
+                  } ${active ? "w-5 opacity-100" : "w-0 opacity-0"}`}
                 />
               </a>
             );
@@ -122,7 +145,11 @@ const Nav = () => {
         {/* Desktop CTA */}
         <a
           href="/contact"
-          className="hidden md:inline-flex ml-4 lg:ml-6 items-center justify-center bg-brand-primary text-white text-sm font-semibold px-4 lg:px-5 py-2.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
+          className={`hidden md:inline-flex ml-4 lg:ml-6 items-center justify-center text-sm font-semibold px-4 lg:px-5 py-2.5 rounded-[4px] transition-colors duration-300 ${
+            onDarkHero
+              ? "bg-white text-brand-primary hover:bg-white/90"
+              : "bg-brand-primary text-white hover:bg-brand-secondary"
+          }`}
         >
           Start a Project
         </a>
@@ -134,7 +161,11 @@ const Nav = () => {
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-nav"
-          className="md:hidden ml-auto inline-flex items-center justify-center w-10 h-10 rounded-[6px] text-brand-primary hover:bg-brand-surface transition-colors"
+          className={`md:hidden ml-auto inline-flex items-center justify-center w-10 h-10 rounded-[6px] transition-colors ${
+            onDarkHero
+              ? "text-white hover:bg-white/10"
+              : "text-brand-primary hover:bg-brand-surface"
+          }`}
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
