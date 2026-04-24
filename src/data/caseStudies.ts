@@ -10,6 +10,7 @@ export type CaseStudy = {
   name: string;
   client: string;
   tags: string[];
+  detailTags?: string[];
   categories: CaseStudyCategory[];
   summary: string;
   metrics: string[];
@@ -17,12 +18,18 @@ export type CaseStudy = {
     client: string;
     industry: string;
     services: string;
-    duration: string;
-    year: string;
+    duration?: string;
+    year?: string;
+    location?: string;
+    website?: string;
   };
   problem: string[];
   approach: string[];
   outcome: string[];
+  testimonial?: {
+    quote: string;
+    name: string;
+  };
   seo: {
     title: string;
     description: string;
@@ -32,38 +39,41 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "project-alpha",
-    name: "Project Alpha",
-    client: "Fintech startup, West Africa",
-    tags: ["WEB APP", "FINTECH", "STRATEGY"],
-    categories: ["Product Design", "Engineering", "Strategy"],
+    slug: "fala-products",
+    name: "Fala Products",
+    client: "Solar fans and lifestyle essentials brand, Nigeria",
+    tags: ["E-COMMERCE", "BRANDING", "STRATEGY"],
+    detailTags: ["E-COMMERCE", "BRANDING", "STRATEGY", "ADVISORY"],
+    categories: ["Branding", "Product Design", "Strategy"],
     summary:
-      "A full product engagement from strategy through to launch. We designed and built a fintech platform serving users across the region.",
-    metrics: ["12 Weeks to Launch", "3x User Growth", "West Africa"],
+      "Built the brand identity, e-commerce website, and business strategy for a Nigerian solar and lifestyle brand entering the market.",
+    metrics: ["Full Brand System", "Website Launch", "Strategy and Advisory"],
     details: {
-      client: "Confidential fintech startup",
-      industry: "Financial Services",
-      services: "Strategy, Product Design, Engineering",
-      duration: "12 weeks",
-      year: "2024",
+      client: "Fala Production Ltd.",
+      industry: "E-Commerce, Consumer Goods",
+      services: "Brand Identity, Web Design and Development, Business Strategy, Advisory",
+      location: "Nigeria",
+      website: "www.falaproducts.com",
     },
     problem: [
-      "The founding team had a strong thesis on underserved SME banking across West Africa, but no clear path from idea to a shippable product. Earlier attempts had stalled in design loops and unclear scope.",
-      "They needed a partner who could move from strategy into delivery without handoffs — and ship something real users could touch within a single quarter.",
+      "Fala Production Ltd. had a real product and a clear market. What they didn't have was a digital presence that matched the quality of what they were selling. As a brand entering the e-commerce space, they needed more than just a website. They needed a coherent identity, a strategy for how to show up online, and a foundation they could grow from.",
     ],
     approach: [
-      "We ran a focused two-week discovery to lock the core value proposition, then committed to a tight MVP scope: onboarding, KYC, accounts, and transfers.",
-      "Design and engineering moved in parallel from week three. We shipped weekly to a private beta and rebuilt around the patterns that real users actually used.",
+      "We came in at the ground level. Before we touched a design tool or wrote a line of code, we spent time understanding the business, the product range, the target customer, and the competitive landscape. From there we delivered on four fronts: brand identity, website design and build, business strategy, and ongoing advisory support through the early phase.",
     ],
     outcome: [
-      "The platform launched on schedule. Onboarding completion sat above 70% from week one, and active users tripled in the first 90 days post-launch.",
-      "The team now operates the product independently, with a roadmap they own and a system that won't fight them as they scale.",
+      "Fala Products launched with a digital presence that punches above its weight for an early-stage brand. The website is live, the brand identity is consistent, and the business has a clear strategic foundation to build from. They are now in their early growth phase with the tools and thinking in place to scale.",
     ],
+    testimonial: {
+      quote:
+        "Evogue didn't just build us a website. They helped us think through the entire business from the ground up. We launched with confidence because we had a team that actually cared about whether we succeeded.",
+      name: "Fala Products Team",
+    },
     seo: {
-      title: "Project Alpha — West African Fintech Built in 12 Weeks",
+      title: "Fala Products — Brand, E-commerce & Strategy for a Nigerian Solar Brand",
       description:
-        "How Evogue Consulting designed, built, and launched a fintech platform for a West African startup in 12 weeks — and grew active users 3x.",
-      ogImage: "/og/project-alpha.jpg",
+        "How Evogue Consulting built the brand identity, e-commerce website, and business strategy for Fala Products, a Nigerian solar fans and lifestyle essentials brand.",
+      ogImage: "/og/fala-products.jpg",
     },
   },
   {
