@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import { caseStudies, filterCategories, type CaseStudy } from "@/data/caseStudies";
+import caseStudiesHero from "@/assets/case-studies-hero.png";
 
 const CaseStudies = () => {
   const [active, setActive] = useState<(typeof filterCategories)[number]>("All");
@@ -30,19 +31,31 @@ const CaseStudies = () => {
         {/* Hero */}
         <section className="bg-brand-surface dot-grid">
           <div className="container pt-40 md:pt-48 pb-20 md:pb-28">
-            <div className="max-w-3xl animate-fade-in">
-              <span className="inline-flex items-center rounded-full border border-brand bg-white px-3 py-1 label-caps text-brand-primary">
-                Case Studies
-              </span>
-              <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-brand-primary leading-[1.05]">
-                Work that speaks for itself.
-              </h1>
-              <p className="mt-5 text-lg md:text-xl text-brand-secondary max-w-2xl leading-relaxed">
-                A selection of projects Evogue Consulting has designed, built, and shipped. Real problems, real teams, real outcomes across Africa and global markets.
-              </p>
-              <p className="mt-5 text-base md:text-lg text-brand-secondary/85 max-w-2xl leading-relaxed">
-                Evogue Consulting has delivered digital products across multiple industries including fintech, e-commerce, logistics, SaaS, and the nonprofit sector. Our engagements span product design and engineering, brand identity, AI automation, strategy consulting, and team training.
-              </p>
+            <div className="grid gap-10 md:gap-12 md:grid-cols-12 items-center">
+              <div className="md:col-span-7 animate-fade-in">
+                <span className="inline-flex items-center rounded-full border border-brand bg-white px-3 py-1 label-caps text-brand-primary">
+                  Case Studies
+                </span>
+                <h1 className="mt-6 text-4xl md:text-6xl font-semibold tracking-tight text-brand-primary leading-[1.05]">
+                  Work that speaks for itself.
+                </h1>
+                <p className="mt-5 text-lg md:text-xl text-brand-secondary max-w-2xl leading-relaxed">
+                  A selection of projects Evogue Consulting has designed, built, and shipped. Real problems, real teams, real outcomes across Africa and global markets.
+                </p>
+                <p className="mt-5 text-base md:text-lg text-brand-secondary/85 max-w-2xl leading-relaxed">
+                  Evogue Consulting has delivered digital products across multiple industries including fintech, e-commerce, logistics, SaaS, and the nonprofit sector. Our engagements span product design and engineering, brand identity, AI automation, strategy consulting, and team training.
+                </p>
+              </div>
+              <div className="md:col-span-5 animate-fade-in order-first md:order-last">
+                <img
+                  src={caseStudiesHero}
+                  alt="Abstract illustration of layered project cards symbolising a portfolio of shipped client work"
+                  width={1024}
+                  height={1024}
+                  className="mx-auto w-full max-w-xs sm:max-w-sm md:max-w-none md:w-full h-auto select-none pointer-events-none"
+                  draggable={false}
+                />
+              </div>
             </div>
           </div>
         </section>
