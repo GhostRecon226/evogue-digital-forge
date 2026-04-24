@@ -36,6 +36,18 @@ const faqs = [
     a: "Fill out the form above or book a discovery call. We'll schedule a short conversation to understand your needs and propose a way forward.",
   },
   {
+    q: "How do I hire Evogue Consulting?",
+    a: "Fill out the contact form on our website or book a free 30-minute discovery call. We will get back to you within 24 hours on business days to discuss your project and propose a way forward.",
+  },
+  {
+    q: "Does Evogue offer free consultations?",
+    a: "Yes. We offer a free 30-minute discovery call for new clients. Use the booking link on our Contact page to schedule a call.",
+  },
+  {
+    q: "What is Evogue Consulting's budget range?",
+    a: "We work with a range of budgets depending on project scope. Our engagements start from $5,000 for focused builds and scale up for larger product engagements. Contact us to discuss your specific needs.",
+  },
+  {
     q: "What size projects do you take on?",
     a: "We work with early-stage startups, growing businesses, and established organisations. Project size varies. What matters most is that the problem is real and the team is ready to move.",
   },
@@ -134,10 +146,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>Contact | Evogue Consulting</title>
+        <title>Contact Evogue Consulting | Start a Project | Lagos, Nigeria</title>
         <meta
           name="description"
-          content="Tell us about your project. Evogue Consulting responds within 24 hours. Based in Lagos, working globally."
+          content="Get in touch with Evogue Consulting to start a project. We are a product studio and consulting firm based in Lagos, Nigeria working with clients across Africa and globally."
         />
         <link rel="canonical" href="/contact" />
       </Helmet>
