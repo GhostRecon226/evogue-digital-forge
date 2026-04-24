@@ -76,7 +76,7 @@ const AiServices = () => {
         path="/ai-services"
       />
 
-      <Nav />
+      <Nav transparentOnDarkHero />
 
       <main className="flex-1">
         {/* Hero */}
