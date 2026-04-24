@@ -75,10 +75,10 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>About Evogue Consulting | Product Studio Raising the Standard</title>
+        <title>About Evogue Consulting | Product Studio Based in Lagos, Nigeria</title>
         <meta
           name="description"
-          content="Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally. Meet the team and our mission."
+          content="Learn about Evogue Consulting, a product studio and consulting firm founded in Lagos, Nigeria. We design, build, and scale digital products for teams across Africa and globally."
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
         <meta
