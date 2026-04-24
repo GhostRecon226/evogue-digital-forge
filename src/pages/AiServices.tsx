@@ -99,10 +99,42 @@ const AiServices = () => {
     return false;
   };
   const isL1Active = () => orgHover !== null;
-  // L1 -> L2 trunk active whenever any L2 is active
+  // Vertical trunk drops are shared by every path, so they animate whenever
+  // any node is hovered. Horizontal spreaders are split per-branch below.
   const isL1L2TrunkActive = () => orgHover !== null;
-  // L2 -> L3 trunk active whenever any L3 is active
   const isL2L3TrunkActive = () => orgHover !== null;
+
+  // Active L2/L3 column sets for the hovered path
+  const activeL2Set = (): Set<number> => {
+    if (!orgHover) return new Set();
+    if (orgHover.level === 1) return new Set([0, 1, 2]);
+    if (orgHover.level === 2) return new Set([orgHover.index]);
+    return new Set([l3Parent[orgHover.index]]);
+  };
+  const activeL3Set = (): Set<number> => {
+    if (!orgHover) return new Set();
+    if (orgHover.level === 1) return new Set([0, 1, 2, 3, 4]);
+    if (orgHover.level === 2)
+      return new Set(l3Parent.map((p, i) => (p === orgHover.index ? i : -1)).filter((i) => i >= 0));
+    return new Set([orgHover.index]);
+  };
+
+  // For a horizontal spreader with `cols` columns whose trunk drops at the center
+  // column, return whether the left- or right-half of column `i` lies on the
+  // path between center and any active branch column in `active`.
+  // halfActive(i, side): side = 'left' | 'right'
+  const halfActive = (i: number, cols: number, active: Set<number>, side: "left" | "right") => {
+    if (active.size === 0) return false;
+    const center = Math.floor(cols / 2);
+    for (const b of active) {
+      if (b === center) continue;
+      const lo = Math.min(center, b);
+      const hi = Math.max(center, b);
+      if (side === "left" && lo < i && i <= hi) return true;
+      if (side === "right" && lo <= i && i < hi) return true;
+    }
+    return false;
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -378,11 +410,36 @@ const AiServices = () => {
                   style={{ height: 32 }}
                   aria-hidden
                 />
-                {/* Horizontal spreader — desktop only */}
-                <div
-                  className={`org-connector org-connector-h hidden md:block h-px w-[80%] max-w-[760px] ${isL1L2TrunkActive() ? "is-active" : ""}`}
-                  aria-hidden
-                />
+                {/* Horizontal spreader — desktop only, split into per-column halves */}
+                {(() => {
+                  const cols = 3;
+                  const active = activeL2Set();
+                  return (
+                    <div className="hidden md:grid grid-cols-3 gap-6 w-full max-w-4xl">
+                      {Array.from({ length: cols }).map((_, i) => {
+                        const center = Math.floor(cols / 2);
+                        return (
+                          <div key={i} className="flex h-px">
+                            {/* left half — invisible for leftmost column */}
+                            <div
+                              className={`org-connector org-connector-h h-px flex-1 ${
+                                i === 0 ? "opacity-0" : ""
+                              } ${halfActive(i, cols, active, "left") ? "is-active" : ""}`}
+                              aria-hidden
+                            />
+                            {/* right half — invisible for rightmost column */}
+                            <div
+                              className={`org-connector org-connector-h h-px flex-1 ${
+                                i === cols - 1 ? "opacity-0" : ""
+                              } ${halfActive(i, cols, active, "right") ? "is-active" : ""}`}
+                              aria-hidden
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  );
+                })()}
 
                 {/* Level 2 — Humans */}
                 <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6 mt-0 md:mt-0 md:pt-6 max-w-4xl relative">
@@ -440,11 +497,31 @@ const AiServices = () => {
                   style={{ height: 32, marginTop: 8 }}
                   aria-hidden
                 />
-                {/* Horizontal spreader — desktop only */}
-                <div
-                  className={`org-connector org-connector-h hidden md:block h-px w-[90%] max-w-[1000px] ${isL2L3TrunkActive() ? "is-active" : ""}`}
-                  aria-hidden
-                />
+                {/* Horizontal spreader — desktop only, split into per-column halves */}
+                {(() => {
+                  const cols = 5;
+                  const active = activeL3Set();
+                  return (
+                    <div className="hidden md:grid grid-cols-5 gap-5 w-full max-w-5xl">
+                      {Array.from({ length: cols }).map((_, i) => (
+                        <div key={i} className="flex h-px">
+                          <div
+                            className={`org-connector org-connector-h h-px flex-1 ${
+                              i === 0 ? "opacity-0" : ""
+                            } ${halfActive(i, cols, active, "left") ? "is-active" : ""}`}
+                            aria-hidden
+                          />
+                          <div
+                            className={`org-connector org-connector-h h-px flex-1 ${
+                              i === cols - 1 ? "opacity-0" : ""
+                            } ${halfActive(i, cols, active, "right") ? "is-active" : ""}`}
+                            aria-hidden
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
 
                 {/* Level 3 — AI Workers */}
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-0 sm:gap-4 md:gap-5 mt-0 md:mt-0 md:pt-6 max-w-5xl">
