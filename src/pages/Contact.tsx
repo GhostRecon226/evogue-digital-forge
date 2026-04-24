@@ -237,6 +237,21 @@ const Contact = () => {
                   Start a Project
                 </h2>
                 <form onSubmit={onSubmit} className="mt-8 grid gap-5" noValidate>
+                  {/* Honeypot field — hidden from humans, filled by bots */}
+                  <div
+                    aria-hidden="true"
+                    style={{ position: "absolute", left: "-10000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+                  >
+                    <label htmlFor="website">Website (leave blank)</label>
+                    <input
+                      id="website"
+                      name="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      defaultValue=""
+                    />
+                  </div>
                   <div>
                     <label htmlFor="fullName" className={labelClass}>
                       Full Name
