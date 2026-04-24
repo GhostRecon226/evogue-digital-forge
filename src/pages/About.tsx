@@ -1,4 +1,6 @@
 import { Helmet } from "react-helmet-async";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
