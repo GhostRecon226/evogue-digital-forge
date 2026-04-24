@@ -285,6 +285,31 @@ const About = () => {
         </div>
       </section>
 
+      {/* IDEAL CLIENT CALLOUT */}
+      <section className="py-16 md:py-20">
+        <div className="container">
+          <Reveal>
+            <figure className="mx-auto max-w-3xl text-center">
+              <svg
+                aria-hidden="true"
+                className="mx-auto h-8 w-8 text-brand-accent"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M7.17 6A5.17 5.17 0 002 11.17V18h6.83v-6.83H5.5A1.67 1.67 0 017.17 9.5V6zm10 0a5.17 5.17 0 00-5.17 5.17V18h6.83v-6.83H15.5a1.67 1.67 0 011.67-1.67V6z" />
+              </svg>
+              <blockquote className="mt-5 text-2xl md:text-3xl lg:text-[2rem] font-semibold text-brand-primary leading-snug tracking-tight">
+                We work best with teams who have a clear problem, a real budget, and the appetite to move. If that's you, we'll get on well.
+              </blockquote>
+              <span
+                aria-hidden="true"
+                className="mt-7 mx-auto block h-[3px] w-16 bg-brand-accent rounded-full"
+              />
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
       {/* WHAT WE BELIEVE */}
       <section className="py-20 md:py-28 bg-brand-surface">
         <div className="container">
