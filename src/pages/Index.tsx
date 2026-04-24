@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -27,21 +28,21 @@ const stats = [
 const services = [
   {
     title: "Product Design and Engineering",
-    body: "Websites, web apps, and mobile products built to perform and built to last.",
+    body: "Evogue designs and builds websites, web applications, and mobile products for startups, scaleups, and enterprises. We handle everything from UX research and interface design through to frontend and backend engineering and product launch.",
     icon: (
       <path d="M4 6h16v10H4zM2 20h20M9 16v4M15 16v4" strokeWidth="1.6" />
     ),
   },
   {
     title: "Strategy and Consulting",
-    body: "We help teams think clearly about what to build, why, and how to get there.",
+    body: "We help businesses and teams think clearly about what to build, why to build it, and how to get there. Our strategy engagements cover product discovery, roadmap planning, market positioning, and digital transformation advisory.",
     icon: (
       <path d="M3 12l4-4 4 4 4-6 6 8M3 20h18" strokeWidth="1.6" />
     ),
   },
   {
     title: "AI Agents and Automation",
-    body: "Custom AI agents and workflow automations tailored to your brand and operations.",
+    body: "Evogue builds custom AI agents and workflow automations tailored to your brand and operations. We help businesses integrate AI into their products and internal processes to reduce manual overhead and improve efficiency.",
     icon: (
       <>
         <circle cx="12" cy="12" r="3" strokeWidth="1.6" />
@@ -51,7 +52,7 @@ const services = [
   },
   {
     title: "Training and Advisory",
-    body: "Upskilling teams and advising organisations on product, tech, and digital transformation.",
+    body: "We upskill teams and advise organisations on product management, business analysis, agile practices, and digital strategy. Our training programmes are practical, structured, and built around real industry workflows.",
     icon: (
       <path d="M3 9l9-5 9 5-9 5-9-5zM7 11v5c2 1.5 8 1.5 10 0v-5M21 9v6" strokeWidth="1.6" />
     ),
@@ -175,20 +176,24 @@ const process = [
 
 const faqs = [
   {
-    q: "How quickly can we start?",
-    a: "Typically within two weeks of signing. We protect quality by keeping our active engagements small.",
+    q: "What does Evogue Consulting do?",
+    a: "Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for businesses across Africa and globally. Our services include product design and engineering, strategy and consulting, AI agents and automation, and training and advisory.",
   },
   {
-    q: "Do you work with non-African clients?",
-    a: "Yes. We're built on the continent, but more than half of our clients are based in Europe and North America.",
+    q: "Where is Evogue Consulting based?",
+    a: "We are based in Lagos, Nigeria. We work with clients across Africa, Europe, and other global markets. We are remote-first and collaborate across time zones.",
   },
   {
-    q: "What does a typical engagement look like?",
-    a: "Most projects run 8 to 16 weeks, fixed scope, weekly demos. Longer retainers available for ongoing product work.",
+    q: "Does Evogue work with international clients?",
+    a: "Yes. While we were founded on the African continent, we work with ambitious teams globally. Our client base spans Africa, Europe, and beyond.",
   },
   {
-    q: "Can you work alongside our internal team?",
-    a: "Absolutely. We embed cleanly with in-house designers, engineers, and PMs and hand off as much as you want.",
+    q: "What industries does Evogue serve?",
+    a: "We work across fintech, e-commerce, logistics, SaaS, NGOs, and corporate organisations. If you have a digital product problem, we likely have experience with it.",
+  },
+  {
+    q: "Does Evogue build AI products?",
+    a: "Yes. We build custom AI agents and workflow automations tailored to specific business needs. We also advise organisations on how to integrate AI into their existing products and operations.",
   },
 ];
 
@@ -224,6 +229,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Evogue Consulting | Product Studio and Consulting Firm | Lagos, Nigeria</title>
+        <meta
+          name="description"
+          content="Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for ambitious teams across Africa and globally."
+        />
+      </Helmet>
       <Nav />
 
       {/* HERO */}
@@ -244,7 +256,7 @@ const Index = () => {
               </Reveal>
               <Reveal delay={0.2}>
                 <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
-                  We partner with ambitious teams to design, engineer, and scale software people actually want to use. Origin: Africa. Reach: Global.
+                  Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We partner with ambitious teams across Africa, Europe, and beyond to design, engineer, and scale software people actually want to use.
                 </p>
               </Reveal>
               <Reveal delay={0.3}>
