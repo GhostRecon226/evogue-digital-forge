@@ -98,23 +98,35 @@ const Footer = () => {
                 <a
                   href="#"
                   aria-label="LinkedIn"
-                  className="text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
+                  className="group relative inline-flex text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
                 >
                   <Linkedin size={20} />
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-brand-primary w-0 opacity-0 transition-all duration-300 ease-out group-hover:w-5 group-hover:opacity-100"
+                  />
                 </a>
                 <a
                   href="#"
                   aria-label="Twitter"
-                  className="text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
+                  className="group relative inline-flex text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
                 >
                   <Twitter size={20} />
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-brand-primary w-0 opacity-0 transition-all duration-300 ease-out group-hover:w-5 group-hover:opacity-100"
+                  />
                 </a>
                 <a
                   href="#"
                   aria-label="Instagram"
-                  className="text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
+                  className="group relative inline-flex text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
                 >
                   <Instagram size={20} />
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute -bottom-1 left-1/2 -translate-x-1/2 h-[2px] rounded-full bg-brand-primary w-0 opacity-0 transition-all duration-300 ease-out group-hover:w-5 group-hover:opacity-100"
+                  />
                 </a>
               </li>
             </ul>
