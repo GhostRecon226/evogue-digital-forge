@@ -497,11 +497,31 @@ const AiServices = () => {
                   style={{ height: 32, marginTop: 8 }}
                   aria-hidden
                 />
-                {/* Horizontal spreader — desktop only */}
-                <div
-                  className={`org-connector org-connector-h hidden md:block h-px w-[90%] max-w-[1000px] ${isL2L3TrunkActive() ? "is-active" : ""}`}
-                  aria-hidden
-                />
+                {/* Horizontal spreader — desktop only, split into per-column halves */}
+                {(() => {
+                  const cols = 5;
+                  const active = activeL3Set();
+                  return (
+                    <div className="hidden md:grid grid-cols-5 gap-5 w-full max-w-5xl">
+                      {Array.from({ length: cols }).map((_, i) => (
+                        <div key={i} className="flex h-px">
+                          <div
+                            className={`org-connector org-connector-h h-px flex-1 ${
+                              i === 0 ? "opacity-0" : ""
+                            } ${halfActive(i, cols, active, "left") ? "is-active" : ""}`}
+                            aria-hidden
+                          />
+                          <div
+                            className={`org-connector org-connector-h h-px flex-1 ${
+                              i === cols - 1 ? "opacity-0" : ""
+                            } ${halfActive(i, cols, active, "right") ? "is-active" : ""}`}
+                            aria-hidden
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
 
                 {/* Level 3 — AI Workers */}
                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-0 sm:gap-4 md:gap-5 mt-0 md:mt-0 md:pt-6 max-w-5xl">
