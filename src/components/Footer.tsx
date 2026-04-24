@@ -31,13 +31,13 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold text-brand-primary mb-4">Quick Links</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-brand-primary mb-5">Quick Links</h3>
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    className="text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
+                    className="text-[15px] font-medium tracking-tight text-brand-primary/85 hover:text-brand-primary transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -48,13 +48,13 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h3 className="text-sm font-semibold text-brand-primary mb-4">Support</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-brand-primary mb-5">Support</h3>
             <ul className="space-y-3">
               {supportLinks.map((l) => (
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    className="text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
+                    className="text-[15px] font-medium tracking-tight text-brand-primary/85 hover:text-brand-primary transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -65,12 +65,12 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-brand-primary mb-4">Contact</h3>
+            <h3 className="text-xs font-bold uppercase tracking-[0.14em] text-brand-primary mb-5">Contact</h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:hello@evogueconsulting.com"
-                  className="flex items-center gap-2 text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
+                  className="flex items-center gap-2.5 text-[15px] font-medium tracking-tight text-brand-primary/85 hover:text-brand-primary transition-colors"
                 >
                   <Mail size={16} aria-hidden="true" />
                   hello@evogueconsulting.com
@@ -79,7 +79,7 @@ const Footer = () => {
               <li>
                 <a
                   href="tel:+2347065652820"
-                  className="flex items-center gap-2 text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
+                  className="flex items-center gap-2.5 text-[15px] font-medium tracking-tight text-brand-primary/85 hover:text-brand-primary transition-colors"
                 >
                   <Phone size={16} aria-hidden="true" />
                   +234 706 565 2820
