@@ -427,17 +427,24 @@ const About = () => {
               The work, in numbers.
             </h2>
           </Reveal>
-          <div className="mt-12 pt-10 border-t border-brand-border grid grid-cols-2 md:grid-cols-4 gap-y-8">
-            {stats.map((s, i) => (
-              <Reveal key={s.label} delay={0.1 * i}>
-                <div className="px-2">
-                  <div className="text-3xl md:text-4xl font-bold text-brand-primary">
-                    <CountUp end={s.value} suffix={s.suffix} />
+          <div className="mt-12 pt-10 border-t border-brand-border">
+            <Reveal>
+              <p className="label-caps text-brand-secondary text-center">
+                We let the numbers do some of the talking.
+              </p>
+            </Reveal>
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-y-8">
+              {stats.map((s, i) => (
+                <Reveal key={s.label} delay={0.1 * i}>
+                  <div className="px-2">
+                    <div className="text-3xl md:text-4xl font-bold text-brand-primary">
+                      <CountUp end={s.value} suffix={s.suffix} />
+                    </div>
+                    <div className="mt-1.5 text-sm text-brand-secondary/80">{s.label}</div>
                   </div>
-                  <div className="mt-1.5 text-sm text-brand-secondary/80">{s.label}</div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
