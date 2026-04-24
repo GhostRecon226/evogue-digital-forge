@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, Linkedin, Twitter, Instagram } from "lucide-react";
+import { Mail, MessageCircle, Linkedin, Twitter, Instagram } from "lucide-react";
 import Logo from "./Logo";
 
 const quickLinks = [
@@ -96,12 +96,15 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="tel:+2347065652820"
+                  href={`https://wa.me/2348107396844?text=${encodeURIComponent("Hello Evogue team, I am interested in booking a consultation.")}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Chat with Evogue on WhatsApp"
                   className="group relative inline-flex items-center gap-2.5 text-sm font-medium text-brand-primary/70 hover:text-brand-primary transition-colors duration-200"
                 >
-                  <Phone size={16} aria-hidden="true" />
+                  <MessageCircle size={16} aria-hidden="true" />
                   <span className="relative">
-                    +234 706 565 2820
+                    +234 810 739 6844
                     <span aria-hidden="true" className={underlineClass} />
                   </span>
                 </a>
