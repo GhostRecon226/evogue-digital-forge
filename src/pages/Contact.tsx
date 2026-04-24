@@ -145,14 +145,11 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Helmet>
-        <title>Contact Evogue Consulting | Start a Project | Lagos, Nigeria</title>
-        <meta
-          name="description"
-          content="Get in touch with Evogue Consulting to start a project. We are a product studio and consulting firm based in Lagos, Nigeria working with clients across Africa and globally."
-        />
-        <link rel="canonical" href="/contact" />
-      </Helmet>
+      <Seo
+        title="Contact Evogue Consulting | Start a Project | Lagos, Nigeria"
+        description="Get in touch with Evogue Consulting to start a project. We are a product studio and consulting firm based in Lagos, Nigeria working with clients across Africa and globally."
+        path="/contact"
+      />
 
       <Nav />
 
