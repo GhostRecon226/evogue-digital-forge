@@ -409,7 +409,7 @@ const AiServices = () => {
                 />
 
                 {/* Level 3 — AI Workers */}
-                <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 mt-6 md:mt-0 md:pt-6 max-w-5xl">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-0 sm:gap-4 md:gap-5 mt-0 md:mt-0 md:pt-6 max-w-5xl">
                   {[
                     {
                       title: "SDR Agent",
