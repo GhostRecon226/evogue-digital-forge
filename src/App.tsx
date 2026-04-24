@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -13,8 +13,34 @@ import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Evogue Consulting",
+  description:
+    "Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for ambitious teams across Africa and globally.",
+  url: "https://www.evogue.co",
+  logo: "https://www.evogue.co/logo.png",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lagos",
+    addressCountry: "Nigeria",
+  },
+  areaServed: ["Africa", "Europe", "Global"],
+  serviceType: [
+    "Product Design and Engineering",
+    "Strategy and Consulting",
+    "AI Agents and Automation",
+    "Training and Advisory",
+  ],
+  foundingLocation: "Lagos, Nigeria",
+};
+
 const App = () => (
   <HelmetProvider>
+    <Helmet>
+      <script type="application/ld+json">{JSON.stringify(organizationSchema)}</script>
+    </Helmet>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
