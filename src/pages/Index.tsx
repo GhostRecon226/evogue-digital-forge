@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
-import heroPortrait from "@/assets/hero-portrait.png";
+import heroPortrait from "@/assets/hero-portrait.jpg";
 import {
   Dialog,
   DialogContent,
@@ -272,7 +272,7 @@ const Index = () => {
                     src={heroPortrait}
                     alt="Evogue Consulting team member"
                     loading="eager"
-                    className="relative w-full h-full object-contain object-bottom"
+                    className="relative w-full h-full object-cover object-center"
                   />
                 </div>
               </div>
