@@ -8,18 +8,18 @@ import CountUp from "@/components/CountUp";
 const beliefs = [
   {
     n: "01",
-    title: "Clear communication",
-    body: "We say what we mean. No jargon, no runaround. You always know where your project stands.",
+    title: "We say what we mean.",
+    body: "No jargon, no runaround. You always know where your project stands, what's next, and why. If something changes, you hear it from us first.",
   },
   {
     n: "02",
-    title: "Sensible timelines",
-    body: "We don't overpromise. We scope carefully and deliver on what we commit to.",
+    title: "We scope before we promise.",
+    body: "Timelines only mean something if they're built on honest scoping. We take the time to understand what we're actually building before we commit to when it ships.",
   },
   {
     n: "03",
-    title: "Shipping things that move metrics",
-    body: "Vanity work doesn't interest us. We care about outcomes, not output.",
+    title: "We care about the outcome, not the output.",
+    body: "Shipping a product is the easy part. Shipping one that moves metrics, retains users, and solves a real problem is what we're actually here to do. Vanity work bores us.",
   },
 ];
 
