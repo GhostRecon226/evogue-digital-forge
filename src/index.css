@@ -126,4 +126,50 @@
   .bg-brand-surface { background-color: hsl(var(--brand-surface)); }
   .bg-brand-dark-strip { background-color: hsl(var(--brand-dark-strip)); }
   .border-brand { border-color: hsl(var(--brand-border)); }
+
+  /* Org chart animated connectors */
+  .org-connector {
+    background-color: #d0e8da;
+    transition: background-color 200ms ease, box-shadow 200ms ease;
+  }
+  .org-connector-v.is-active {
+    background-color: transparent;
+    background-image: linear-gradient(
+      to bottom,
+      #00C47A 0%,
+      #00C47A 40%,
+      rgba(0, 196, 122, 0.15) 50%,
+      #00C47A 60%,
+      #00C47A 100%
+    );
+    background-size: 100% 200%;
+    animation: org-flow-v 1.4s linear infinite;
+    box-shadow: 0 0 6px rgba(0, 196, 122, 0.45);
+  }
+  .org-connector-h.is-active {
+    background-color: transparent;
+    background-image: linear-gradient(
+      to right,
+      #00C47A 0%,
+      #00C47A 40%,
+      rgba(0, 196, 122, 0.15) 50%,
+      #00C47A 60%,
+      #00C47A 100%
+    );
+    background-size: 200% 100%;
+    animation: org-flow-h 1.6s linear infinite;
+    box-shadow: 0 0 6px rgba(0, 196, 122, 0.45);
+  }
+  @keyframes org-flow-v {
+    from { background-position: 0% 0%; }
+    to   { background-position: 0% 200%; }
+  }
+  @keyframes org-flow-h {
+    from { background-position: 0% 0%; }
+    to   { background-position: 200% 0%; }
+  }
+  .org-node-active {
+    box-shadow: 0 0 0 2px rgba(0, 196, 122, 0.55), 0 8px 24px -10px rgba(0, 196, 122, 0.35);
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
 }
