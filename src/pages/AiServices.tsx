@@ -290,30 +290,52 @@ const AiServices = () => {
           </div>
         </section>
 
-        {/* Process */}
-        <section id="how-it-works" className="bg-brand-surface scroll-mt-24">
+        {/* How It Works */}
+        <section id="how-it-works" className="bg-white scroll-mt-24">
           <div className="container py-20 md:py-28">
             <Reveal>
-              <div className="label-caps text-brand-secondary mb-4">How we work</div>
+              <div className="label-caps text-brand-accent mb-4">How It Works</div>
               <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-3xl">
-                A clear path from idea to production.
+                From first conversation to live deployment.
               </h2>
+              <p className="mt-5 text-lg text-brand-secondary/90 max-w-2xl leading-relaxed">
+                Four steps. No surprises.
+              </p>
             </Reveal>
 
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {process.map((p, i) => (
-                <Reveal key={p.step} delay={i * 0.06}>
-                  <div className="h-full bg-white border border-brand rounded-[6px] p-7">
-                    <div className="text-brand-accent label-caps">{p.step}</div>
-                    <h3 className="mt-3 text-xl font-semibold text-brand-primary tracking-tight">
-                      {p.title}
-                    </h3>
-                    <p className="mt-3 text-brand-secondary/90 leading-relaxed">
-                      {p.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+            <div className="mt-16 relative">
+              {/* Connecting line (desktop) */}
+              <div
+                aria-hidden="true"
+                className="hidden lg:block absolute top-7 left-0 right-0 h-px"
+                style={{ backgroundColor: "#d0e8da" }}
+              />
+
+              <ol className="grid gap-10 lg:gap-6 lg:grid-cols-4 relative">
+                {[
+                  { n: "1", title: "Discover", body: "We get into your business. We understand your team, your bottlenecks, and where AI can move the needle fastest." },
+                  { n: "2", title: "Design", body: "We map the solution in plain language before we write a single line of code. You approve the plan. Then we build." },
+                  { n: "3", title: "Build", body: "We build, train, and test against real scenarios from your business. Not hypothetical ones." },
+                  { n: "4", title: "Deploy", body: "We go live, hand over the keys, and stay close. If something needs improving, we improve it." },
+                ].map((step, i) => (
+                  <Reveal key={step.n} delay={i * 0.12}>
+                    <li className="relative flex flex-col items-start lg:items-center lg:text-center">
+                      <div
+                        className="flex items-center justify-center w-14 h-14 rounded-full text-white text-lg font-semibold shadow-[0_6px_18px_-6px_rgba(13,61,37,0.45)]"
+                        style={{ backgroundColor: "#0D3D25" }}
+                      >
+                        {step.n}
+                      </div>
+                      <h3 className="mt-5 text-xl font-semibold text-brand-primary tracking-tight">
+                        {step.title}
+                      </h3>
+                      <p className="mt-3 text-brand-secondary/90 leading-relaxed lg:px-2">
+                        {step.body}
+                      </p>
+                    </li>
+                  </Reveal>
+                ))}
+              </ol>
             </div>
           </div>
         </section>
