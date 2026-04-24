@@ -294,13 +294,26 @@ const About = () => {
               A few things we won't compromise on.
             </h2>
           </Reveal>
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
+          <div className="mt-12 grid md:grid-cols-3 gap-6 items-stretch">
             {beliefs.map((b, i) => (
               <Reveal key={b.n} delay={i * 0.12} y={32}>
-                <div className="bg-white border border-brand-border rounded-[10px] p-7 h-full hover:-translate-y-1 hover:shadow-card transition-all duration-300">
-                  <div className="text-brand-secondary font-bold tracking-widest text-sm">{b.n}</div>
-                  <h3 className="mt-4 text-xl font-semibold text-brand-primary">{b.title}</h3>
-                  <p className="mt-2.5 text-brand-secondary/90 leading-relaxed">{b.body}</p>
+                <div className="group relative h-full bg-white border border-brand-border rounded-[10px] p-7 md:p-8 flex flex-col hover:-translate-y-1 hover:shadow-card hover:border-brand-primary/30 transition-all duration-300 overflow-hidden">
+                  {/* Top accent bar grows on hover */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-0 left-0 h-[3px] w-10 bg-brand-accent rounded-r-full transition-all duration-300 group-hover:w-full"
+                  />
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-brand-surface border border-brand-border flex items-center justify-center text-brand-primary font-bold tracking-wider text-sm shrink-0 group-hover:bg-brand-primary group-hover:text-white group-hover:border-brand-primary transition-colors duration-300">
+                      {b.n}
+                    </div>
+                    <h3 className="text-xl font-semibold text-brand-primary leading-snug">
+                      {b.title}
+                    </h3>
+                  </div>
+                  <p className="mt-5 text-brand-secondary/90 leading-relaxed">
+                    {b.body}
+                  </p>
                 </div>
               </Reveal>
             ))}
