@@ -8,6 +8,12 @@ import Reveal from "@/components/Reveal";
 import CaseStudyCard from "@/components/CaseStudyCard";
 import { caseStudies, filterCategories, type CaseStudy } from "@/data/caseStudies";
 import caseStudiesHero from "@/assets/case-studies-hero.png";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const CaseStudies = () => {
   const [active, setActive] = useState<(typeof filterCategories)[number]>("All");
@@ -47,18 +53,32 @@ const CaseStudies = () => {
                 </p>
               </div>
               <div className="md:col-span-5 animate-fade-in order-first md:order-last">
-                <div className="relative mx-auto w-full max-w-[260px] sm:max-w-sm md:max-w-none aspect-[5/4] sm:aspect-[4/3] md:aspect-square overflow-hidden">
-                  <img
-                    src={caseStudiesHero}
-                    alt="Abstract illustration of layered project cards symbolising a portfolio of shipped client work"
-                    width={1024}
-                    height={1024}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 w-full h-full object-contain object-center scale-[1.35] sm:scale-125 md:scale-100 select-none pointer-events-none"
-                    draggable={false}
-                  />
-                </div>
+                <TooltipProvider delayDuration={200}>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div
+                        tabIndex={0}
+                        role="img"
+                        aria-label="Abstract illustration of layered project cards symbolising a portfolio of shipped client work"
+                        className="group relative mx-auto w-full max-w-[260px] sm:max-w-sm md:max-w-none aspect-[5/4] sm:aspect-[4/3] md:aspect-square overflow-hidden rounded-sm outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-surface cursor-default"
+                      >
+                        <img
+                          src={caseStudiesHero}
+                          alt=""
+                          width={1024}
+                          height={1024}
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 w-full h-full object-contain object-center scale-[1.35] sm:scale-125 md:scale-100 select-none pointer-events-none transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:scale-[1.45] sm:group-hover:scale-[1.35] md:group-hover:scale-[1.07] group-focus-visible:scale-[1.45] sm:group-focus-visible:scale-[1.35] md:group-focus-visible:scale-[1.07]"
+                          draggable={false}
+                        />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent side="top" className="max-w-xs text-center">
+                      Layered project cards — a glimpse of the work Evogue has shipped across fintech, e-commerce, logistics, SaaS, and more.
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>
