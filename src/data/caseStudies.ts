@@ -23,6 +23,11 @@ export type CaseStudy = {
   problem: string[];
   approach: string[];
   outcome: string[];
+  seo: {
+    title: string;
+    description: string;
+    ogImage: string;
+  };
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -54,6 +59,12 @@ export const caseStudies: CaseStudy[] = [
       "The platform launched on schedule. Onboarding completion sat above 70% from week one, and active users tripled in the first 90 days post-launch.",
       "The team now operates the product independently, with a roadmap they own and a system that won't fight them as they scale.",
     ],
+    seo: {
+      title: "Project Alpha — West African Fintech Built in 12 Weeks",
+      description:
+        "How Evogue Consulting designed, built, and launched a fintech platform for a West African startup in 12 weeks — and grew active users 3x.",
+      ogImage: "/og/project-alpha.jpg",
+    },
   },
   {
     slug: "project-beta",
@@ -83,6 +94,12 @@ export const caseStudies: CaseStudy[] = [
       "The company shipped a unified brand across four markets in six weeks. Internal teams now pull from one system instead of negotiating one-off assets.",
       "Sales materials, the website, and partner collateral all speak with the same voice for the first time in the company's history.",
     ],
+    seo: {
+      title: "Project Beta — Unified Brand for a Global Logistics Operator",
+      description:
+        "A single, flexible brand system rolled out across four markets in six weeks for a global logistics company. Strategy, identity, and digital presence by Evogue.",
+      ogImage: "/og/project-beta.jpg",
+    },
   },
   {
     slug: "project-gamma",
@@ -112,6 +129,12 @@ export const caseStudies: CaseStudy[] = [
       "Operations time dropped by 40% in the first month. Order-to-fulfilment time improved measurably, and the support backlog shrank to near zero.",
       "The team can now scale order volume without scaling the back office.",
     ],
+    seo: {
+      title: "Project Gamma — AI Agents That Cut E-commerce Ops Time by 40%",
+      description:
+        "Three custom AI agents and workflow automations gave a mid-market e-commerce brand 40% of its operations time back in eight weeks. Built by Evogue.",
+      ogImage: "/og/project-gamma.jpg",
+    },
   },
   {
     slug: "project-delta",
@@ -141,6 +164,12 @@ export const caseStudies: CaseStudy[] = [
       "The platform onboarded over 500 beta users across multiple European markets without an outage. Conversion to paid tiers began in week eight.",
       "The codebase the founders inherited is one they can extend themselves.",
     ],
+    seo: {
+      title: "Project Delta — European SaaS MVP Shipped in 10 Weeks",
+      description:
+        "End-to-end engineering for a European SaaS startup: MVP shipped in 10 weeks, 500+ beta users onboarded without an outage, paid conversion by week eight.",
+      ogImage: "/og/project-delta.jpg",
+    },
   },
   {
     slug: "project-epsilon",
@@ -170,6 +199,12 @@ export const caseStudies: CaseStudy[] = [
       "The roadmap is now the operating plan for the next three country rollouts. Two of the three are already in flight.",
       "The leadership team has a shared language for digital decisions that didn't exist before the engagement.",
     ],
+    seo: {
+      title: "Project Epsilon — Six-Month Digital Roadmap for an East African NGO",
+      description:
+        "Product strategy and a six-month digital roadmap that is now powering a three-country rollout for an East African NGO. Strategy by Evogue Consulting.",
+      ogImage: "/og/project-epsilon.jpg",
+    },
   },
   {
     slug: "project-zeta",
@@ -199,6 +234,12 @@ export const caseStudies: CaseStudy[] = [
       "By the end of the programme, the team was running their own discovery, planning, and review rituals without external facilitation.",
       "Leadership now treats the unit as a model for how other product teams inside the organisation should operate.",
     ],
+    seo: {
+      title: "Project Zeta — Agile Product Training for a 20-Person Corporate Team",
+      description:
+        "An eight-week applied training programme that turned a 20-person corporate unit in Lagos into a self-running product team. Programme by Evogue.",
+      ogImage: "/og/project-zeta.jpg",
+    },
   },
 ];
 

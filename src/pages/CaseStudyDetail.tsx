@@ -38,9 +38,30 @@ const CaseStudyDetail = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Helmet>
-        <title>{study.name} | Case Study | Evogue Consulting</title>
-        <meta name="description" content={study.summary} />
+        <title>{study.seo.title}</title>
+        <meta name="description" content={study.seo.description} />
         <link rel="canonical" href={`/case-studies/${study.slug}`} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={study.seo.title} />
+        <meta property="og:description" content={study.seo.description} />
+        <meta property="og:url" content={`/case-studies/${study.slug}`} />
+        <meta property="og:image" content={study.seo.ogImage} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content={`${study.name} — ${study.client}`} />
+        <meta property="article:section" content={study.categories[0]} />
+        {study.tags.map((t) => (
+          <meta key={t} property="article:tag" content={t} />
+        ))}
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={study.seo.title} />
+        <meta name="twitter:description" content={study.seo.description} />
+        <meta name="twitter:image" content={study.seo.ogImage} />
+        <meta name="twitter:image:alt" content={`${study.name} — ${study.client}`} />
       </Helmet>
 
       <Nav />
