@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
@@ -78,6 +78,31 @@ const AiServices = () => {
   // Org chart hover state for animated data-flow connectors
   // level: 1 = CEO, 2 = human role, 3 = AI worker
   const [orgHover, setOrgHover] = useState<{ level: 1 | 2 | 3; index: number } | null>(null);
+  const orgChartRef = useRef<HTMLDivElement>(null);
+
+  // Tap-to-toggle for touch devices: tap a node to preview its data-flow path,
+  // tap the same node again or anywhere outside the chart to clear it.
+  const toggleOrgHover = (target: { level: 1 | 2 | 3; index: number }) => {
+    setOrgHover((prev) =>
+      prev && prev.level === target.level && prev.index === target.index ? null : target,
+    );
+  };
+
+  // Clear the active org-chart preview when the user taps outside the chart
+  // (touch devices). We listen on `pointerdown` so it fires before click and
+  // works for both touch and mouse, but only when something is active.
+  useEffect(() => {
+    if (!orgHover) return;
+    const handler = (e: PointerEvent) => {
+      const root = orgChartRef.current;
+      if (!root) return;
+      if (e.target instanceof Node && !root.contains(e.target)) {
+        setOrgHover(null);
+      }
+    };
+    document.addEventListener("pointerdown", handler);
+    return () => document.removeEventListener("pointerdown", handler);
+  }, [orgHover]);
 
   // Map each L3 AI worker to its L2 human parent index
   // [SDR, Receptionist, Ops Coordinator, CSM, AR]
@@ -400,15 +425,24 @@ const AiServices = () => {
 
             {/* Org Chart */}
             <TooltipProvider delayDuration={150}>
-              <div className="mt-14 md:mt-20 flex flex-col items-center">
+              <div ref={orgChartRef} className="mt-14 md:mt-20 flex flex-col items-center">
                 {/* Level 1 */}
                 <Reveal delay={0.05}>
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <div
+                        role="button"
+                        tabIndex={0}
                         onMouseEnter={() => setOrgHover({ level: 1, index: 0 })}
                         onMouseLeave={() => setOrgHover(null)}
-                        className={`rounded-[10px] px-6 py-4 text-center shadow-sm min-w-[260px] cursor-help transition-transform hover:-translate-y-0.5 ${
+                        onClick={() => toggleOrgHover({ level: 1, index: 0 })}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            toggleOrgHover({ level: 1, index: 0 });
+                          }
+                        }}
+                        className={`rounded-[10px] px-6 py-4 text-center shadow-sm min-w-[260px] cursor-pointer select-none transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00C47A] ${
                           isL1Active() ? "org-node-active" : ""
                         }`}
                         style={{ backgroundColor: "#0D3D25", color: "#ffffff" }}
@@ -502,9 +536,18 @@ const AiServices = () => {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div
+                              role="button"
+                              tabIndex={0}
                               onMouseEnter={() => setOrgHover({ level: 2, index: i })}
                               onMouseLeave={() => setOrgHover(null)}
-                              className={`w-full rounded-[10px] px-5 py-4 text-center bg-white border-2 cursor-help transition-transform hover:-translate-y-0.5 ${
+                              onClick={() => toggleOrgHover({ level: 2, index: i })}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  toggleOrgHover({ level: 2, index: i });
+                                }
+                              }}
+                              className={`w-full rounded-[10px] px-5 py-4 text-center bg-white border-2 cursor-pointer select-none transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00C47A] ${
                                 isL2Active(i) ? "org-node-active" : ""
                               }`}
                               style={{ borderColor: "#0D3D25", color: "#0D3D25" }}
@@ -604,9 +647,18 @@ const AiServices = () => {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <div
+                              role="button"
+                              tabIndex={0}
                               onMouseEnter={() => setOrgHover({ level: 3, index: i })}
                               onMouseLeave={() => setOrgHover(null)}
-                              className={`relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-help transition-transform hover:-translate-y-0.5 ${
+                              onClick={() => toggleOrgHover({ level: 3, index: i })}
+                              onKeyDown={(e) => {
+                                if (e.key === "Enter" || e.key === " ") {
+                                  e.preventDefault();
+                                  toggleOrgHover({ level: 3, index: i });
+                                }
+                              }}
+                              className={`relative w-full rounded-[10px] px-4 py-4 text-center border-2 cursor-pointer select-none transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00C47A] ${
                                 isL3Active(i) ? "org-node-active" : ""
                               }`}
                               style={{ backgroundColor: "#e8f5ee", borderColor: "#0D3D25", color: "#0D3D25" }}
