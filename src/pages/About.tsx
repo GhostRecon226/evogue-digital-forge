@@ -241,8 +241,8 @@ const About = () => {
                 </div>
               </Reveal>
               <Reveal delay={0.1}>
-                <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-primary leading-[1.05]">
-                  We build products. We raise standards.
+                <h1 className="text-6xl font-bold">
+                  We build products.<br />We raise standards.
                 </h1>
               </Reveal>
               <Reveal delay={0.2}>
