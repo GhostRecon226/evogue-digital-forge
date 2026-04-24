@@ -261,13 +261,13 @@ const Index = () => {
             </div>
 
             <Reveal delay={0.2} className="lg:col-span-5">
-              <div className="relative mx-auto max-w-md lg:max-w-none lg:ml-auto">
+              <div className="relative mx-auto max-w-md lg:max-w-none lg:ml-auto px-4 sm:px-6 lg:px-0">
                 {/* Soft brand-tinted glow that bleeds into the surface */}
                 <div
                   aria-hidden="true"
                   className="absolute -inset-8 md:-inset-12 rounded-full bg-gradient-to-br from-brand-primary/10 via-brand-accent/[0.06] to-transparent blur-3xl"
                 />
-                <div className="relative aspect-[4/5]">
+                <div className="relative aspect-[4/5] rotate-[10deg] transition-transform duration-500 hover:rotate-[8deg]">
                   <img
                     src={heroPortrait}
                     alt="Evogue Consulting team member"
