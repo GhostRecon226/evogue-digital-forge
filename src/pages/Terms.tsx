@@ -86,6 +86,25 @@ const Terms = () => (
         content="The terms and conditions governing the use of the Evogue Consulting website and our services."
       />
       <link rel="canonical" href="https://www.evogue.co/terms" />
+      {/* Open Graph */}
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Evogue Consulting" />
+      <meta property="og:title" content="Terms & Conditions | Evogue Consulting" />
+      <meta
+        property="og:description"
+        content="The terms and conditions governing the use of the Evogue Consulting website and our services."
+      />
+      <meta property="og:url" content="https://www.evogue.co/terms" />
+      <meta property="og:image" content="https://www.evogue.co/og-image.jpg" />
+      <meta property="og:image:alt" content="Evogue Consulting — Terms & Conditions" />
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Terms & Conditions | Evogue Consulting" />
+      <meta
+        name="twitter:description"
+        content="The terms and conditions governing the use of the Evogue Consulting website and our services."
+      />
+      <meta name="twitter:image" content="https://www.evogue.co/og-image.jpg" />
     </Helmet>
     <Nav />
 
