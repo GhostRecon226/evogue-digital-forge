@@ -263,13 +263,16 @@ const About = () => {
             <Reveal delay={0.15}>
               <div className="space-y-5 text-brand-secondary/90 text-base md:text-lg leading-relaxed">
                 <p>
-                  Evogue was built on a simple conviction. The African continent deserved better digital products. Not just functional ones but products people actually want to use, built with strategy, care, and technical precision.
+                  We started Evogue out of frustration, honestly. We kept seeing digital products built on the continent that were technically functional but genuinely painful to use. Products that looked like they were built to tick a box rather than solve a problem.
                 </p>
                 <p>
-                  We started in Lagos, Nigeria, and built our practice around a tight blend of strategy, engineering, and human-centered design. That blend is what we bring to every engagement, whether the client is a startup in Accra, a scaleup in London, or an enterprise in Lagos.
+                  We believed teams here deserved better. Better thinking, better design, better engineering. Not a cut-price version of what global studios were doing, but the real thing built with the same rigour and the same standards.
                 </p>
                 <p>
-                  Today, Evogue is a full-service product studio working with ambitious teams across Africa, Europe, and beyond.
+                  So we built the kind of studio we wished existed. One that combines strategy, engineering, and design under one roof, communicates clearly, ships on time, and cares about whether the product actually moves the needle.
+                </p>
+                <p>
+                  Today we work with founders, product teams, and organisations across Africa, Europe, and beyond. The continent is still our home and our conviction. The reach has just grown.
                 </p>
               </div>
             </Reveal>
