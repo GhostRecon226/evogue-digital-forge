@@ -12,6 +12,14 @@ const CaseStudyDetail = () => {
   const study = index >= 0 ? caseStudies[index] : undefined;
   const next = study ? caseStudies[(index + 1) % caseStudies.length] : undefined;
 
+  const SITE_URL = "https://www.evogue.co";
+  const pageUrl = study ? `${SITE_URL}/case-studies/${study.slug}` : "";
+  const ogImageUrl = study
+    ? study.seo.ogImage.startsWith("http")
+      ? study.seo.ogImage
+      : `${SITE_URL}${study.seo.ogImage}`
+    : "";
+
   if (!study) {
     return (
       <div className="min-h-screen flex flex-col bg-background">
@@ -40,14 +48,14 @@ const CaseStudyDetail = () => {
       <Helmet>
         <title>{study.seo.title}</title>
         <meta name="description" content={study.seo.description} />
-        <link rel="canonical" href={`/case-studies/${study.slug}`} />
+        <link rel="canonical" href={pageUrl} />
 
         {/* Open Graph */}
         <meta property="og:type" content="article" />
         <meta property="og:title" content={study.seo.title} />
         <meta property="og:description" content={study.seo.description} />
-        <meta property="og:url" content={`/case-studies/${study.slug}`} />
-        <meta property="og:image" content={study.seo.ogImage} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={ogImageUrl} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:alt" content={`${study.name} — ${study.client}`} />
@@ -60,7 +68,7 @@ const CaseStudyDetail = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={study.seo.title} />
         <meta name="twitter:description" content={study.seo.description} />
-        <meta name="twitter:image" content={study.seo.ogImage} />
+        <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content={`${study.name} — ${study.client}`} />
       </Helmet>
 
