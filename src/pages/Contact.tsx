@@ -122,13 +122,46 @@ const SelectField = ({
   </div>
 );
 
+const SUBMIT_COOLDOWN_KEY = "evogue_contact_last_submit";
+const SUBMIT_COOLDOWN_MS = 60_000; // 1 minute between submissions per browser
+const MIN_FILL_TIME_MS = 3_000; // submissions faster than this look like bots
+
 const Contact = () => {
   const [submitting, setSubmitting] = useState(false);
+  const [formMountedAt] = useState(() => Date.now());
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = Object.fromEntries(new FormData(form).entries());
+
+    // 1. Honeypot — bots fill every field; humans never see this one.
+    if (typeof data.website === "string" && data.website.trim() !== "") {
+      // Pretend success so the bot doesn't retry, but do nothing.
+      toast.success("Thanks! We'll get back to you within 24 hours.");
+      form.reset();
+      return;
+    }
+
+    // 2. Time-to-fill check — most bots submit in well under a second.
+    if (Date.now() - formMountedAt < MIN_FILL_TIME_MS) {
+      toast.error("That was quick! Please take a moment to review your message and try again.");
+      return;
+    }
+
+    // 3. Per-browser cooldown — slows down repeated submissions from the same device.
+    try {
+      const last = Number(localStorage.getItem(SUBMIT_COOLDOWN_KEY) ?? "0");
+      const remaining = SUBMIT_COOLDOWN_MS - (Date.now() - last);
+      if (remaining > 0) {
+        const seconds = Math.ceil(remaining / 1000);
+        toast.error(`Please wait ${seconds}s before sending another message.`);
+        return;
+      }
+    } catch {
+      // localStorage unavailable (private mode etc.) — fall through.
+    }
+
     const parsed = contactSchema.safeParse(data);
     if (!parsed.success) {
       const first = parsed.error.issues[0];
@@ -151,6 +184,11 @@ const Contact = () => {
         },
       });
       if (error) throw error;
+      try {
+        localStorage.setItem(SUBMIT_COOLDOWN_KEY, String(Date.now()));
+      } catch {
+        // ignore
+      }
       toast.success("Thanks! We'll get back to you within 24 hours. Check your inbox for a confirmation.");
       form.reset();
     } catch (err) {
@@ -199,6 +237,21 @@ const Contact = () => {
                   Start a Project
                 </h2>
                 <form onSubmit={onSubmit} className="mt-8 grid gap-5" noValidate>
+                  {/* Honeypot field — hidden from humans, filled by bots */}
+                  <div
+                    aria-hidden="true"
+                    style={{ position: "absolute", left: "-10000px", top: "auto", width: "1px", height: "1px", overflow: "hidden" }}
+                  >
+                    <label htmlFor="website">Website (leave blank)</label>
+                    <input
+                      id="website"
+                      name="website"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      defaultValue=""
+                    />
+                  </div>
                   <div>
                     <label htmlFor="fullName" className={labelClass}>
                       Full Name
