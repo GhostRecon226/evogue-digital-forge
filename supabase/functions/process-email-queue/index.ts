@@ -1,5 +1,9 @@
+// deno-lint-ignore-file no-explicit-any
 import { sendLovableEmail } from 'npm:@lovable.dev/email-js'
 import { createClient } from 'npm:@supabase/supabase-js@2'
+
+export { isRateLimited, isForbidden, getRetryAfterSeconds, parseJwtClaims, moveToDlq }
+
 
 const MAX_RETRIES = 5
 const DEFAULT_BATCH_SIZE = 10
