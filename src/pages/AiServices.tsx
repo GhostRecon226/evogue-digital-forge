@@ -3,6 +3,7 @@ import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
+import AiReadinessChecklistForm from "@/components/AiReadinessChecklistForm";
 
 const capabilities = [
   {
