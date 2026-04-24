@@ -149,10 +149,10 @@ const CaseStudies = () => {
             <Reveal>
               <div className="label-caps text-brand-accent">Start a Project</div>
               <h2 className="mt-4 text-3xl md:text-5xl font-semibold tracking-tight text-white leading-tight max-w-3xl mx-auto">
-                Seen enough? Let's talk.
+                Seen enough?
               </h2>
               <p className="mt-5 text-lg text-white/75 max-w-xl mx-auto">
-                Tell us what you're building and we'll take it from there.
+                Tell us about your project and we'll take it from there.
               </p>
               <Link
                 to="/contact"

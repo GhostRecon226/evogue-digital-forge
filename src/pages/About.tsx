@@ -513,10 +513,10 @@ const About = () => {
           <Reveal>
             <div className="label-caps text-brand-secondary">Let's Work Together</div>
             <h2 className="mt-4 text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
-              Like what you see? Let's build something.
+              Think we're a good fit?
             </h2>
             <p className="mt-5 text-brand-secondary/90 max-w-xl mx-auto leading-relaxed">
-              Tell us about your project and we'll take it from there.
+              One conversation is usually enough to find out.
             </p>
             <a
               href="/#contact"
