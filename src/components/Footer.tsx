@@ -108,7 +108,9 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-4 pt-2">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/evogueconsulting/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="group relative inline-flex text-brand-primary/85 hover:text-brand-accent transition-colors duration-200"
                 >

@@ -353,7 +353,7 @@ const Contact = () => {
                 <div className="label-caps text-brand-secondary">Follow Us</div>
                 <ul className="mt-4 space-y-3">
                   {[
-                    { icon: Linkedin, label: "LinkedIn", href: "#" },
+                    { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/company/evogueconsulting/" },
                     { icon: Twitter, label: "Twitter / X", href: "#" },
                     { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/evogueconsult" },
                   ].map(({ icon: Icon, label, href }) => (
