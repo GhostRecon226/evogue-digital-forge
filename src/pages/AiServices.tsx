@@ -383,6 +383,9 @@ const AiServices = () => {
               <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-3xl">
                 We build AI that fits your business. Not the other way around.
               </h2>
+              <p className="mt-5 text-lg text-brand-secondary/90 max-w-2xl leading-relaxed">
+                Three reasons clients keep working with us long after the first deployment.
+              </p>
             </Reveal>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
