@@ -28,7 +28,7 @@ const stats = [
 const services = [
   {
     title: "Product Design and Engineering",
-    body: "Evogue designs and builds websites, web applications, and mobile products for startups, scaleups, and enterprises. We handle everything from UX research and interface design through to frontend and backend engineering and product launch.",
+    body: "You leave with a product that works, scales, and holds up in front of real users. We handle design, engineering, and everything in between.",
     icon: (
       <path d="M4 6h16v10H4zM2 20h20M9 16v4M15 16v4" strokeWidth="1.6" />
     ),
