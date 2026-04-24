@@ -338,12 +338,13 @@ const AiServices = () => {
                   </Tooltip>
                 </Reveal>
 
-                {/* Connector L1 -> L2 */}
+                {/* Connector L1 -> L2 (vertical line, both mobile + desktop) */}
                 <div
-                  className="hidden md:block w-px"
+                  className="w-px"
                   style={{ height: 32, backgroundColor: "#d0e8da" }}
                   aria-hidden
                 />
+                {/* Horizontal spreader — desktop only */}
                 <div
                   className="hidden md:block h-px w-[80%] max-w-[760px]"
                   style={{ backgroundColor: "#d0e8da" }}
