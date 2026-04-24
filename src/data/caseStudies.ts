@@ -1,4 +1,5 @@
 import falaProductsThumb from "@/assets/case-studies/fala-products.jpg";
+import futureTechAcademyThumb from "@/assets/case-studies/the-future-tech-academy.jpg";
 
 export type CaseStudyCategory =
   | "Product Design"
@@ -80,6 +81,46 @@ export const caseStudies: CaseStudy[] = [
       description:
         "How Evogue Consulting built the brand identity, e-commerce website, and business strategy for Fala Products, a Nigerian solar fans and lifestyle essentials brand.",
       ogImage: "/og/fala-products.jpg",
+    },
+  },
+  {
+    slug: "the-future-tech-academy",
+    name: "The Future Tech Academy",
+    client: "Forex and AI training academy, Nigeria",
+    tags: ["EDUTECH", "BRANDING", "STRATEGY"],
+    detailTags: ["EDUTECH", "BRANDING", "STRATEGY", "ADVISORY"],
+    categories: ["Branding", "Strategy"],
+    summary:
+      "Built the brand identity, website, and business strategy for a Forex and AI training academy entering a competitive market.",
+    thumbnail: futureTechAcademyThumb,
+    thumbnailAlt: "The Future Tech Academy — Forex and AI training in Nigeria",
+    metrics: ["Full Brand System", "Website Launch", "Strategy and Advisory"],
+    details: {
+      client: "The Future Tech Academy",
+      industry: "EduTech, Financial Education",
+      services: "Brand Identity, Web Design and Development, Business Strategy, Advisory",
+      location: "Nigeria",
+      website: "www.thefuturetechacademy.com",
+    },
+    problem: [
+      "The Future Tech Academy had a clear mission: teach practical Forex trading and AI skills to people serious about building financial and technical literacy. The problem was credibility. In a market crowded with unserious operators and questionable courses, they needed a digital presence that immediately communicated trust, professionalism, and substance. A brand and website that made the right people stop scrolling.",
+    ],
+    approach: [
+      "We started where we always start, with the business. We spent time understanding who the Academy was trying to reach, what made their teaching approach different, and how to position them clearly in a noisy space. From there we built the brand identity, designed and built the website, worked through the business strategy, and stayed on as advisors through the early phase.",
+    ],
+    outcome: [
+      "The Future Tech Academy launched with a brand and digital presence that sets them apart in a crowded market. The website is live, the identity is consistent and credible, and the business has a clear strategic foundation to grow its student base and expand its course offerings.",
+    ],
+    testimonial: {
+      quote:
+        "We knew what we wanted to teach. Evogue helped us figure out how to show up. The brand and website they built gave us instant credibility with exactly the kind of students we wanted to attract.",
+      name: "The Future Tech Academy Team",
+    },
+    seo: {
+      title: "The Future Tech Academy — Brand, Website & Strategy for a Forex and AI Academy",
+      description:
+        "How Evogue Consulting built the brand identity, website, and business strategy for The Future Tech Academy, a Forex and AI training academy in Nigeria.",
+      ogImage: "/og/the-future-tech-academy.jpg",
     },
   },
   {
