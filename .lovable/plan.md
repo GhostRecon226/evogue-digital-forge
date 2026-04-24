@@ -1,39 +1,28 @@
-# Set up Lovable Emails for Evogue Consulting
+# Update site-wide email to hello@evogue.com.ng
 
-Now that Cloudflare DNS is active and propagated, we can wire up branded email sending from your own domain — no external accounts, no API keys.
+Several pages still display old email addresses (`hello@evogue.consulting` and `hello@evogue.co`). These will be unified to `hello@evogue.com.ng`, which already appears in the footer, Privacy, and Terms pages.
 
-## What we'll do
+## Files to update
 
-### 1. Set up the sender domain
-Open the email setup dialog and add `evogue.co` as the sender domain. Lovable will provision a `notify.evogue.co` subdomain delegated to Lovable's nameservers (NS records added automatically via Cloudflare's API). Sender address will be something like `hello@evogue.co` in the From header.
+1. **src/pages/Index.tsx** (3 occurrences)
+   - Line 630–631: contact link `href="mailto:hello@evogue.consulting"` and visible text → `hello@evogue.com.ng`
+   - Line 662: `window.location.href = mailto:hello@evogue.consulting?...` → `hello@evogue.com.ng`
 
-### 2. Provision email infrastructure
-Behind the scenes, this creates:
-- A durable email queue with automatic retries
-- Send log + suppression list (bounce/complaint handling)
-- One-click unsubscribe support
-- A background dispatcher that processes the queue every few seconds
+2. **src/pages/Contact.tsx** (2 occurrences)
+   - Line 314: `value: "hello@evogue.co"` → `"hello@evogue.com.ng"`
+   - Line 315: `href: "mailto:hello@evogue.co"` → `"mailto:hello@evogue.com.ng"`
 
-### 3. Scaffold the transactional email function
-Creates a `send-transactional-email` edge function plus a branded React Email template directory.
+3. **src/pages/About.tsx** (1 occurrence)
+   - Line 153: `email: "hello@evogue.consulting"` → `"hello@evogue.com.ng"`
 
-### 4. Build a "new contact submission" email template
-Branded to match Evogue (dark theme accents, your typography, white email body per email best practices). Sent to **you** (`hello@evogue.com.ng`) every time someone submits the contact form. Includes:
-- Sender's name, email, company, project type, budget, message
-- Timestamp
-- Clear subject line like "New project enquiry from {name}"
+## Files left untouched (already correct)
 
-### 5. Wire the contact form to trigger the email
-Update the contact form submit handler to call `send-transactional-email` after the submission is saved, with an idempotency key so retries are safe.
+- `src/components/Footer.tsx` — already `hello@evogue.com.ng`
+- `src/pages/Privacy.tsx` — already `hello@evogue.com.ng`
+- `src/pages/Terms.tsx` — already `hello@evogue.com.ng`
+- Form input placeholders like `you@company.com` (sample placeholder text, not a real address)
 
-### 6. (Optional) Confirmation email to the sender
-A second template that auto-replies to the person who submitted the form: "Thanks for reaching out — we'll get back to you within 1–2 business days." Keeps leads warm while you respond.
+## Out of scope
 
-## What you'll need to do
-- Click **Set up email domain** when the dialog appears, enter `evogue.co`, and confirm. Cloudflare API will handle the NS delegation automatically since your nameservers point there.
-- That's it — everything else is automatic.
-
-## Notes
-- Auth emails are not needed right now (no login on the site), so we'll skip that scaffold.
-- Inbox notifications will go to `hello@evogue.com.ng` (your existing footer email). If you'd prefer a different inbox, let me know.
-- Want the auto-reply confirmation to senders included in step 6, or skip it?
+- No backend / email infrastructure changes. The sender domain (`notify.evogue.com.ng`) and queue setup remain as configured.
+- No copy/content rewrites — only the email string is swapped.
