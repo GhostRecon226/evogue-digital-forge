@@ -28,21 +28,21 @@ const stats = [
 const services = [
   {
     title: "Product Design and Engineering",
-    body: "Evogue designs and builds websites, web applications, and mobile products for startups, scaleups, and enterprises. We handle everything from UX research and interface design through to frontend and backend engineering and product launch.",
+    body: "You leave with a product that works, scales, and holds up in front of real users. We handle design, engineering, and everything in between.",
     icon: (
       <path d="M4 6h16v10H4zM2 20h20M9 16v4M15 16v4" strokeWidth="1.6" />
     ),
   },
   {
     title: "Strategy and Consulting",
-    body: "We help businesses and teams think clearly about what to build, why to build it, and how to get there. Our strategy engagements cover product discovery, roadmap planning, market positioning, and digital transformation advisory.",
+    body: "We help you cut through the noise, figure out exactly what to build, and create a path that actually makes sense for your team and your budget.",
     icon: (
       <path d="M3 12l4-4 4 4 4-6 6 8M3 20h18" strokeWidth="1.6" />
     ),
   },
   {
     title: "AI Agents and Automation",
-    body: "Evogue builds custom AI agents and workflow automations tailored to your brand and operations. We help businesses integrate AI into their products and internal processes to reduce manual overhead and improve efficiency.",
+    body: "We build AI agents and automations that save your team real hours every week. Less manual work, more time on the things that actually grow your business.",
     icon: (
       <>
         <circle cx="12" cy="12" r="3" strokeWidth="1.6" />
@@ -52,7 +52,7 @@ const services = [
   },
   {
     title: "Training and Advisory",
-    body: "We upskill teams and advise organisations on product management, business analysis, agile practices, and digital strategy. Our training programmes are practical, structured, and built around real industry workflows.",
+    body: "We get your team up to speed on product, tech, and digital practices that actually stick. No generic workshops. Just practical skills your people will use on Monday morning.",
     icon: (
       <path d="M3 9l9-5 9 5-9 5-9-5zM7 11v5c2 1.5 8 1.5 10 0v-5M21 9v6" strokeWidth="1.6" />
     ),
