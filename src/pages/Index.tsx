@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
+import heroPortrait from "@/assets/hero-portrait.jpg";
 import {
   Dialog,
   DialogContent,
@@ -224,37 +225,72 @@ const Index = () => {
       <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-surface overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-90 pointer-events-none" />
         <div className="container relative">
-          <Reveal>
-            <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-brand-secondary/40 text-brand-secondary label-caps">
-              Product Studio + Consulting Firm
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+            <div className="lg:col-span-7">
+              <Reveal>
+                <div className="inline-flex items-center px-3 py-1.5 rounded-full border border-brand-secondary/40 text-brand-secondary label-caps">
+                  Product Studio + Consulting Firm
+                </div>
+              </Reveal>
+              <Reveal delay={0.1}>
+                <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-primary leading-[1.05]">
+                  Building digital products that earn their place.
+                </h1>
+              </Reveal>
+              <Reveal delay={0.2}>
+                <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
+                  We partner with ambitious teams to design, engineer, and scale software people actually want to use. Origin: Africa. Reach: Global.
+                </p>
+              </Reveal>
+              <Reveal delay={0.3}>
+                <div className="mt-9 flex flex-wrap gap-3">
+                  <a
+                    href="#case-studies"
+                    className="inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
+                  >
+                    See Our Work
+                  </a>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center justify-center border border-brand-primary text-brand-primary text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-primary hover:text-white transition-colors"
+                  >
+                    Start a Project
+                  </a>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-primary leading-[1.05] max-w-4xl">
-              Building digital products that earn their place.
-            </h1>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
-              We partner with ambitious teams to design, engineer, and scale software people actually want to use. Origin: Africa. Reach: Global.
-            </p>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a
-                href="#case-studies"
-                className="inline-flex items-center justify-center bg-brand-primary text-white text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-secondary transition-colors"
-              >
-                See Our Work
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center border border-brand-primary text-brand-primary text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-primary hover:text-white transition-colors"
-              >
-                Start a Project
-              </a>
-            </div>
-          </Reveal>
+
+            <Reveal delay={0.2} className="lg:col-span-5">
+              <div className="relative mx-auto max-w-md lg:max-w-none lg:ml-auto">
+                {/* Decorative backdrop */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-4 rounded-[14px] bg-gradient-to-br from-brand-primary/15 via-brand-accent/10 to-transparent blur-2xl"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute -bottom-4 -right-4 w-2/3 h-2/3 rounded-[10px] border border-brand-primary/20 hidden md:block"
+                />
+                <div className="relative overflow-hidden rounded-[12px] border border-brand-border shadow-card bg-brand-surface aspect-[4/5]">
+                  <img
+                    src={heroPortrait}
+                    alt="Evogue Consulting team member"
+                    loading="eager"
+                    className="w-full h-full object-cover object-center"
+                  />
+                  {/* Blend overlay to merge with surface */}
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, hsl(var(--brand-surface) / 0) 55%, hsl(var(--brand-surface) / 0.55) 100%)",
+                    }}
+                  />
+                </div>
+              </div>
+            </Reveal>
+          </div>
 
           <div className="mt-16 pt-10 border-t border-brand-border grid grid-cols-2 md:grid-cols-4 gap-y-8">
             {stats.map((s, i) => (
