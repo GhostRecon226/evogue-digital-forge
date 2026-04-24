@@ -146,6 +146,60 @@ const AiServices = () => {
           `}</style>
         </section>
 
+        {/* What We Build */}
+        <section className="bg-white">
+          <div className="container py-20 md:py-28">
+            <Reveal>
+              <div className="label-caps text-brand-accent mb-4">What We Build</div>
+              <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight max-w-3xl">
+                Three ways we bring AI into your business.
+              </h2>
+              <p className="mt-5 text-lg text-brand-secondary/90 max-w-2xl leading-relaxed">
+                We start with your operations. Not a product catalogue.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-3">
+              {[
+                {
+                  title: "Custom AI Agents",
+                  body: "Your own AI, trained on your business, your tone, and your workflows. It handles customer queries, internal requests, and routine tasks around the clock. It sounds like you. It works like you. It never calls in sick.",
+                },
+                {
+                  title: "Workflow Automation",
+                  body: "Every business has a graveyard of manual tasks that eat hours and produce errors. We find them, map them, and replace them with automations that run quietly in the background while your team focuses on work that actually requires a human.",
+                },
+                {
+                  title: "AI Strategy and Advisory",
+                  body: "Most companies waste their first AI budget on the wrong problem. We help you find the right one. One focused session can save you months of expensive guesswork and point you toward the opportunities your competitors haven't found yet.",
+                },
+              ].map((card, i) => (
+                <Reveal key={card.title} delay={i * 0.06}>
+                  <article
+                    className="group h-full bg-white rounded-[8px] p-7 border transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_-12px_rgba(0,196,122,0.25)]"
+                    style={{ borderColor: "#d0e8da" }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#f3faf5";
+                      e.currentTarget.style.borderColor = "#00C47A";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "#ffffff";
+                      e.currentTarget.style.borderColor = "#d0e8da";
+                    }}
+                  >
+                    <h3 className="text-xl font-semibold text-brand-primary tracking-tight">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-brand-secondary/90 leading-relaxed">
+                      {card.body}
+                    </p>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Capabilities */}
         <section className="bg-background border-b border-brand">
           <div className="container py-20 md:py-28">
