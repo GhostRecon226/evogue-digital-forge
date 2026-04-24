@@ -371,11 +371,11 @@ const AiServices = () => {
                     },
                   ].map((n, i) => (
                     <Reveal key={n.title} delay={0.1 + i * 0.05}>
-                      <div className="relative flex flex-col items-center">
-                        {/* Vertical stub above each L2 node on desktop */}
+                      <div className="relative flex flex-col items-center w-full">
+                        {/* Vertical stub above each L2 node — mobile gets one too (skip first on mobile since L1 connector already lands there) */}
                         <div
-                          className="hidden md:block w-px"
-                          style={{ height: 24, backgroundColor: "#d0e8da", marginTop: -24 }}
+                          className={`w-px ${i === 0 ? "hidden md:block" : "block"}`}
+                          style={{ height: 24, backgroundColor: "#d0e8da" }}
                           aria-hidden
                         />
                         <Tooltip>
