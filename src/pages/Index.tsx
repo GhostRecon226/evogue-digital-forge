@@ -7,7 +7,6 @@ import heroPortrait from "@/assets/hero-portrait-1.png";
 import heroPortrait2 from "@/assets/hero-portrait-2.png";
 import heroPortrait3 from "@/assets/hero-portrait-3.png";
 import heroPortrait4 from "@/assets/hero-portrait-4.png";
-import heroPortrait5 from "@/assets/hero-portrait-5.png";
 import heroPortrait6 from "@/assets/hero-portrait-6.png";
 import HeroCarousel from "@/components/HeroCarousel";
 import {
@@ -278,7 +277,6 @@ const Index = () => {
                     heroPortrait,
                     heroPortrait4,
                     heroPortrait2,
-                    heroPortrait5,
                     heroPortrait3,
                     heroPortrait6,
                   ]}
