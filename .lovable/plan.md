@@ -1,73 +1,39 @@
 
+## Hero Image Carousel with Branded Portraits
 
-# Redesign Footer (inspired by uploaded reference)
+Replace the static hero portrait on the homepage with a smoothly auto-rotating carousel of 3 portraits — keeping the existing one and adding 2 new AI-generated photos featuring team members wearing shirts with the Evogue logo.
 
-Replace the current dark green footer with a light, four-column layout that mirrors the reference: brand block on the left, two link columns in the middle, and a contact/socials column on the right — all on a soft surface background, separated by a thin divider with a centered copyright underneath.
+### What will change
 
-## Layout
+**Homepage hero (right column)**
+- The single tilted portrait becomes a rotating display of 3 images.
+- Auto-advances every ~5 seconds with a soft cross-fade transition.
+- Preserves the current 4:5 aspect ratio, 10° rotation, glow halo, and hover effect.
+- Small dot indicators below the image so visitors can see progress / click to jump.
+- Pauses rotation on hover for accessibility.
 
-```text
-┌──────────────────────────────────────────────────────────────────────────┐
-│ [Logo]            Quick Links     Support              Contact            │
-│ Tagline copy      Home            FAQ                  ✉  hello@evogue…  │
-│ (max-w-xs)        About           Terms & Conditions   ☎  +234 …         │
-│                   Case Studies    Privacy Policy       [in] [x] [ig]     │
-│                   Academy                                                 │
-│                   Contact                                                 │
-├──────────────────────────────────────────────────────────────────────────┤
-│                © 2025 Evogue Consulting. All rights reserved.            │
-└──────────────────────────────────────────────────────────────────────────┘
-```
+**New images to generate (2 photos)**
+Style-matched to the existing `hero-portrait.jpg` (warm, professional, studio-feel) so they look like one cohesive set:
+1. A professional team member (different person/pose) wearing a branded polo/t-shirt with the Evogue logo clearly visible on the chest.
+2. A second team member in a different setting/pose, also wearing a shirt with the Evogue logo on the chest.
 
-- 4 columns on `lg`, 2 columns on `md`, stacked on mobile.
-- Background: `bg-brand-surface` (`#f7fdf9`) — same warm off-white as the hero, so the footer feels like a natural continuation of the page rather than a hard dark slab.
-- Top padding `pt-20`, bottom `pb-8`, with a `border-t border-brand-border/70` divider above the centered copyright row (matches the reference's thin hairline separator).
+Both will be generated with Nano Banana Pro using `evogue-logo.png` as a visual reference so the logo on the shirt matches the real brand mark. Saved as `src/assets/hero-portrait-2.jpg` and `src/assets/hero-portrait-3.jpg`.
 
-## Column contents
+### Technical details
 
-**Brand (col 1)**
-- `<Logo variant="dark" />` (dark version, since background is light now).
-- Tagline: "A product studio built on the continent, working with teams globally." (`text-sm text-brand-primary/70 max-w-xs`).
+- **Image generation**: Use the `ai-gateway` skill with `google/gemini-3-pro-image-preview` (higher quality for realistic people + readable logo on fabric). Pass the existing logo PNG as a reference image in the prompt so the shirt print matches. Generate 4:5 portrait orientation to match the existing slot.
+- **Carousel component**: New lightweight `HeroCarousel.tsx` in `src/components/`. Pure React (no extra deps) — uses `useState` + `useEffect` interval for rotation and absolute-positioned `<img>` layers with `opacity` transitions for the cross-fade. Keeps the existing wrapper markup (rotation, glow, aspect ratio) so styling is unchanged.
+- **Index.tsx**: Replace the `<img src={heroPortrait} … />` block inside the Reveal with `<HeroCarousel images={[heroPortrait, heroPortrait2, heroPortrait3]} />`.
+- **Accessibility**: Each slide has descriptive `alt` text; carousel pauses on hover/focus; indicator dots are real `<button>`s with `aria-label`.
 
-**Quick Links (col 2)** — heading "Quick Links"
-- Home → `/`
-- About → `/about`
-- Case Studies → `/case-studies`
-- Academy → `/#academy`
-- Contact → `/contact`
-- Use `react-router-dom` `Link` so navigation is SPA, not `<a href="#">` placeholders.
+### Files
 
-**Support (col 3)** — heading "Support"
-- FAQ → `/#faq` (anchor; section may not exist yet — link still renders)
-- Terms & Conditions → `/terms` (placeholder route)
-- Privacy Policy → `/privacy` (placeholder route)
+- New: `src/assets/hero-portrait-2.jpg` (generated)
+- New: `src/assets/hero-portrait-3.jpg` (generated)
+- New: `src/components/HeroCarousel.tsx`
+- Edit: `src/pages/Index.tsx` (swap single image for carousel)
 
-**Contact (col 4)** — heading "Contact"
-- Email row: mail icon + `hello@evogueconsulting.com` (mailto link)
-- Phone row: phone icon + `+234 706 565 2820` (tel link) — using the number from the reference as a stand-in; easy to swap later.
-- Social row: LinkedIn, Twitter/X, Instagram icons (lucide-react), 20px, `text-brand-primary/70 hover:text-brand-accent`.
+### Notes
 
-## Typography & color
-
-- Headings: `text-sm font-semibold text-brand-primary` (no all-caps — matches reference's sentence-case headings).
-- Links: `text-sm text-brand-primary/70 hover:text-brand-primary transition-colors`, vertical spacing `space-y-3`.
-- Copyright: `text-xs text-brand-primary/60` centered.
-- Icons: `lucide-react` (`Mail`, `Phone`, `Linkedin`, `Twitter`, `Instagram`) — already a project dependency.
-
-## Responsive
-
-- `grid-cols-1 md:grid-cols-2 lg:grid-cols-4`, `gap-10 lg:gap-12`.
-- Brand column spans full width on mobile; link columns sit side-by-side from `md` up.
-- Container uses existing `.container` class for consistent horizontal padding with the rest of the site.
-
-## Files
-
-- **Edit** `src/components/Footer.tsx` — full rewrite with the new structure above.
-- No changes to `Logo.tsx`, routes, or design tokens. Placeholder routes (`/terms`, `/privacy`, `/#faq`) are intentional — we can wire them up when those pages exist.
-
-## Out of scope
-
-- No newsletter signup form (not in the reference).
-- No new pages for Terms / Privacy / FAQ — links only.
-- No changes to header, hero, or other sections.
-
+- I'll QA the generated images before wiring them in — if the logo on the shirt comes out distorted or unreadable, I'll regenerate with a tighter prompt or fall back to a clean chest-pocket placement.
+- No backend, no new dependencies, no other sections of the page are touched.
