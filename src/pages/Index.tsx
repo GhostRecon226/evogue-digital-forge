@@ -6,6 +6,9 @@ import CountUp from "@/components/CountUp";
 import heroPortrait from "@/assets/hero-portrait.jpg";
 import heroPortrait2 from "@/assets/hero-portrait-2.jpg";
 import heroPortrait3 from "@/assets/hero-portrait-3.jpg";
+import heroPortrait4 from "@/assets/hero-portrait-4.jpg";
+import heroPortrait5 from "@/assets/hero-portrait-5.jpg";
+import heroPortrait6 from "@/assets/hero-portrait-6.jpg";
 import HeroCarousel from "@/components/HeroCarousel";
 import {
   Dialog,
@@ -270,7 +273,16 @@ const Index = () => {
                   aria-hidden="true"
                   className="absolute -inset-8 md:-inset-12 rounded-full bg-gradient-to-br from-brand-primary/10 via-brand-accent/[0.06] to-transparent blur-3xl"
                 />
-                <HeroCarousel images={[heroPortrait, heroPortrait2, heroPortrait3]} />
+                <HeroCarousel
+                  images={[
+                    heroPortrait,
+                    heroPortrait4,
+                    heroPortrait2,
+                    heroPortrait5,
+                    heroPortrait3,
+                    heroPortrait6,
+                  ]}
+                />
               </div>
             </Reveal>
           </div>
