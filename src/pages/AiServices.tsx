@@ -296,6 +296,139 @@ const AiServices = () => {
           </div>
         </section>
 
+        {/* The Hybrid Organisation */}
+        <section id="hybrid-org" className="bg-white scroll-mt-24">
+          <div className="container py-20 md:py-28">
+            <Reveal>
+              <div className="text-center max-w-3xl mx-auto">
+                <div className="label-caps text-brand-accent mb-4">The Hybrid Org</div>
+                <h2 className="text-3xl md:text-5xl font-bold text-brand-primary tracking-tight">
+                  Your business. Upgraded.
+                </h2>
+                <p className="mt-5 text-base md:text-lg text-brand-secondary/90 leading-relaxed">
+                  Human leadership and strategy at the top. AI workers handling the execution layer below. Your team gets more done. The AI never calls in sick.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Org Chart */}
+            <div className="mt-14 md:mt-20 flex flex-col items-center">
+              {/* Level 1 */}
+              <Reveal delay={0.05}>
+                <div
+                  className="rounded-[10px] px-6 py-4 text-center shadow-sm min-w-[260px]"
+                  style={{ backgroundColor: "#0D3D25", color: "#ffffff" }}
+                >
+                  <div className="font-semibold text-base md:text-lg">Founder / CEO</div>
+                  <div className="text-xs md:text-sm mt-1 opacity-80">Strategy and Vision</div>
+                </div>
+              </Reveal>
+
+              {/* Connector L1 -> L2 */}
+              <div
+                className="hidden md:block w-px"
+                style={{ height: 32, backgroundColor: "#d0e8da" }}
+                aria-hidden
+              />
+              <div
+                className="hidden md:block h-px w-[80%] max-w-[760px]"
+                style={{ backgroundColor: "#d0e8da" }}
+                aria-hidden
+              />
+
+              {/* Level 2 — Humans */}
+              <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-0 md:pt-6 max-w-4xl relative">
+                {[
+                  { title: "Sales Lead", sub: "Human · Closing" },
+                  { title: "Ops Manager", sub: "Human · Oversight" },
+                  { title: "Account Manager", sub: "Human · Relationships" },
+                ].map((n, i) => (
+                  <Reveal key={n.title} delay={0.1 + i * 0.05}>
+                    <div className="relative flex flex-col items-center">
+                      {/* Vertical stub above each L2 node on desktop */}
+                      <div
+                        className="hidden md:block w-px"
+                        style={{ height: 24, backgroundColor: "#d0e8da", marginTop: -24 }}
+                        aria-hidden
+                      />
+                      <div
+                        className="w-full rounded-[10px] px-5 py-4 text-center bg-white border-2"
+                        style={{ borderColor: "#0D3D25", color: "#0D3D25" }}
+                      >
+                        <div className="font-semibold text-base">{n.title}</div>
+                        <div className="text-xs mt-1 opacity-80">{n.sub}</div>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              {/* Connector L2 -> L3 */}
+              <div
+                className="hidden md:block w-px"
+                style={{ height: 32, backgroundColor: "#d0e8da", marginTop: 8 }}
+                aria-hidden
+              />
+              <div
+                className="hidden md:block h-px w-[90%] max-w-[1000px]"
+                style={{ backgroundColor: "#d0e8da" }}
+                aria-hidden
+              />
+
+              {/* Level 3 — AI Workers */}
+              <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 mt-6 md:mt-0 md:pt-6 max-w-5xl">
+                {[
+                  { title: "SDR Agent", sub: "Prospecting" },
+                  { title: "Receptionist", sub: "Inbound" },
+                  { title: "Ops Coordinator", sub: "Coordination" },
+                  { title: "CSM Agent", sub: "Retention" },
+                  { title: "AR Agent", sub: "Collections" },
+                ].map((n, i) => (
+                  <Reveal key={n.title} delay={0.2 + i * 0.05}>
+                    <div className="relative flex flex-col items-center">
+                      <div
+                        className="hidden md:block w-px"
+                        style={{ height: 24, backgroundColor: "#d0e8da", marginTop: -24 }}
+                        aria-hidden
+                      />
+                      <div
+                        className="relative w-full rounded-[10px] px-4 py-4 text-center border-2"
+                        style={{ backgroundColor: "#e8f5ee", borderColor: "#0D3D25", color: "#0D3D25" }}
+                      >
+                        <span
+                          className="absolute -top-2 -right-2 text-[10px] font-bold px-1.5 py-0.5 rounded text-white tracking-wide"
+                          style={{ backgroundColor: "#00C47A" }}
+                        >
+                          AI
+                        </span>
+                        <div className="font-semibold text-sm md:text-base">{n.title}</div>
+                        <div className="text-xs mt-1 opacity-80">{n.sub}</div>
+                      </div>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+
+              {/* Legend */}
+              <Reveal delay={0.5}>
+                <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-brand-secondary">
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block w-2.5 h-2.5 rounded-full bg-gray-400" />
+                    <span>Human Role</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="inline-block w-2.5 h-2.5 rounded-full"
+                      style={{ backgroundColor: "#00C47A" }}
+                    />
+                    <span>AI Digital Worker</span>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* How It Works */}
         <section id="how-it-works" className="bg-white scroll-mt-24">
           <div className="container py-20 md:py-28">
