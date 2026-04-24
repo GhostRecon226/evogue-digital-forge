@@ -3,6 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import Logo from "./Logo";
 
+type NavProps = {
+  /** When true, the nav starts transparent with white text/logo, then switches
+   *  to the solid white state once the user scrolls past the hero. Use on
+   *  pages with a dark hero (e.g. AI Services). */
+  transparentOnDarkHero?: boolean;
+};
+
 type NavLink = { label: string; href: string; section?: string; external?: boolean };
 
 const links: NavLink[] = [
