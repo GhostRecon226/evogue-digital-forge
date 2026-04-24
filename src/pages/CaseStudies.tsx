@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,14 +18,11 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Helmet>
-        <title>Case Studies | Evogue Consulting | Digital Products Built in Africa and Globally</title>
-        <meta
-          name="description"
-          content="Explore Evogue Consulting's project case studies. We have designed, built, and shipped digital products across fintech, e-commerce, logistics, SaaS, and more for clients in Africa and globally."
-        />
-        <link rel="canonical" href="/case-studies" />
-      </Helmet>
+      <Seo
+        title="Case Studies | Evogue Consulting | Digital Products Built in Africa and Globally"
+        description="Explore Evogue Consulting's project case studies. We have designed, built, and shipped digital products across fintech, e-commerce, logistics, SaaS, and more for clients in Africa and globally."
+        path="/case-studies"
+      />
 
       <Nav />
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
@@ -229,13 +229,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Evogue Consulting | Product Studio and Consulting Firm | Lagos, Nigeria</title>
-        <meta
-          name="description"
-          content="Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for ambitious teams across Africa and globally."
-        />
-      </Helmet>
+      <Seo
+        title="Evogue Consulting | Product Studio and Consulting Firm | Lagos, Nigeria"
+        description="Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for ambitious teams across Africa and globally."
+        path="/"
+      />
       <Nav />
 
       {/* HERO */}
