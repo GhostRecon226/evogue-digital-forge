@@ -355,11 +355,13 @@ const Contact = () => {
                   {[
                     { icon: Linkedin, label: "LinkedIn", href: "#" },
                     { icon: Twitter, label: "Twitter / X", href: "#" },
-                    { icon: Instagram, label: "Instagram", href: "#" },
+                    { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/evogueconsult" },
                   ].map(({ icon: Icon, label, href }) => (
                     <li key={label}>
                       <a
                         href={href}
+                        target={href.startsWith("http") ? "_blank" : undefined}
+                        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="inline-flex items-center gap-3 text-brand-primary hover:text-brand-secondary transition-colors"
                       >
                         <Icon className="w-4 h-4" />
