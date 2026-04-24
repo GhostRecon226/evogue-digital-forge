@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Seo from "@/components/Seo";
 import { useState } from "react";
 import { z } from "zod";
 import Nav from "@/components/Nav";
