@@ -23,7 +23,8 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
     >
       <Link
         to={`/case-studies/${study.slug}`}
-        className="group block h-full bg-white border border-brand rounded-[10px] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:border-brand-secondary"
+        aria-label={`View case study: ${study.name} — ${study.client}`}
+        className="group block h-full bg-white border border-brand rounded-[10px] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:border-brand-secondary focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-brand-secondary focus-visible:-translate-y-1 focus-visible:shadow-card"
       >
         {/* Thumbnail */}
         <div
@@ -73,8 +74,11 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300">
+          {/* CTA — visible on hover or keyboard focus */}
+          <div
+            aria-hidden="true"
+            className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0"
+          >
             View Case Study
             <ArrowRight className="w-4 h-4" />
           </div>
