@@ -30,16 +30,36 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
       aria-describedby={`${clientId} ${tagsId} ${metricsId}`}
       className="group relative h-full bg-white border border-brand rounded-[10px] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:border-brand-secondary focus-within:-translate-y-1 focus-within:shadow-card focus-within:border-brand-secondary"
     >
-      {/* Decorative thumbnail */}
-      <div
-        role="presentation"
-        aria-hidden="true"
-        className="h-[200px] w-full"
-        style={{
-          background:
-            "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 55%, hsl(var(--brand-accent) / 0.35) 100%)",
-        }}
-      />
+      {/* Thumbnail */}
+      <div className="relative h-[200px] w-full overflow-hidden bg-brand-surface">
+        {study.thumbnail ? (
+          <img
+            src={study.thumbnail}
+            alt={study.thumbnailAlt ?? `${study.name} project thumbnail`}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <div
+            role="presentation"
+            aria-hidden="true"
+            className="absolute inset-0 flex items-center justify-center px-6 text-center"
+            style={{
+              background:
+                "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 55%, hsl(var(--brand-accent) / 0.35) 100%)",
+            }}
+          >
+            <span className="text-lg md:text-xl font-semibold text-brand-primary tracking-tight">
+              {study.name}
+            </span>
+          </div>
+        )}
+        {/* Hover overlay */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-brand-primary/0 transition-colors duration-300 group-hover:bg-brand-primary/15 group-focus-within:bg-brand-primary/15"
+        />
+      </div>
 
       <div className="p-6 md:p-7 flex flex-col gap-4">
         {/* Tags */}
