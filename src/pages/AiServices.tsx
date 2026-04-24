@@ -75,6 +75,35 @@ const process = [
 ];
 
 const AiServices = () => {
+  // Org chart hover state for animated data-flow connectors
+  // level: 1 = CEO, 2 = human role, 3 = AI worker
+  const [orgHover, setOrgHover] = useState<{ level: 1 | 2 | 3; index: number } | null>(null);
+
+  // Map each L3 AI worker to its L2 human parent index
+  // [SDR, Receptionist, Ops Coordinator, CSM, AR]
+  // Parents: [Sales Lead=0, Ops Manager=1, Ops Manager=1, Account Manager=2, Ops Manager=1]
+  const l3Parent = [0, 1, 1, 2, 1];
+
+  const isL2Active = (i: number) => {
+    if (!orgHover) return false;
+    if (orgHover.level === 1) return true;
+    if (orgHover.level === 2) return orgHover.index === i;
+    if (orgHover.level === 3) return l3Parent[orgHover.index] === i;
+    return false;
+  };
+  const isL3Active = (i: number) => {
+    if (!orgHover) return false;
+    if (orgHover.level === 1) return true;
+    if (orgHover.level === 2) return l3Parent[i] === orgHover.index;
+    if (orgHover.level === 3) return orgHover.index === i;
+    return false;
+  };
+  const isL1Active = () => orgHover !== null;
+  // L1 -> L2 trunk active whenever any L2 is active
+  const isL1L2TrunkActive = () => orgHover !== null;
+  // L2 -> L3 trunk active whenever any L3 is active
+  const isL2L3TrunkActive = () => orgHover !== null;
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Seo
