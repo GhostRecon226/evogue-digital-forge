@@ -79,7 +79,7 @@ const CaseStudyDetail = () => {
 
             <Reveal className="mt-10">
               <div className="flex flex-wrap gap-1.5">
-                {study.tags.map((t) => (
+                {(study.detailTags ?? study.tags).map((t) => (
                   <span
                     key={t}
                     className="inline-flex items-center rounded-full bg-brand-surface text-brand-primary border border-brand px-2.5 py-0.5 text-[10px] font-semibold tracking-[0.12em]"
@@ -141,6 +141,19 @@ const CaseStudyDetail = () => {
                   </div>
                 </Reveal>
               ))}
+
+              {study.testimonial && (
+                <Reveal>
+                  <figure className="border-l-4 border-brand-accent bg-brand-surface rounded-r-[10px] p-6 md:p-8">
+                    <blockquote className="text-lg md:text-xl text-brand-primary leading-relaxed italic">
+                      &ldquo;{study.testimonial.quote}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-4 text-sm font-semibold text-brand-secondary">
+                      — {study.testimonial.name}
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              )}
             </div>
 
             {/* Right sticky */}
@@ -153,16 +166,34 @@ const CaseStudyDetail = () => {
                       { k: "Client", v: study.details.client },
                       { k: "Industry", v: study.details.industry },
                       { k: "Services", v: study.details.services },
-                      { k: "Duration", v: study.details.duration },
-                      { k: "Year", v: study.details.year },
-                    ].map((row) => (
-                      <div key={row.k} className="flex flex-col">
-                        <dt className="text-xs font-semibold uppercase tracking-wider text-brand-primary/60">
-                          {row.k}
-                        </dt>
-                        <dd className="mt-1 text-sm text-brand-primary">{row.v}</dd>
-                      </div>
-                    ))}
+                      study.details.duration ? { k: "Duration", v: study.details.duration } : null,
+                      study.details.year ? { k: "Year", v: study.details.year } : null,
+                      study.details.location ? { k: "Location", v: study.details.location } : null,
+                      study.details.website
+                        ? {
+                            k: "Website",
+                            v: (
+                              <a
+                                href={`https://${study.details.website.replace(/^https?:\/\//, "")}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-brand-primary underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-secondary hover:decoration-brand-secondary break-all"
+                              >
+                                {study.details.website}
+                              </a>
+                            ),
+                          }
+                        : null,
+                    ]
+                      .filter((row): row is { k: string; v: React.ReactNode } => row !== null)
+                      .map((row) => (
+                        <div key={row.k} className="flex flex-col">
+                          <dt className="text-xs font-semibold uppercase tracking-wider text-brand-primary/60">
+                            {row.k}
+                          </dt>
+                          <dd className="mt-1 text-sm text-brand-primary">{row.v}</dd>
+                        </div>
+                      ))}
                   </dl>
                 </div>
 
