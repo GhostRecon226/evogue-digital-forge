@@ -1,17 +1,9 @@
 ## Goal
-Remove the "Edit with Lovable" watermark/badge from the published Evogue Consulting site (custom domains and `*.lovable.app` URL).
+Make the "Explore AI Services" button on the homepage AI banner navigate to the AI Services page instead of `#`.
 
 ## Change
-- Call `publish_settings--set_badge_visibility` with `hide_badge: true`.
+In `src/pages/Index.tsx`:
+1. Add `import { Link } from "react-router-dom";` at the top.
+2. Replace the `<a href="#">Explore AI Services</a>` in the AI banner section (around lines 412–417) with a `<Link to="/ai-services">` using the same classes.
 
-## Requirements
-- Workspace must be on **Pro plan or higher**. If it isn't, the toggle will be rejected and the badge will stay visible until the plan is upgraded.
-
-## After approval
-1. Toggle the badge off via the publish settings tool.
-2. You may need to click **Publish → Update** once for the change to propagate to the live site, then hard-refresh (Cmd/Ctrl+Shift+R) to confirm the badge is gone on:
-   - https://www.evogueconsulting.com
-   - https://www.evogue.com.ng
-   - https://evogue-origin-impact.lovable.app
-
-No code changes required.
+No other changes.

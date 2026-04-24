@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -409,12 +410,12 @@ const Index = () => {
                   From custom AI agents for your brand to workflow automations that save real hours. We help teams work smarter without the hype.
                 </p>
               </div>
-              <a
-                href="#"
+              <Link
+                to="/ai-services"
                 className="inline-flex items-center justify-center bg-white text-brand-primary text-sm font-semibold px-6 py-3.5 rounded-[4px] hover:bg-brand-accent transition-colors whitespace-nowrap"
               >
                 Explore AI Services
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>
