@@ -239,7 +239,7 @@ const About = () => {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 text-lg md:text-xl text-brand-secondary/90 max-w-2xl leading-relaxed">
-              Evogue Consulting is a product studio and consulting firm founded in Lagos, Nigeria, with one goal: to raise the standard of digital product development on the African continent and beyond.
+              Evogue Consulting is a product studio and consulting with one goal: to raise the standard of digital product development on the African continent and beyond.
             </p>
           </Reveal>
         </div>
@@ -406,7 +406,7 @@ const About = () => {
             </h2>
             <div className="mt-8 space-y-5 text-brand-accent/90 leading-relaxed text-base md:text-lg max-w-xl">
               <p>
-                Evogue was founded in Lagos, Nigeria, with a specific mission: to raise the standard of digital product development on the African continent. We believe Africa's tech ecosystem deserves the same quality of product thinking, engineering, and design that global markets expect.
+                Evogue was founded with a specific mission: to raise the standard of digital product development on the African continent. We believe Africa's tech ecosystem deserves the same quality of product thinking, engineering, and design that global markets expect.
               </p>
               <p>
                 That conviction has not changed. What has grown is our reach. We now work with teams across Africa, Europe, and globally, bringing the same standard to every project regardless of geography.
