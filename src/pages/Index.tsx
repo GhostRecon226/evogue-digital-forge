@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
-import heroPortrait from "@/assets/hero-portrait.jpg";
+import heroPortrait from "@/assets/hero-portrait.png";
 import {
   Dialog,
   DialogContent,
@@ -272,22 +272,7 @@ const Index = () => {
                     src={heroPortrait}
                     alt="Evogue Consulting team member"
                     loading="eager"
-                    className="w-full h-full object-cover object-center"
-                    style={{
-                      WebkitMaskImage:
-                        "radial-gradient(ellipse 75% 85% at 50% 42%, #000 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0) 100%)",
-                      maskImage:
-                        "radial-gradient(ellipse 75% 85% at 50% 42%, #000 55%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0) 100%)",
-                    }}
-                  />
-                  {/* Edge wash to lock the fade against #f7fdf9 on every breakpoint */}
-                  <div
-                    aria-hidden="true"
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background:
-                        "radial-gradient(ellipse 80% 90% at 50% 45%, hsl(var(--brand-surface) / 0) 55%, hsl(var(--brand-surface) / 0.55) 78%, hsl(var(--brand-surface)) 100%)",
-                    }}
+                    className="relative w-full h-full object-contain object-bottom"
                   />
                 </div>
               </div>
