@@ -108,6 +108,25 @@ const FAQ = () => {
           content="Answers to common questions about working with Evogue Consulting — services, pricing, timelines, and process."
         />
         <link rel="canonical" href="https://www.evogue.co/faq" />
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Evogue Consulting" />
+        <meta property="og:title" content="FAQ | Evogue Consulting" />
+        <meta
+          property="og:description"
+          content="Answers to common questions about working with Evogue Consulting — services, pricing, timelines, and process."
+        />
+        <meta property="og:url" content="https://www.evogue.co/faq" />
+        <meta property="og:image" content="https://www.evogue.co/og-image.jpg" />
+        <meta property="og:image:alt" content="Evogue Consulting — FAQ" />
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="FAQ | Evogue Consulting" />
+        <meta
+          name="twitter:description"
+          content="Answers to common questions about working with Evogue Consulting — services, pricing, timelines, and process."
+        />
+        <meta name="twitter:image" content="https://www.evogue.co/og-image.jpg" />
         <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
       </Helmet>
       <Nav />
