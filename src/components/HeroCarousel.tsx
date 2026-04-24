@@ -36,13 +36,13 @@ const HeroCarousel = ({
 
   return (
     <div
-      className="relative"
+      className="relative bg-transparent"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-[4/5] overflow-hidden bg-transparent border-0 shadow-none rounded-none">
         {images.map((src, i) => {
           const isActive = i === index;
           const isPrev = i === prevIndex;
@@ -58,6 +58,7 @@ const HeroCarousel = ({
               alt={`${alt} ${i + 1}`}
               loading={i === 0 ? "eager" : "lazy"}
               aria-hidden={!isActive}
+              style={{ mixBlendMode: "multiply" }}
               className={`absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 ease-out ${translate}`}
             />
           );
