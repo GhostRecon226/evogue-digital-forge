@@ -338,12 +338,13 @@ const AiServices = () => {
                   </Tooltip>
                 </Reveal>
 
-                {/* Connector L1 -> L2 */}
+                {/* Connector L1 -> L2 (vertical line, both mobile + desktop) */}
                 <div
-                  className="hidden md:block w-px"
+                  className="w-px"
                   style={{ height: 32, backgroundColor: "#d0e8da" }}
                   aria-hidden
                 />
+                {/* Horizontal spreader — desktop only */}
                 <div
                   className="hidden md:block h-px w-[80%] max-w-[760px]"
                   style={{ backgroundColor: "#d0e8da" }}
@@ -351,7 +352,7 @@ const AiServices = () => {
                 />
 
                 {/* Level 2 — Humans */}
-                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-6 md:mt-0 md:pt-6 max-w-4xl relative">
+                <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-6 mt-0 md:mt-0 md:pt-6 max-w-4xl relative">
                   {[
                     {
                       title: "Sales Lead",
@@ -370,11 +371,11 @@ const AiServices = () => {
                     },
                   ].map((n, i) => (
                     <Reveal key={n.title} delay={0.1 + i * 0.05}>
-                      <div className="relative flex flex-col items-center">
-                        {/* Vertical stub above each L2 node on desktop */}
+                      <div className="relative flex flex-col items-center w-full">
+                        {/* Vertical stub above each L2 node — mobile gets one too (skip first on mobile since L1 connector already lands there) */}
                         <div
-                          className="hidden md:block w-px"
-                          style={{ height: 24, backgroundColor: "#d0e8da", marginTop: -24 }}
+                          className={`w-px ${i === 0 ? "hidden md:block" : "block"}`}
+                          style={{ height: 24, backgroundColor: "#d0e8da" }}
                           aria-hidden
                         />
                         <Tooltip>
@@ -394,12 +395,13 @@ const AiServices = () => {
                   ))}
                 </div>
 
-                {/* Connector L2 -> L3 */}
+                {/* Connector L2 -> L3 (vertical line, both mobile + desktop) */}
                 <div
-                  className="hidden md:block w-px"
+                  className="w-px"
                   style={{ height: 32, backgroundColor: "#d0e8da", marginTop: 8 }}
                   aria-hidden
                 />
+                {/* Horizontal spreader — desktop only */}
                 <div
                   className="hidden md:block h-px w-[90%] max-w-[1000px]"
                   style={{ backgroundColor: "#d0e8da" }}
@@ -407,7 +409,7 @@ const AiServices = () => {
                 />
 
                 {/* Level 3 — AI Workers */}
-                <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-5 mt-6 md:mt-0 md:pt-6 max-w-5xl">
+                <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-0 sm:gap-4 md:gap-5 mt-0 md:mt-0 md:pt-6 max-w-5xl">
                   {[
                     {
                       title: "SDR Agent",
@@ -436,10 +438,11 @@ const AiServices = () => {
                     },
                   ].map((n, i) => (
                     <Reveal key={n.title} delay={0.2 + i * 0.05}>
-                      <div className="relative flex flex-col items-center">
+                      <div className="relative flex flex-col items-center w-full">
+                        {/* Vertical stub above each L3 node — mobile shows on all but the first (L2->L3 connector lands on first) */}
                         <div
-                          className="hidden md:block w-px"
-                          style={{ height: 24, backgroundColor: "#d0e8da", marginTop: -24 }}
+                          className={`w-px ${i === 0 ? "hidden md:block" : "block sm:hidden md:block"}`}
+                          style={{ height: 24, backgroundColor: "#d0e8da" }}
                           aria-hidden
                         />
                         <Tooltip>
