@@ -13,6 +13,7 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
   const clientId = `case-${study.slug}-client`;
   const tagsId = `case-${study.slug}-tags`;
   const metricsId = `case-${study.slug}-metrics`;
+  const href = `/case-studies/${study.slug}`;
 
   return (
     <motion.article
@@ -27,85 +28,91 @@ const CaseStudyCard = ({ study, index = 0 }: Props) => {
       exit={{ opacity: 0, scale: 0.96, transition: { duration: 0.2 } }}
       aria-labelledby={headingId}
       aria-describedby={`${clientId} ${tagsId} ${metricsId}`}
+      className="group relative h-full bg-white border border-brand rounded-[10px] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:border-brand-secondary focus-within:-translate-y-1 focus-within:shadow-card focus-within:border-brand-secondary"
     >
-      <Link
-        to={`/case-studies/${study.slug}`}
-        aria-label={`View case study: ${study.name} — ${study.client}`}
-        className="group block h-full bg-white border border-brand rounded-[10px] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-card hover:border-brand-secondary focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:border-brand-secondary focus-visible:-translate-y-1 focus-visible:shadow-card"
-      >
-        {/* Decorative thumbnail */}
-        <div
-          role="presentation"
-          aria-hidden="true"
-          className="h-[200px] w-full"
-          style={{
-            background:
-              "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 55%, hsl(var(--brand-accent) / 0.35) 100%)",
-          }}
-        />
+      {/* Decorative thumbnail */}
+      <div
+        role="presentation"
+        aria-hidden="true"
+        className="h-[200px] w-full"
+        style={{
+          background:
+            "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 55%, hsl(var(--brand-accent) / 0.35) 100%)",
+        }}
+      />
 
-        <div className="p-6 md:p-7 flex flex-col gap-4">
-          {/* Tags */}
-          <ul
-            id={tagsId}
-            aria-label={`Categories for ${study.name}`}
-            className="flex flex-wrap gap-1.5 list-none p-0 m-0"
-          >
-            {study.tags.map((t) => (
-              <li
-                key={t}
-                className="inline-flex items-center rounded-full bg-brand-surface text-brand-primary border border-brand px-2.5 py-0.5 text-[10px] font-semibold tracking-[0.12em]"
-              >
-                {t}
-              </li>
-            ))}
-          </ul>
-
-          {/* Name + client */}
-          <header>
-            <h3
-              id={headingId}
-              className="text-xl md:text-2xl font-semibold text-brand-primary leading-tight"
+      <div className="p-6 md:p-7 flex flex-col gap-4">
+        {/* Tags */}
+        <ul
+          id={tagsId}
+          aria-label={`Categories for ${study.name}`}
+          className="flex flex-wrap gap-1.5 list-none p-0 m-0"
+        >
+          {study.tags.map((t) => (
+            <li
+              key={t}
+              className="inline-flex items-center rounded-full bg-brand-surface text-brand-primary border border-brand px-2.5 py-0.5 text-[10px] font-semibold tracking-[0.12em]"
             >
-              {study.name}
-            </h3>
-            <p id={clientId} className="mt-1 text-sm text-brand-secondary">
-              <span className="sr-only">Client: </span>
-              {study.client}
-            </p>
-          </header>
+              {t}
+            </li>
+          ))}
+        </ul>
 
-          {/* Summary */}
-          <p className="text-sm text-brand-primary/75 leading-relaxed line-clamp-2">
-            {study.summary}
+        {/* Name + client */}
+        <header>
+          <h3
+            id={headingId}
+            className="text-xl md:text-2xl font-semibold text-brand-primary leading-tight"
+          >
+            {study.name}
+          </h3>
+          <p id={clientId} className="mt-1 text-sm text-brand-secondary">
+            <span className="sr-only">Client: </span>
+            {study.client}
           </p>
+        </header>
 
-          {/* Metrics */}
-          <ul
-            id={metricsId}
-            aria-label={`Key outcomes for ${study.name}`}
-            className="flex flex-wrap gap-1.5 pt-1 list-none p-0 m-0"
-          >
-            {study.metrics.map((m) => (
-              <li
-                key={m}
-                className="inline-flex items-center rounded-full bg-brand-accent/10 text-brand-primary px-3 py-1 text-xs font-medium"
-              >
-                {m}
-              </li>
-            ))}
-          </ul>
+        {/* Summary */}
+        <p className="text-sm text-brand-primary/75 leading-relaxed line-clamp-2">
+          {study.summary}
+        </p>
 
-          {/* Decorative CTA — link itself already has aria-label */}
-          <span
-            aria-hidden="true"
-            className="mt-2 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 group-focus-visible:opacity-100 group-focus-visible:translate-x-0"
-          >
-            View Case Study
-            <ArrowRight className="w-4 h-4" />
-          </span>
-        </div>
-      </Link>
+        {/* Metrics */}
+        <ul
+          id={metricsId}
+          aria-label={`Key outcomes for ${study.name}`}
+          className="flex flex-wrap gap-1.5 pt-1 list-none p-0 m-0"
+        >
+          {study.metrics.map((m) => (
+            <li
+              key={m}
+              className="inline-flex items-center rounded-full bg-brand-accent/10 text-brand-primary px-3 py-1 text-xs font-medium"
+            >
+              {m}
+            </li>
+          ))}
+        </ul>
+
+        {/*
+          The single focusable target. The ::after pseudo-element expands the
+          link's hit area to cover the entire card, so mouse users can click
+          anywhere — but keyboard users get one clear focus target with a
+          visible underline + ring on the actual "View Case Study" text.
+        */}
+        <Link
+          to={href}
+          aria-label={`View case study: ${study.name} — ${study.client}`}
+          className="relative mt-2 self-start inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary rounded-[4px] px-1 -mx-1 underline decoration-brand-accent decoration-2 underline-offset-4 hover:text-brand-secondary focus:outline-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-white after:content-[''] after:absolute after:inset-0 after:-top-[9999px] after:-left-[9999px] after:right-[-9999px] after:bottom-[-9999px] after:z-10 group-hover:text-brand-secondary"
+          style={{
+            // Constrain the ::after overlay to the card via the parent's
+            // overflow-hidden + positioning — the huge inset values above
+            // ensure it always covers the full card no matter its size.
+          }}
+        >
+          <span className="relative z-20">View Case Study</span>
+          <ArrowRight className="relative z-20 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+        </Link>
+      </div>
     </motion.article>
   );
 };
