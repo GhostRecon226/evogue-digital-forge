@@ -1,37 +1,48 @@
 
 
-## Match Carousel Image Background to Hero Section
+## Add an AI Customer Service Agent — "Evo"
 
-Make the carousel photos visually merge with the hero section background so there's no visible "box" or color mismatch behind them — the photo subjects appear to float directly on the hero's background.
+A floating chat widget on every page that answers visitor questions about Evogue and books discovery calls directly into your Google Calendar.
 
-### The problem
+### What visitors will see
 
-Right now images use `mix-blend-mode: multiply`, which blends the photo's pixels with whatever is behind them. If the photos were shot on a **white** studio background, multiply works perfectly on a light hero (white pixels disappear). But the hero section in `src/pages/Index.tsx` uses a tinted/colored background, so the white photo backgrounds get **tinted** by multiply instead of disappearing — leaving a visible rectangular tint behind each portrait.
+1. **Floating launcher button** (bottom-right, all pages) matching the dark/minimal aesthetic.
+2. **Chat panel** with message history, typing indicator, and markdown-rendered responses.
+3. **Greeting**: *"Hi, I'm Evo — Evogue's AI assistant. I can answer questions about our work or help you book a free 30-minute discovery call."*
+4. **Booking flow inside chat**: Evo asks for name, email, company, project summary, and preferred time → checks your real Google Calendar availability → creates the event → confirms in-chat with the meeting time.
 
-### What will change
+### Technical approach
 
-- The carousel slide area will visually share the exact same background as the hero section — no tinted rectangle, no visible photo edge.
-- The photo subjects (people) remain fully visible and correctly colored.
-- Slide-in transition, dot indicators, 4:5 aspect ratio, pause-on-hover all stay identical.
+- **Frontend**: `AIChatWidget.tsx` + `AIChatLauncher.tsx`, mounted in `App.tsx` so the bubble appears on Home, About, Case Studies, and Contact. Uses existing Tailwind tokens; `react-markdown` renders responses.
+- **AI**: Lovable AI Gateway with `google/gemini-3-flash-preview` (fast, no API key required from you). Streams responses token-by-token. System prompt is grounded in Evogue's services, FAQs, pricing ($5K+), location, and process.
+- **Tool calling**: The agent exposes two tools:
+  - `check_availability(date_range)` — queries your Google Calendar freebusy
+  - `book_discovery_call(name, email, company, summary, start_time)` — creates the calendar event with a Google Meet link
+- **Edge functions**:
+  - `chat-agent` — streams AI responses, handles tool calls
+  - `book-meeting` — wraps Google Calendar API via the Lovable connector gateway
+- **Database** (Lovable Cloud):
+  - `chat_conversations` (session_id, visitor_email, created_at)
+  - `chat_messages` (conversation_id, role, content, created_at)
+  - `meeting_requests` (name, email, company, summary, scheduled_for, calendar_event_id, status)
+  - `user_roles` table + `has_role()` security definer function
+  - RLS: anonymous visitors can INSERT into chat tables and meeting_requests; reads restricted to admins
+- **Google Calendar integration**: Uses the **Google Calendar connector** via Lovable's connector gateway. This connects *your* calendar (the Evogue account that authorizes it) — every booking lands there. We'll prompt you to connect it during the build.
 
-### Approach (need your input)
+### Files to create / change
 
-Multiply blending only "disappears" white backgrounds when the surface behind is also white. Since your hero isn't pure white, I need to pick one of these fixes:
+- `src/components/AIChatWidget.tsx`, `src/components/AIChatLauncher.tsx` — widget UI
+- `src/App.tsx` — mount widget globally
+- `supabase/functions/chat-agent/index.ts` — streaming chat + tool calling
+- `supabase/functions/book-meeting/index.ts` — Google Calendar booking
+- Migration: chat tables, meeting_requests, user_roles, RLS policies, has_role() function
+- Connect Google Calendar connector (one-click prompt during build)
 
-1. **Force the carousel area to a white background** (matches what multiply needs). Photos blend cleanly, but you'll see a white rectangle behind them instead of the hero color.
-2. **Remove `mix-blend-mode` and instead remove the photo backgrounds entirely** (transparent PNGs of just the people). Photos then sit directly on the hero background with no rectangle at all — this is what you most likely want, but it requires regenerating the 6 hero images as background-removed PNGs.
-3. **Switch blend mode to `screen` or `lighten`** if your hero background is dark — different math, same goal.
+### Heads-up
 
-### Files likely touched
+- **Calendar account**: All bookings go into the Google account you authorize. Use your Evogue calendar (e.g. hello@evogue.com.ng).
+- **Timezone**: Bookings will use Africa/Lagos by default — let me know if you'd prefer detecting the visitor's timezone instead.
+- **Confirmation emails**: Google Calendar will send the standard invite email to the visitor automatically (includes the Meet link). No extra setup needed.
 
-- `src/components/HeroCarousel.tsx` (blend mode / background tweak)
-- Possibly regenerate `src/assets/hero-portrait-1..6.jpg` as transparent `.png` (option 2)
-- Possibly `src/pages/Index.tsx` (re-import as `.png`)
-
-### Question for you
-
-Which result do you want?
-- **A)** Photos sit on a clean **white panel** inside the hero (simplest, no regeneration).
-- **B)** Photo backgrounds are **fully removed** so subjects float directly on the hero background with no rectangle (best looking, requires regenerating all 6 images).
-- **C)** Something else — tell me the hero background color you want behind the photos and I'll match it exactly.
+Approve and I'll build it.
 
