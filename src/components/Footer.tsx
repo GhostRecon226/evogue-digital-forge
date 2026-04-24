@@ -24,7 +24,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <Logo variant="dark" />
-            <p className="mt-5 text-sm text-brand-primary/70 max-w-xs leading-relaxed">
+            <p className="mt-5 text-sm text-brand-primary/85 max-w-xs leading-relaxed">
               A product studio built on the continent, working with teams globally.
             </p>
           </div>
@@ -37,7 +37,7 @@ const Footer = () => {
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    className="text-sm text-brand-primary/70 hover:text-brand-primary transition-colors"
+                    className="text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
                 <li key={l.label}>
                   <Link
                     to={l.to}
-                    className="text-sm text-brand-primary/70 hover:text-brand-primary transition-colors"
+                    className="text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -70,7 +70,7 @@ const Footer = () => {
               <li>
                 <a
                   href="mailto:hello@evogueconsulting.com"
-                  className="flex items-center gap-2 text-sm text-brand-primary/70 hover:text-brand-primary transition-colors"
+                  className="flex items-center gap-2 text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
                 >
                   <Mail size={16} aria-hidden="true" />
                   hello@evogueconsulting.com
@@ -79,7 +79,7 @@ const Footer = () => {
               <li>
                 <a
                   href="tel:+2347065652820"
-                  className="flex items-center gap-2 text-sm text-brand-primary/70 hover:text-brand-primary transition-colors"
+                  className="flex items-center gap-2 text-sm text-brand-primary/85 hover:text-brand-primary transition-colors"
                 >
                   <Phone size={16} aria-hidden="true" />
                   +234 706 565 2820
@@ -89,21 +89,21 @@ const Footer = () => {
                 <a
                   href="#"
                   aria-label="LinkedIn"
-                  className="text-brand-primary/70 hover:text-brand-accent transition-colors"
+                  className="text-brand-primary/85 hover:text-brand-accent transition-colors"
                 >
                   <Linkedin size={20} />
                 </a>
                 <a
                   href="#"
                   aria-label="Twitter"
-                  className="text-brand-primary/70 hover:text-brand-accent transition-colors"
+                  className="text-brand-primary/85 hover:text-brand-accent transition-colors"
                 >
                   <Twitter size={20} />
                 </a>
                 <a
                   href="#"
                   aria-label="Instagram"
-                  className="text-brand-primary/70 hover:text-brand-accent transition-colors"
+                  className="text-brand-primary/85 hover:text-brand-accent transition-colors"
                 >
                   <Instagram size={20} />
                 </a>
@@ -113,7 +113,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-16 pt-6 border-t border-brand-border/70">
-          <p className="text-center text-xs text-brand-primary/60">
+          <p className="text-center text-xs text-brand-primary/75">
             © 2025 Evogue Consulting. All rights reserved.
           </p>
         </div>
