@@ -149,8 +149,6 @@ const Pill = ({ children }: { children: React.ReactNode }) => (
 );
 
 const Index = () => {
-  const [activeCase, setActiveCase] = useState<CaseStudy | null>(null);
-
   return (
     <div className="min-h-screen bg-background">
       <Seo
@@ -317,38 +315,8 @@ const Index = () => {
             </p>
           </Reveal>
           <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {cases.map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.12}>
-                <button
-                  type="button"
-                  onClick={() => setActiveCase(c)}
-                  className="group text-left w-full bg-white border border-brand-border rounded-[10px] overflow-hidden hover:-translate-y-1 hover:shadow-card transition-all duration-300 h-full flex flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-                  aria-label={`View case study: ${c.title}`}
-                >
-                  <div
-                    className="h-44 w-full"
-                    style={{
-                      background:
-                        "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 60%, hsl(var(--brand-accent) / 0.35) 100%)",
-                    }}
-                  />
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="flex flex-wrap gap-2">
-                      {c.tags.map((t) => (
-                        <Pill key={t}>{t}</Pill>
-                      ))}
-                    </div>
-                    <h3 className="mt-4 text-xl font-semibold text-brand-primary">{c.title}</h3>
-                    <p className="mt-2 text-brand-secondary/90 leading-relaxed">{c.body}</p>
-                    <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary">
-                      View case study
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:translate-x-1">
-                        <path d="M5 12h14M13 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </div>
-                </button>
-              </Reveal>
+            {featuredCaseStudies.map((c, i) => (
+              <CaseStudyCard key={c.slug} study={c} index={i} />
             ))}
           </div>
         </div>
@@ -645,111 +613,6 @@ const Index = () => {
 
       <Footer />
 
-      <Dialog open={!!activeCase} onOpenChange={(open) => !open && setActiveCase(null)}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-white border-brand-border p-0">
-          {activeCase && (
-            <>
-              <div
-                className="h-40 w-full"
-                style={{
-                  background:
-                    "linear-gradient(135deg, hsl(var(--brand-surface)) 0%, hsl(var(--brand-border)) 60%, hsl(var(--brand-accent) / 0.35) 100%)",
-                }}
-              />
-              <div className="p-7 md:p-9">
-                <div className="flex flex-wrap gap-2">
-                  {activeCase.tags.map((t) => (
-                    <Pill key={t}>{t}</Pill>
-                  ))}
-                </div>
-                <DialogHeader className="mt-4 space-y-2 text-left">
-                  <DialogTitle className="text-2xl md:text-3xl font-bold text-brand-primary tracking-tight">
-                    {activeCase.title}
-                  </DialogTitle>
-                  <DialogDescription className="text-brand-secondary/90 leading-relaxed">
-                    {activeCase.body}
-                  </DialogDescription>
-                </DialogHeader>
-
-                <dl className="mt-6 grid grid-cols-3 gap-4 border-y border-brand-border py-4">
-                  <div>
-                    <dt className="label-caps text-brand-secondary">Client</dt>
-                    <dd className="mt-1 text-sm font-semibold text-brand-primary">{activeCase.client}</dd>
-                  </div>
-                  <div>
-                    <dt className="label-caps text-brand-secondary">Year</dt>
-                    <dd className="mt-1 text-sm font-semibold text-brand-primary">{activeCase.year}</dd>
-                  </div>
-                  <div>
-                    <dt className="label-caps text-brand-secondary">Role</dt>
-                    <dd className="mt-1 text-sm font-semibold text-brand-primary">{activeCase.role}</dd>
-                  </div>
-                </dl>
-
-                <div className="mt-6">
-                  <div className="label-caps text-brand-secondary">The Challenge</div>
-                  <p className="mt-2 text-brand-primary/90 leading-relaxed">{activeCase.challenge}</p>
-                </div>
-                <div className="mt-5">
-                  <div className="label-caps text-brand-secondary">Our Approach</div>
-                  <p className="mt-2 text-brand-primary/90 leading-relaxed">{activeCase.approach}</p>
-                </div>
-                <div className="mt-5">
-                  <div className="label-caps text-brand-secondary">Outcomes</div>
-                  <ul className="mt-3 space-y-2">
-                    {activeCase.outcomes.map((o) => (
-                      <li key={o} className="flex items-start gap-3 text-brand-primary/90">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-brand-accent shrink-0" />
-                        <span className="leading-relaxed">{o}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {activeCase.images && activeCase.images.length > 0 && (
-                  <div className="mt-7">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <div className="label-caps text-brand-secondary">Gallery</div>
-                      <div className="text-xs text-brand-secondary/70">{activeCase.images.length} screenshots</div>
-                    </div>
-                    <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-3 md:gap-4">
-                      {activeCase.images.map((img, idx) => {
-                        const orientation = (img as { orientation?: "landscape" | "portrait" | "square" }).orientation ?? "landscape";
-                        const aspectClass =
-                          orientation === "portrait"
-                            ? "aspect-[3/4]"
-                            : orientation === "square"
-                              ? "aspect-square"
-                              : "aspect-[16/10] sm:aspect-[4/3]";
-                        const spanClass =
-                          orientation === "portrait"
-                            ? "row-span-2"
-                            : "";
-                        return (
-                          <figure
-                            key={idx}
-                            className={`group relative ${aspectClass} ${spanClass} rounded-[8px] overflow-hidden border border-brand-border bg-brand-surface`}
-                          >
-                            <div
-                              className="absolute inset-0 transition-transform duration-500 group-hover:scale-[1.04]"
-                              style={{ background: img.gradient }}
-                              role="img"
-                              aria-label={img.alt}
-                            />
-                            <figcaption className="absolute inset-x-0 bottom-0 p-2 sm:p-2.5 text-[0.7rem] font-medium text-white bg-gradient-to-t from-brand-primary/85 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                              {img.alt}
-                            </figcaption>
-                          </figure>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
