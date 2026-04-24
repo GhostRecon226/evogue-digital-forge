@@ -251,18 +251,22 @@ const About = () => {
                 </p>
               </Reveal>
             </div>
-            <Reveal delay={0.25}>
-              <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-                <img
-                  src={aboutHero}
-                  alt="Illustration of the Evogue Consulting team collaborating around a workspace with sketches, design tools, and screens"
-                  width={1280}
-                  height={1280}
-                  fetchPriority="high"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </Reveal>
+            <motion.div
+              ref={heroImageRef}
+              initial={{ opacity: 0 }}
+              animate={heroImageInView ? { opacity: 1 } : {}}
+              transition={{ duration: 1.4, delay: 0.25, ease: "easeOut" }}
+              className="relative mx-auto w-full max-w-md lg:max-w-none"
+            >
+              <img
+                src={aboutHero}
+                alt="Illustration of the Evogue Consulting team collaborating around a workspace with sketches, design tools, and screens"
+                width={1280}
+                height={1280}
+                fetchPriority="high"
+                className="w-full h-auto object-cover"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
