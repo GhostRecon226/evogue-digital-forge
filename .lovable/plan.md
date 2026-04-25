@@ -1,17 +1,37 @@
-## Fix: Scroll to top on route change
+# Finalize "Book a Call" with Calendly
 
-**Problem:** Clicking "View Case Study" (and any other in-app link) navigates to the new route but preserves the previous scroll position, dropping users mid-page on the detail view.
+## What's there today
+- **Contact page** (`src/pages/Contact.tsx`, line 462): Book a Call link points to a placeholder `https://calendly.com/`.
+- **AI Services page** (`src/pages/AiServices.tsx`, line 870-878): "Strategy" pricing tier's "Book a Call" routes internally to `/contact` — likely fine to leave, or also point to Calendly.
 
-**Cause:** React Router does not auto-scroll on navigation, and there's no global scroll-restoration component in `src/App.tsx`.
+## What I need from you
+**Your Calendly URL** — something like `https://calendly.com/evogue-consulting/discovery-call` or your account's scheduling link. Paste it in your reply and I'll wire it up.
 
-### Changes
+## Plan
 
-1. **Create `src/components/ScrollToTop.tsx`** — a tiny component that listens to `pathname` changes via `useLocation` and calls `window.scrollTo({ top: 0, left: 0 })`. Returns `null`. Uses `"auto"` behavior (instant) so the new page appears at the top immediately rather than animating.
+### 1. Centralize the Calendly URL
+Add a single constant `CALENDLY_URL` in `src/lib/utils.ts` (or a new `src/lib/links.ts`) so the link is defined once and reused. Avoids the placeholder drift we just hit.
 
-2. **Mount it in `src/App.tsx`** — render `<ScrollToTop />` inside `<BrowserRouter>`, just above `<Routes>`, so it runs on every route change across the app (case studies, about, contact, AI services, etc.).
+### 2. Replace the placeholder on Contact page
+Update `src/pages/Contact.tsx` line 462 to use `CALENDLY_URL`. Keep `target="_blank"` + `rel="noopener noreferrer"` (already correct).
 
-### Notes
+### 3. AI Services "Strategy" tier CTA — pick one
+- **Option A (recommended):** Keep it routing to `/contact` so users see context + form options before booking.
+- **Option B:** Point it directly to Calendly like the contact page button.
 
-- This is a global fix — every internal navigation will reset scroll, not just the case studies link.
-- Hash links (e.g. `#contact`) are unaffected because they don't change `pathname`.
-- No changes needed to `CaseStudyCard.tsx` or `CaseStudies.tsx`.
+I'll default to **A** unless you say otherwise.
+
+### 4. Optional UX upgrade — inline Calendly popup
+Instead of opening Calendly in a new tab, embed it as a **popup modal** using Calendly's official widget (`react-calendly` package, ~12KB). Click "Book a Call" → modal opens with the scheduler inside your site, branded background. Falls back to new tab if JS fails.
+
+Let me know if you want this — otherwise we'll keep the simple new-tab link (faster, zero deps).
+
+## Technical details
+- New file: `src/lib/links.ts` exporting `export const CALENDLY_URL = "..."`.
+- Edits: `src/pages/Contact.tsx` (1 line), optionally `src/pages/AiServices.tsx` (1 anchor swap).
+- If popup chosen: `bun add react-calendly`, wrap CTA in `PopupButton` from the package.
+
+## Decisions needed
+1. **Your Calendly URL?** (required)
+2. **AI Services Strategy tier** — keep routing to `/contact` (A) or send straight to Calendly (B)?
+3. **Inline popup widget** or **simple new-tab link**?
