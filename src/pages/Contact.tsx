@@ -471,9 +471,10 @@ const Contact = () => {
                       href={href}
                       target={hasCalendly ? "_blank" : undefined}
                       rel={hasCalendly ? "noopener noreferrer" : undefined}
-                      className="mt-4 inline-flex items-center justify-center border-2 border-brand-primary text-brand-primary text-sm font-semibold px-5 py-2.5 rounded-[4px] hover:bg-brand-primary hover:text-white transition-colors"
+                      className="group mt-4 inline-flex items-center justify-center gap-2 border-2 border-brand-primary bg-transparent text-brand-primary text-sm font-semibold px-5 py-2.5 rounded-[4px] transition-all duration-200 ease-out hover:bg-brand-accent hover:border-brand-accent hover:text-brand-primary hover:shadow-[0_8px_20px_-8px_hsl(var(--brand-accent)/0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent focus-visible:ring-offset-2 focus-visible:ring-offset-brand-surface active:scale-[0.98] active:bg-brand-secondary active:border-brand-secondary active:text-white motion-reduce:transition-none motion-reduce:hover:shadow-none motion-reduce:active:scale-100"
                     >
-                      {hasCalendly ? "Book a Call" : "Email to Book"}
+                      <span>{hasCalendly ? "Book a Call" : "Email to Book"}</span>
+                      <span aria-hidden="true" className="transition-transform duration-200 ease-out group-hover:translate-x-0.5">→</span>
                     </a>
                   );
                 })()}
