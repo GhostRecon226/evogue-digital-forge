@@ -457,16 +457,26 @@ const Contact = () => {
 
                 <div className="label-caps text-brand-secondary">Book a Call</div>
                 <p className="mt-3 text-brand-primary/80 text-sm leading-relaxed">
-                  Prefer to talk first? Book a free 30-minute discovery call.
+                  {CALENDLY_URL?.trim()
+                    ? "Prefer to talk first? Book a free 30-minute discovery call."
+                    : "Prefer to talk first? Email us to schedule a free 30-minute discovery call."}
                 </p>
-                <a
-                  href={CALENDLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center justify-center border-2 border-brand-primary text-brand-primary text-sm font-semibold px-5 py-2.5 rounded-[4px] hover:bg-brand-primary hover:text-white transition-colors"
-                >
-                  Book a Call
-                </a>
+                {(() => {
+                  const hasCalendly = Boolean(CALENDLY_URL?.trim());
+                  const href = hasCalendly
+                    ? CALENDLY_URL
+                    : "mailto:Hello@evogueconsulting.com?subject=Book%20a%20Call";
+                  return (
+                    <a
+                      href={href}
+                      target={hasCalendly ? "_blank" : undefined}
+                      rel={hasCalendly ? "noopener noreferrer" : undefined}
+                      className="mt-4 inline-flex items-center justify-center border-2 border-brand-primary text-brand-primary text-sm font-semibold px-5 py-2.5 rounded-[4px] hover:bg-brand-primary hover:text-white transition-colors"
+                    >
+                      {hasCalendly ? "Book a Call" : "Email to Book"}
+                    </a>
+                  );
+                })()}
               </div>
             </Reveal>
           </div>
