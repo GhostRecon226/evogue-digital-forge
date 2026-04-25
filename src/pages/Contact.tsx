@@ -14,6 +14,7 @@ import {
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import contactHero from "@/assets/contact-hero.png";
+import { CALENDLY_URL } from "@/lib/links";
 
 const helpOptions = [
   "Product Design and Engineering",
@@ -459,7 +460,7 @@ const Contact = () => {
                   Prefer to talk first? Book a free 30-minute discovery call.
                 </p>
                 <a
-                  href="https://calendly.com/"
+                  href={CALENDLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center justify-center border-2 border-brand-primary text-brand-primary text-sm font-semibold px-5 py-2.5 rounded-[4px] hover:bg-brand-primary hover:text-white transition-colors"
