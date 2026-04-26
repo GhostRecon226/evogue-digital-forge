@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.evogue.co/sitemap.xml
+Sitemap: https://www.evogue.com.ng/sitemap.xml
