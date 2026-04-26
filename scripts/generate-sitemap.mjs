@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const SITE_URL = "https://www.evogue.co";
+const SITE_URL = "https://www.evogue.com.ng";
 
 // Static routes that always exist (mirror src/App.tsx)
 const STATIC_ROUTES = [
