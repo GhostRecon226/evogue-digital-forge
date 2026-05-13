@@ -70,6 +70,25 @@ const CaseStudyDetail = () => {
         <meta name="twitter:description" content={study.seo.description} />
         <meta name="twitter:image" content={ogImageUrl} />
         <meta name="twitter:image:alt" content={`${study.name} — ${study.client}`} />
+
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: study.seo.title,
+          description: study.seo.description,
+          image: ogImageUrl,
+          mainEntityOfPage: pageUrl,
+          articleSection: study.categories[0],
+          author: { "@type": "Organization", name: "Evogue Consulting" },
+          publisher: {
+            "@type": "Organization",
+            name: "Evogue Consulting",
+            logo: {
+              "@type": "ImageObject",
+              url: `${SITE_URL}/logo.png`,
+            },
+          },
+        })}</script>
       </Helmet>
 
       <Nav />
