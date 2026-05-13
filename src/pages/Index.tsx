@@ -153,11 +153,24 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="Evogue Consulting | Product Studio and Consulting Firm | Lagos, Nigeria"
-        description="Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for ambitious teams across Africa and globally."
+        title="Evogue Consulting | Product Studio in Lagos, Nigeria"
+        description="Evogue Consulting is a product studio and consulting firm in Lagos. We design, engineer, and scale digital products for teams across Africa and globally."
         path="/"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        })}</script>
+      </Helmet>
       <Nav />
+      <main>
+
 
       {/* HERO */}
       <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-brand-surface overflow-hidden">
