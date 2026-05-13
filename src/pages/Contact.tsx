@@ -1,4 +1,5 @@
 import Seo from "@/components/Seo";
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { z } from "zod";
 import Nav from "@/components/Nav";
@@ -208,6 +209,17 @@ const Contact = () => {
         description="Get in touch with Evogue Consulting to start a project. We are a product studio and consulting firm based in Lagos, Nigeria working with clients across Africa and globally."
         path="/contact"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        })}</script>
+      </Helmet>
 
       <Nav />
 
