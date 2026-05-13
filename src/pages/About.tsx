@@ -82,8 +82,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="About Evogue Consulting | Product Studio Based in Lagos, Nigeria"
-        description="Learn about Evogue Consulting, a product studio and consulting firm founded in Lagos, Nigeria. We design, build, and scale digital products for teams across Africa and globally."
+        title="About Evogue Consulting | Lagos Product Studio"
+        description="Evogue Consulting is a product studio and consulting firm in Lagos. We design, build, and scale digital products for teams across Africa and globally."
         path="/about"
       />
       <Helmet>

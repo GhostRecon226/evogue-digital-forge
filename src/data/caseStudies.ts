@@ -78,7 +78,7 @@ export const caseStudies: CaseStudy[] = [
       name: "Fala Products Team",
     },
     seo: {
-      title: "Fala Products — Brand, E-commerce & Strategy for a Nigerian Solar Brand",
+      title: "Fala Products — Brand & E-commerce | Evogue",
       description:
         "How Evogue Consulting built the brand identity, e-commerce website, and business strategy for Fala Products, a Nigerian solar fans and lifestyle essentials brand.",
       ogImage: "/og/fala-products.jpg",
@@ -118,7 +118,7 @@ export const caseStudies: CaseStudy[] = [
       name: "The Future Tech Academy Team",
     },
     seo: {
-      title: "The Future Tech Academy — Brand, Website & Strategy for a Forex and AI Academy",
+      title: "The Future Tech Academy — Brand & Website | Evogue",
       description:
         "How Evogue Consulting built the brand identity, website, and business strategy for The Future Tech Academy, a Forex and AI training academy in Nigeria.",
       ogImage: "/og/the-future-tech-academy.jpg",
@@ -158,7 +158,7 @@ export const caseStudies: CaseStudy[] = [
       name: "TeamConsol Team",
     },
     seo: {
-      title: "TeamConsol — Brand, Website & Strategy for a Global Shipping and Logistics Company",
+      title: "TeamConsol — Brand & Website for Global Logistics",
       description:
         "How Evogue Consulting built the brand identity, website, and business strategy for TeamConsol, a global shipping and logistics company headquartered in Nigeria.",
       ogImage: "/og/teamconsol.jpg",
@@ -298,7 +298,7 @@ export const caseStudies: CaseStudy[] = [
       "The leadership team has a shared language for digital decisions that didn't exist before the engagement.",
     ],
     seo: {
-      title: "Project Epsilon — Six-Month Digital Roadmap for an East African NGO",
+      title: "Project Epsilon — Digital Roadmap for an NGO",
       description:
         "Product strategy and a six-month digital roadmap that is now powering a three-country rollout for an East African NGO. Strategy by Evogue Consulting.",
       ogImage: "/og/project-epsilon.jpg",
@@ -333,7 +333,7 @@ export const caseStudies: CaseStudy[] = [
       "Leadership now treats the unit as a model for how other product teams inside the organisation should operate.",
     ],
     seo: {
-      title: "Project Zeta — Agile Product Training for a 20-Person Corporate Team",
+      title: "Project Zeta — Agile Training for a Corporate Team",
       description:
         "An eight-week applied training programme that turned a 20-person corporate unit in Lagos into a self-running product team. Programme by Evogue.",
       ogImage: "/og/project-zeta.jpg",
