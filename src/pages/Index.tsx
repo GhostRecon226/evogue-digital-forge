@@ -625,6 +625,7 @@ const Index = () => {
           </Reveal>
         </div>
       </section>
+      </main>
 
       <Footer />
 
