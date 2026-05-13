@@ -96,7 +96,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href={`https://wa.me/2348107396844?text=${encodeURIComponent("Hello Evogue team, I am interested in booking a consultation.")}`}
+                  href={`https://wa.me/447404331835?text=${encodeURIComponent("Hello Evogue team, I am interested in booking a consultation.")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Chat with Evogue on WhatsApp"
@@ -104,7 +104,7 @@ const Footer = () => {
                 >
                   <MessageCircle size={16} aria-hidden="true" />
                   <span className="relative">
-                    +234 810 739 6844
+                    +44 7404 331835
                     <span aria-hidden="true" className={underlineClass} />
                   </span>
                 </a>
