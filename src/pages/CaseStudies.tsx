@@ -37,13 +37,13 @@ const CaseStudies = () => {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Case Studies | Evogue Consulting",
-          url: "https://www.evogueconsulting.com/case-studies",
+          url: "https://evogueconsulting.com/case-studies",
           description:
             "A collection of digital product case studies by Evogue Consulting across Africa and globally.",
           hasPart: caseStudies.map((c) => ({
             "@type": "CreativeWork",
             name: c.name,
-            url: `https://www.evogueconsulting.com/case-studies/${c.slug}`,
+            url: `https://evogueconsulting.com/case-studies/${c.slug}`,
             description: c.summary,
           })),
         })}</script>

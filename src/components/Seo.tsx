@@ -8,7 +8,7 @@ interface SeoProps {
   type?: "website" | "article";
 }
 
-const SITE_URL = "https://www.evogueconsulting.com";
+const SITE_URL = "https://evogueconsulting.com";
 const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const Seo = ({
