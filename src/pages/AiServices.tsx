@@ -183,8 +183,8 @@ const AiServices = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Seo
-        title="AI Services | AI Agents, Automation and Integrations | Evogue Consulting"
-        description="Evogue Consulting designs and builds AI agents, automations, and integrations for ambitious teams. Practical AI engineering, strategy, and enablement for businesses across Africa and globally."
+        title="AI Services | AI Agents & Automation | Evogue Consulting"
+        description="Evogue Consulting designs and ships AI agents, automations, and integrations for ambitious teams across Africa and globally."
         path="/ai-services"
       />
 
