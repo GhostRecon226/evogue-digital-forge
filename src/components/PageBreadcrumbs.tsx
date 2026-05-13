@@ -8,7 +8,7 @@ interface PageBreadcrumbsProps {
   items: Crumb[];
 }
 
-const SITE_URL = "https://www.evogue.co";
+const SITE_URL = "https://www.evogueconsulting.com";
 
 const PageBreadcrumbs = ({ items }: PageBreadcrumbsProps) => {
   const jsonLd = {
