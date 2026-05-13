@@ -15,7 +15,7 @@ import {
 import type { TemplateEntry } from './registry.ts'
 
 const SITE_NAME = 'Evogue Consulting'
-const SITE_URL = 'https://www.evogueconsulting.com'
+const SITE_URL = 'https://evogueconsulting.com'
 
 interface Props {
   name?: string

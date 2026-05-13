@@ -12,7 +12,7 @@ const CaseStudyDetail = () => {
   const study = index >= 0 ? caseStudies[index] : undefined;
   const next = study ? caseStudies[(index + 1) % caseStudies.length] : undefined;
 
-  const SITE_URL = "https://www.evogueconsulting.com";
+  const SITE_URL = "https://evogueconsulting.com";
   const pageUrl = study ? `${SITE_URL}/case-studies/${study.slug}` : "";
   const ogImageUrl = study
     ? study.seo.ogImage.startsWith("http")

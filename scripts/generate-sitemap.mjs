@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
-const SITE_URL = "https://www.evogueconsulting.com";
+const SITE_URL = "https://evogueconsulting.com";
 
 // Static, indexable routes
 const STATIC_ROUTES = [

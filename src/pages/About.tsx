@@ -82,8 +82,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <Seo
-        title="About Evogue Consulting | Product Studio Based in Lagos, Nigeria"
-        description="Learn about Evogue Consulting, a product studio and consulting firm founded in Lagos, Nigeria. We design, build, and scale digital products for teams across Africa and globally."
+        title="About Evogue Consulting | Lagos Product Studio"
+        description="Evogue Consulting is a product studio and consulting firm in Lagos. We design, build, and scale digital products for teams across Africa and globally."
         path="/about"
       />
       <Helmet>
@@ -99,20 +99,20 @@ const About = () => {
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://www.evogueconsulting.com/#organization",
+              "@id": "https://evogueconsulting.com/#organization",
               name: "Evogue Consulting",
               legalName: "Evogue Consulting",
-              url: "https://www.evogueconsulting.com",
+              url: "https://evogueconsulting.com",
               logo: {
                 "@type": "ImageObject",
-                "@id": "https://www.evogueconsulting.com/#logo",
-                url: "https://www.evogueconsulting.com/logo.png",
-                contentUrl: "https://www.evogueconsulting.com/logo.png",
+                "@id": "https://evogueconsulting.com/#logo",
+                url: "https://evogueconsulting.com/logo.png",
+                contentUrl: "https://evogueconsulting.com/logo.png",
                 width: 512,
                 height: 512,
                 caption: "Evogue Consulting",
               },
-              image: { "@id": "https://www.evogueconsulting.com/#logo" },
+              image: { "@id": "https://evogueconsulting.com/#logo" },
               description:
                 "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
               foundingLocation: {
@@ -137,7 +137,7 @@ const About = () => {
                   "@type": "ContactPoint",
                   contactType: "customer support",
                   email: "Hello@evogueconsulting.com",
-                  url: "https://www.evogueconsulting.com/#contact",
+                  url: "https://evogueconsulting.com/#contact",
                   availableLanguage: ["English"],
                 },
               ],
@@ -150,31 +150,31 @@ const About = () => {
             },
             {
               "@type": "WebSite",
-              "@id": "https://www.evogueconsulting.com/#website",
-              url: "https://www.evogueconsulting.com",
+              "@id": "https://evogueconsulting.com/#website",
+              url: "https://evogueconsulting.com",
               name: "Evogue Consulting",
-              publisher: { "@id": "https://www.evogueconsulting.com/#organization" },
+              publisher: { "@id": "https://evogueconsulting.com/#organization" },
               inLanguage: "en",
             },
             {
               "@type": "AboutPage",
-              "@id": "https://www.evogueconsulting.com/about#aboutpage",
-              url: "https://www.evogueconsulting.com/about",
+              "@id": "https://evogueconsulting.com/about#aboutpage",
+              url: "https://evogueconsulting.com/about",
               name: "About Evogue Consulting",
               description:
                 "Evogue is a product studio and consulting firm raising the standard of digital product development across Africa and globally.",
               inLanguage: "en",
-              isPartOf: { "@id": "https://www.evogueconsulting.com/#website" },
-              about: { "@id": "https://www.evogueconsulting.com/#organization" },
-              publisher: { "@id": "https://www.evogueconsulting.com/#organization" },
-              primaryImageOfPage: { "@id": "https://www.evogueconsulting.com/#logo" },
+              isPartOf: { "@id": "https://evogueconsulting.com/#website" },
+              about: { "@id": "https://evogueconsulting.com/#organization" },
+              publisher: { "@id": "https://evogueconsulting.com/#organization" },
+              primaryImageOfPage: { "@id": "https://evogueconsulting.com/#logo" },
             },
             {
               "@type": "FAQPage",
-              "@id": "https://www.evogueconsulting.com/about#faq",
-              isPartOf: { "@id": "https://www.evogueconsulting.com/about#aboutpage" },
-              about: { "@id": "https://www.evogueconsulting.com/#organization" },
-              publisher: { "@id": "https://www.evogueconsulting.com/#organization" },
+              "@id": "https://evogueconsulting.com/about#faq",
+              isPartOf: { "@id": "https://evogueconsulting.com/about#aboutpage" },
+              about: { "@id": "https://evogueconsulting.com/#organization" },
+              publisher: { "@id": "https://evogueconsulting.com/#organization" },
               inLanguage: "en",
               mainEntity: [
                 {
