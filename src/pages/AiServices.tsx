@@ -998,14 +998,7 @@ const AiServices = () => {
             <Reveal delay={0.05}>
               <div className="mt-12 max-w-3xl">
                 <Accordion type="single" collapsible className="w-full">
-                  {[
-                    { q: "Do I need a tech team to use an AI agent?", a: "No. We build and manage the technical side. You just use the tool. Most of our clients have no in-house tech team at all." },
-                    { q: "How long does it take to build an AI agent?", a: "A focused AI agent typically takes 2 to 4 weeks from scoping to deployment. More complex automations can take 6 to 8 weeks." },
-                    { q: "Will the AI agent sound like my brand?", a: "Yes. We train every agent on your brand voice, your FAQs, your tone, and your workflows. It sounds like you, not like a generic bot." },
-                    { q: "What platforms can you build on?", a: "We build on leading AI platforms including OpenAI, Anthropic, and others depending on your use case. We recommend the right platform for each job." },
-                    { q: "What happens after deployment?", a: "We provide a full handover session, documentation, and ongoing support. We monitor performance and make improvements based on real usage data." },
-                    { q: "Is my business data safe?", a: "Yes. We follow industry best practices for data handling and security. We never use your business data to train other clients' models." },
-                  ].map((item, i) => (
+                  {aiFaqs.map((item, i) => (
                     <AccordionItem
                       key={i}
                       value={`faq-${i}`}
