@@ -56,7 +56,11 @@ const HeroCarousel = ({
               key={src}
               src={src}
               alt={`${alt} ${i + 1}`}
+              width={800}
+              height={1000}
               loading={i === 0 ? "eager" : "lazy"}
+              decoding={i === 0 ? "sync" : "async"}
+              {...(i === 0 ? { fetchpriority: "high" as const } : {})}
               aria-hidden={!isActive}
               className={`absolute inset-0 w-full h-full object-contain object-bottom transition-[transform,opacity] duration-700 ease-out ${translate} ${
                 isActive ? "opacity-100 delay-150" : "opacity-0"
