@@ -197,6 +197,17 @@ const AiServices = () => {
         description="Evogue Consulting designs and ships AI agents, automations, and integrations for ambitious teams across Africa and globally."
         path="/ai-services"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: aiFaqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        })}</script>
+      </Helmet>
 
       <Nav />
 
