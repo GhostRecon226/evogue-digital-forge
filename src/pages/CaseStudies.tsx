@@ -47,6 +47,27 @@ const CaseStudies = () => {
             description: c.summary,
           })),
         })}</script>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What kind of projects has Evogue Consulting worked on?",
+              acceptedAnswer: { "@type": "Answer", text: "Evogue has worked on fintech platforms, e-commerce tools, SaaS products, brand identity systems, AI automation workflows, and digital strategy engagements. Our clients range from early-stage startups to established enterprises across Africa and globally." },
+            },
+            {
+              "@type": "Question",
+              name: "Has Evogue worked with African startups?",
+              acceptedAnswer: { "@type": "Answer", text: "Yes. A significant portion of our work is with African startups and scaleups, particularly in West and East Africa. We also work with international clients who want to build products for African markets." },
+            },
+            {
+              "@type": "Question",
+              name: "How long does a typical Evogue project take?",
+              acceptedAnswer: { "@type": "Answer", text: "Project timelines vary by scope. A focused web build typically takes 6 to 8 weeks. A full product engagement from discovery through launch can run 3 to 6 months. We scope every project carefully before committing to timelines." },
+            },
+          ],
+        })}</script>
       </Helmet>
 
       <Nav />
