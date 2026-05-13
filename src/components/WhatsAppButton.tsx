@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "2348107396844";
+const WHATSAPP_NUMBER = "447404331835";
 const WHATSAPP_MESSAGE = "Hello Evogue team, I am interested in booking a consultation.";
 
 const WhatsAppButton = () => {

@@ -81,7 +81,7 @@ const sections = [
   {
     title: "12. Contact us",
     body: [
-      "If you have questions or concerns about this policy or how we handle your information, contact us at Hello@evogueconsulting.com or +234 706 565 2820.",
+      "If you have questions or concerns about this policy or how we handle your information, contact us at Hello@evogueconsulting.com or +44 7404 331835.",
     ],
   },
 ];
