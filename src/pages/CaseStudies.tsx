@@ -1,4 +1,5 @@
 import Seo from "@/components/Seo";
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -27,10 +28,26 @@ const CaseStudies = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Seo
-        title="Case Studies | Evogue Consulting | Digital Products Built in Africa and Globally"
-        description="Explore Evogue Consulting's project case studies. We have designed, built, and shipped digital products across fintech, e-commerce, logistics, SaaS, and more for clients in Africa and globally."
+        title="Case Studies | Evogue Consulting"
+        description="Explore Evogue Consulting case studies across fintech, e-commerce, logistics, SaaS and more — built for clients in Africa and globally."
         path="/case-studies"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Case Studies | Evogue Consulting",
+          url: "https://www.evogueconsulting.com/case-studies",
+          description:
+            "A collection of digital product case studies by Evogue Consulting across Africa and globally.",
+          hasPart: caseStudies.map((c) => ({
+            "@type": "CreativeWork",
+            name: c.name,
+            url: `https://www.evogueconsulting.com/case-studies/${c.slug}`,
+            description: c.summary,
+          })),
+        })}</script>
+      </Helmet>
 
       <Nav />
 

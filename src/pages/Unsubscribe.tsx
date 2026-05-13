@@ -71,7 +71,7 @@ const Unsubscribe = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Seo
         title="Unsubscribe | Evogue Consulting"
-        description="Manage your email preferences for Evogue Consulting."
+        description="Manage your email preferences and unsubscribe from Evogue Consulting communications at any time."
         path="/unsubscribe"
       />
       <Nav />

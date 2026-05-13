@@ -1,0 +1,18 @@
+# Evogue Consulting
+
+> Product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for ambitious teams across Africa and globally.
+
+## Pages
+
+- [Home](/): Overview of Evogue Consulting and what we build.
+- [About](/about): Who we are, our origin in Africa, and how we work.
+- [Case Studies](/case-studies): Selected client work across fintech, e-commerce, logistics, SaaS, and more.
+- [AI Services](/ai-services): AI agents, automation, and integrations we design and ship.
+- [Contact](/contact): Start a project or get in touch.
+- [FAQ](/faq): Frequently asked questions about our services and engagements.
+
+## Optional
+
+- [Privacy Policy](/privacy)
+- [Terms & Conditions](/terms)
+- [Unsubscribe](/unsubscribe)
