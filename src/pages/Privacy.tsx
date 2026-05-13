@@ -94,7 +94,7 @@ const Privacy = () => (
         name="description"
         content="How Evogue Consulting collects, uses, and protects your personal information when you interact with our website and services."
       />
-      <link rel="canonical" href="https://www.evogue.co/privacy" />
+      <link rel="canonical" href="https://www.evogueconsulting.com/privacy" />
       {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Evogue Consulting" />
@@ -103,8 +103,8 @@ const Privacy = () => (
         property="og:description"
         content="How Evogue Consulting collects, uses, and protects your personal information when you interact with our website and services."
       />
-      <meta property="og:url" content="https://www.evogue.co/privacy" />
-      <meta property="og:image" content="https://www.evogue.co/og-image.jpg" />
+      <meta property="og:url" content="https://www.evogueconsulting.com/privacy" />
+      <meta property="og:image" content="https://www.evogueconsulting.com/og-image.jpg" />
       <meta property="og:image:alt" content="Evogue Consulting — Privacy Policy" />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -113,7 +113,7 @@ const Privacy = () => (
         name="twitter:description"
         content="How Evogue Consulting collects, uses, and protects your personal information when you interact with our website and services."
       />
-      <meta name="twitter:image" content="https://www.evogue.co/og-image.jpg" />
+      <meta name="twitter:image" content="https://www.evogueconsulting.com/og-image.jpg" />
     </Helmet>
     <Nav />
 

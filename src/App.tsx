@@ -26,8 +26,8 @@ const organizationSchema = {
   name: "Evogue Consulting",
   description:
     "Evogue Consulting is a product studio and consulting firm based in Lagos, Nigeria. We design, engineer, and scale digital products for ambitious teams across Africa and globally.",
-  url: "https://www.evogue.co",
-  logo: "https://www.evogue.co/logo.png",
+  url: "https://www.evogueconsulting.com",
+  logo: "https://www.evogueconsulting.com/logo.png",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Lagos",
